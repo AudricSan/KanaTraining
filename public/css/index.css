@@ -1,0 +1,109 @@
+@import url(color.css);
+@import url("https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  font-family: "Open Sans";
+  background-color: var(--background);
+}
+body img.logo {
+  width: 10%;
+  height: auto;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+body .hidden {
+  display: none;
+}
+body .content {
+  min-width: 1000px;
+  min-height: 500px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+}
+body .content .left {
+  grid-column: 1;
+  grid-row: 1/2;
+}
+body .content .center {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+body .content .center .hiragana-symbol .character {
+  margin: 0.2em 0;
+  font-size: 10em;
+}
+body .content .center form {
+  z-index: 1;
+  margin-top: 1em;
+}
+body .content .center form input[type=text] {
+  border: 0;
+  padding: 0;
+  outline: none;
+  text-align: center;
+  font-size: 1.2em;
+  height: 2em;
+  border-radius: 1em;
+  color: #fff;
+  background-color: var(--charleston-green);
+}
+body .content .center form input[type=submit] {
+  display: none;
+}
+body .content .center2 {
+  grid-column: 2;
+  grid-row: 2;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .content .center2 .toast {
+  position: absolute;
+  min-width: 350px;
+  min-height: 20px;
+  background-color: #fff;
+  font-size: 1.2em;
+  padding: 1em;
+  border: solid black 1px;
+  border-radius: 1em;
+  text-align: center;
+  transform: translateX(-50%);
+  translate: 0px -150px;
+}
+body .content .center2 .toast span {
+  font-weight: 700;
+}
+body .content .right {
+  grid-column: 3;
+  grid-row: 1/2;
+  text-align: right;
+}
+body .content .down {
+  grid-column: 2;
+  grid-row: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+body .content .down > * {
+  margin-top: 0.8em;
+}
+body .content .down .author {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 1em;
+}
+body .content .down .twitter-share {
+  text-align: center;
+}/*# sourceMappingURL=index.css.map */

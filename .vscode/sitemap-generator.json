@@ -1,0 +1,24 @@
+{
+  "sitemap.xml": {
+    "Protocol": "http",
+    "DomainName": "kana.audricrosier;be",
+    "Root": "./",
+    "IncludeExt": [
+      ".html",
+      ".php",
+      ".js"
+    ],
+    "Exclude": [],
+    "TagsToInclude": [
+      "priority",
+      "lastmod"
+    ],
+    "DefaultChangeFrequency": "monthly",
+    "TabCharacters": "\t",
+    "bIncludeWWW": true,
+    "bRemoveFileExtentions": false,
+    "bUseTrailingSlash": false,
+    "bAutomaticallyUpdateSitemap": true,
+    "bMinimized": false
+  }
+}

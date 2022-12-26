@@ -1,0 +1,147 @@
+@import url(color.css);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  align-content: center;
+
+  font-family: 'Open Sans';
+
+  background-color: var(--background);
+
+  img.logo {
+    width: 10%;
+    height: auto;
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .content {
+    // max-width: 1500px;
+    min-width: 1000px;
+    min-height: 500px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+
+    .left {
+      grid-column: 1;
+      grid-row: 1 / 2;
+    }
+
+    .center {
+      grid-column: 2;
+      grid-row: 1;
+
+      text-align: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      
+      .hiragana-symbol {
+        .character {
+          margin: 0.2em 0;
+          font-size: 10em;
+        }
+      }
+
+      form {
+        z-index: 1;
+        margin-top: 1em;
+
+        input[type="text"] {
+          border: 0;
+          padding: 0;
+          outline: none;
+
+          text-align: center;
+          font-size: 1.2em;
+          height: 2em;
+
+          border-radius: 1em;
+          color: #fff;
+          background-color: var(--charleston-green);
+        }
+
+        input[type="submit"] {
+          display: none;
+        }
+      }
+    }
+    
+    .center2 {
+      grid-column: 2;
+      grid-row: 2;
+
+      text-align: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .toast {
+        position: absolute;
+
+        min-width: 350px;
+        min-height: 20px;
+        
+        background-color: #fff;
+        font-size: 1.2em;
+        padding: 1em;
+        border: solid black 1px;
+        border-radius: 1em;
+        text-align: center;
+
+        transform: translateX(-50%);
+        translate: 0px -150px;
+
+        span{
+          font-weight: 700;
+        }
+      }
+    }
+
+    .right {
+      grid-column: 3;
+      grid-row: 1 / 2;
+
+      text-align: right;
+    }
+
+    .down {
+      grid-column: 2;
+      grid-row: 2;
+
+      text-align: center;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      & > * {
+        margin-top: 0.8em;
+      }
+
+      .author {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-gap: 1em;
+      }
+
+      .twitter-share{
+        text-align: center;
+      }
+    }
+  }
+}

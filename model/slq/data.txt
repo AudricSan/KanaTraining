@@ -1,0 +1,58 @@
+//////////////////////////////////////////////////////
+/////////////////  DATA DISCTIONARY  /////////////////
+//////////////////////////////////////////////////////
+
+Role[
+    role_id   => int
+    role_name => string
+]
+
+Admin[ 
+    admin_id       => int
+    admin_name     => string
+    admin_mail     => string
+    admin_password => string
+    admin_role     => int
+]
+
+Picture[
+    picture_id          => int
+    picture_name        => string
+    picture_description => string
+    picture_link        => string
+    picture_tag         => int
+    picture_sharable    => string
+]
+
+BasicInfo[
+    bi_id      => int
+    bi_name    => string
+    bi_content => string
+]
+
+PictureTag[
+    pt_id      => int
+    pt_picture => string
+    pt_tag     => string
+]
+
+Tag[
+    tag_id   => int
+    tag_name => string
+]
+
+//////////////////////////////////////////////////////
+///////////////////  DATA Analyst  ///////////////////
+//////////////////////////////////////////////////////
+
+'Any role can be apply to an admin but only one tag by Admin'
+    admin 1 <- N role
+    ADMIN <= N ROLE
+
+'A picture can ave muntiple tag'
+    picture N <-> N tag
+    PICTURE => PITCTURE_TAG <= TAG
+
+'Any tag can be apply to a Picture but Only one Tag by Picture'
+    picture 1 <- N tag
+    PICTURE <= TAG
