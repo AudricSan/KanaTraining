@@ -105,6 +105,8 @@ Route::add('/routes', function () {
     echo '<li>' . $route['expression'] . ' (' . $route['method'] . ')</li>';
   }
   echo '</ul>';
+
+  phpinfo();
 });
 //!SECTION
 
