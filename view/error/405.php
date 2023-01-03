@@ -1,3 +1,9 @@
+<?php
+echo "
 <section>
-    <h1> Method Not Allowed </h1>
+    <h1>"; 
+        gettext(' Method Not Allowed ');
+echo "</h1>
 </section>
+";
+?>

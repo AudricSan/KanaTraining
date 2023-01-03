@@ -1,3 +1,11 @@
+<?php
+
+echo "
 <section>
-    <h1> Pages not Fond </h1>
+    <h1>"; 
+        gettext('Pages not Fond');
+echo "</h1>
 </section>
+";
+
+?>
