@@ -1,7 +1,7 @@
 <?php
 
 require_once('../model/class/User.php');
-require_once('../model/dao/userDAO.php');
+require_once('../model/dao/UserDAO.php');
 
 echo "
  </ul>

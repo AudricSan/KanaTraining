@@ -72,7 +72,8 @@ Route::add('/oauthtwitch', function () {
 
 Route::add('/update', function () {
   session_start();
-  // require_once('../model/dao/UserDAO.php');
+  require_once('../model/dao/UserDAO.php');
+  require_once('../model/class/User.php');
   $userDAO = new UserDAO;
   $userDAO->scoreUpdate($_SESSION['user']);
   header('location: /user');
