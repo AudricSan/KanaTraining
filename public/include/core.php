@@ -43,7 +43,7 @@
 
 <div class='center'>
   <div class='hiragana-symbol'>
-    <!-- <p class='test-skills'> <?= gettext("Test your kana's skill") ?> </p> -->
+    <!-- <p class='test-skills'> Test your kana's skill </p> -->
     <div class='character'></div>
 
     <span class='material-icons-round iconkeyboard'>keyboard_double_arrow_right</span>
@@ -66,7 +66,7 @@
 </div>
 
 <div class='right'>
-  <a href='#' class='help'><?= gettext('HELP') ?>
+  <a href='#' class='help'>HELP
     <span class='material-icons-round iconhelp'>info</span>
   </a>
 
@@ -75,26 +75,26 @@
 
 <div class='down'>
   <div>
-    <span class='sc'><?= gettext('Your score') ?></span>
+    <span class='sc'>Your score</span>
     <span class='fa-solid fa-star'></span>
     <span class='good'>0</span>/<span class='total'>0</span>
   </div>
 
   <a href='' target='_blank' class='twitter-share'>
     <i class='fa fa-twitter'> </i>
-    <span><?= gettext('Share on Twitter') ?></span>
+    <span>Share on Twitter</span>
   </a>
 
   <div class='author'>
     <a href='https://twitter.com/AudricSan' target='_blank'>
       <span class='fa-solid fa-user'></span>
-      <?= gettext('by Audric_San') ?>
+      by Audric_San
     </a>
 
     <p> | </p>
 
     <a href='https://github.com/AudricSan/kakaTraining' target='_blank' class='git'>
-      <?= gettext('The github project') ?>
+      The github project
       <span class='fab fa-github icongit'></span>
     </a>
   </div>

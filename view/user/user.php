@@ -9,7 +9,7 @@ echo "
   <div class='center'>
 ";
 
-$_SESSION['user'] = 133565026;
+// $_SESSION['user'] = 133565026;
 $userDAO = new UserDAO;
 $userInfo = $userDAO->fetch($_SESSION['user']);
 
@@ -20,32 +20,32 @@ $userInfo = $userDAO->fetch($_SESSION['user']);
   </div>
 
   <div class='imgback'>
-    <img src=' <?= $userInfo->_avatar ?> '>
+    <img src=' <?= $userInfo->_avatar ?>'>
   </div>
 
   <div class='info'>
 
     <div>
-    <h2> <?= gettext('User Name') ?> </h2>
-    <p>  <?= $userInfo->_name ?> </p>
+    <h2> User Name </h2>
+    <p> <?= $userInfo->_name ?>  </p>
     </div>
     
     <div>
-    <h2> <?= gettext('High Score') ?> </h2>
-    <p>  <?= $userInfo->_best ?> </p>
+    <h2> High Score </h2>
+    <p> <?= $userInfo->_best ?> </p>
     </div>
 
     <div>
-      <h2> <?= gettext('Last Score') ?> </h2>
+      <h2> Last Score </h2>
       <p id='score'></p>
     </div>
 
     <div class='btn'>
-      <a href='/update'><span class='fa-solid fa-cloud-arrow-up'></span> <?= gettext('Update On server') ?> </a>
+      <a href='/update'><span class='fa-solid fa-cloud-arrow-up'></span> Update On server </a>
     </div>
 
     <div class='btn'>
-      <a href='leaderboard'> <span class='fa-solid fa-graduation-cap'></span> <?= gettext('Leaderboard') ?> </a>     
+      <a href='leaderboard'> <span class='fa-solid fa-graduation-cap'></span> Leaderboard </a>     
     </div>
   </div>
 </div>

@@ -86,28 +86,28 @@ if (empty($_SESSION['user']) and empty($_SESSION['token'])) { ?>
    <a href='$link'>
           <!-- <a href='#' onClick=\"createNotification('On an Future Update', '!')\"> -->
             <span class='fa-solid fa-person'></span>
-            <?= gettext('Connection') ?> 
+            Connection
           </a>
 <?php } else {
   if ($_SERVER["REQUEST_URI"] === "/user") { ?>
       <a href='/'>
         <span class='fa-solid fa-house'></span>
-        <?= gettext('Home') ?> 
+        Home
       </a>
       
       <a href='/logout'>
         <span class='fa-solid fa-person-running'></span>
-        <?= gettext('Disconected') ?> 
+        Disconected
       </a>
 <?php  }else{ ?>
           <a href='/user'>
             <span class='fa-solid fa-address-card'></span>
-            <?= gettext('Profil') ?> 
+            Profil 
           </a>
           
           <a href='/logout'>
             <span class='fa-solid fa-person-running'></span>
-            <?= gettext('Disconected') ?> 
+            Disconected
           </a>
 <?php  }
 }

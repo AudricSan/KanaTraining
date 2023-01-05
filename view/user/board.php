@@ -13,28 +13,27 @@ $userDAO = new UserDAO;
 $users = $userDAO->fetchAll();
 
 foreach ($users as $key => $value) { ?>
-
     <div class='board'>
         <div class='outside'>
             <div class='color'>
             </div>
             
             <div class='imgback'>
-                <img src='$value->_avatar'>
+                <img src=' <?= $value->_avatar ?> '>
             </div>
 
             <div class='info'>
                 <div>
-                <h2> <?= gettext('User Name') ?> </h2>
-                <p>  <?= $value->_name ?> </p>
+                <h2> User Name </h2>
+                <p> <?= $value->_name ?> </p>
                 </div>
                 
                 <div>
-                <h2> <?= gettext('High Score') ?> </h2>
-                <p>  <?= $value->_best ?> </p>
+                <h2> High Score </h2>
+                <p> <?= $value->_best ?> </p>
                 </div>
             </div>
         </div>
     </div>
 
-<?php }; ?>
+<?php };

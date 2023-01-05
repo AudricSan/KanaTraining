@@ -1,4 +1,5 @@
 <section>
-    <p> <?= gettext('ERREUR 404') ?> </p>
-    <h1> <?= gettext('Pages not Fond') ?> </h1>
+    <p>ERREUR 404</p>
+    <h1>Pages not Fond</h1>
+    <a href="/"> Return HOME </a>
 </section>
