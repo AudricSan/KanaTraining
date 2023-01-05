@@ -7,7 +7,7 @@ if (empty($_SESSION['token']) or !isset($_SESSION['token'])) {
 require_once('../model/class/config.php');
 require_once('../model/class/oauthtwitch.php');
 require_once('../model/class/User.php');
-require_once('../model/dao/userDAO.php');
+require_once('../model/dao/UserDAO.php');
 
 $oauth->set_headers($_SESSION['token']);
 $twitch = $oauth->get_user_info();
