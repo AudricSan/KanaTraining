@@ -1,20 +1,41 @@
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: KanaTraining 2.5\n"
-"POT-Creation-Date: 2023-01-03 12:39+0100\n"
-"PO-Revision-Date: 2023-01-03 12:44+0100\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2023-01-05 04:00+0100\n"
+"PO-Revision-Date: 2023-01-05 03:51+0100\n"
 "Last-Translator: \n"
-"Language-Team: Francais\n"
-"Language: fr\n"
+"Language-Team: \n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2.2\n"
-"X-Poedit-Basepath: ../..\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: .vscode\n"
-"X-Poedit-SearchPathExcluded-1: .git\n"
+"X-Poedit-SearchPathExcluded-0: .git\n"
+"X-Poedit-SearchPathExcluded-1: .vscode\n"
+
+#: public/include/header.php:97
+msgid "Connection"
+msgstr ""
+
+#: public/include/header.php:105
+msgid "Home"
+msgstr ""
+
+#: public/include/header.php:110 public/include/header.php:122
+msgid "Disconected"
+msgstr ""
+
+#: public/include/header.php:116
+msgid "Profil"
+msgstr ""
+
+#: public/include/header.php:135
+msgid "theme-color"
+msgstr ""
 
 #: view/error/404.php:6
 msgid "Pages not Fond"
@@ -22,4 +43,24 @@ msgstr ""
 
 #: view/error/405.php:5
 msgid " Method Not Allowed "
+msgstr ""
+
+#: view/user/board.php:29 view/user/user.php:27
+msgid "User Name"
+msgstr ""
+
+#: view/user/board.php:36 view/user/user.php:32
+msgid "High Score"
+msgstr ""
+
+#: view/user/user.php:37
+msgid "Last Score"
+msgstr ""
+
+#: view/user/user.php:43
+msgid "Update On server"
+msgstr ""
+
+#: view/user/user.php:49
+msgid "Leaderboard"
 msgstr ""
