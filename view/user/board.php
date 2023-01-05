@@ -12,8 +12,8 @@ echo "
 $userDAO = new UserDAO;
 $users = $userDAO->fetchAll();
 
-foreach ($users as $key => $value) {
-    echo "
+foreach ($users as $key => $value) { ?>
+
     <div class='board'>
         <div class='outside'>
             <div class='color'>
@@ -25,15 +25,16 @@ foreach ($users as $key => $value) {
 
             <div class='info'>
                 <div>
-                <h2>User Name </h2>
-                <p>$value->_name </p>
+                <h2> <?= gettext('User Name') ?> </h2>
+                <p>  <?= $value->_name ?> </p>
                 </div>
                 
                 <div>
-                <h2>High Score </h2>
-                <p> $value->_best </p>
+                <h2> <?= gettext('High Score') ?> </h2>
+                <p>  <?= $value->_best ?> </p>
                 </div>
             </div>
         </div>
-    </div>";
-};
+    </div>
+
+<?php }; ?>

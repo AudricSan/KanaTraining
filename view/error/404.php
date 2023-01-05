@@ -1,11 +1,4 @@
-<?php
-
-echo "
 <section>
-    <h1>"; 
-        gettext('Pages not Fond');
-echo "</h1>
+    <p> <?= gettext('ERREUR 404') ?> </p>
+    <h1> <?= gettext('Pages not Fond') ?> </h1>
 </section>
-";
-
-?>
