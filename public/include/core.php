@@ -93,7 +93,7 @@
 
     <p> | </p>
 
-    <a href='https://github.com/AudricSan/kakaTraining' target='_blank' class='git'>
+    <a href='https://github.com/AudricSan/KanaTraining' target='_blank' class='git'>
       The github project
       <span class='fab fa-github icongit'></span>
     </a>
