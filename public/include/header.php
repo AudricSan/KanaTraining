@@ -16,8 +16,8 @@ if (!empty($_GET['code'])) {
   header('Location: /callback');
   die();
 }
-?>
 
+echo "
 <!DOCTYPE html>
 <html lang='en-US'>
 
@@ -80,16 +80,16 @@ if (!empty($_GET['code'])) {
   <div id='menu' class='left'>
     <ul>
       <div class='connect'>
+";
 
-<?php 
-if (empty($_SESSION['user']) and empty($_SESSION['token'])) { ?>
+if (empty($_SESSION['user']) and empty($_SESSION['token'])) { echo"
    <a href='$link'>
           <!-- <a href='#' onClick=\"createNotification('On an Future Update', '!')\"> -->
             <span class='fa-solid fa-person'></span>
             Connection
-          </a>
-<?php } else {
-  if ($_SERVER["REQUEST_URI"] === "/user") { ?>
+          </a>";
+} else {
+  if ($_SERVER["REQUEST_URI"] === "/user") { echo"
       <a href='/'>
         <span class='fa-solid fa-house'></span>
         Home
@@ -98,8 +98,9 @@ if (empty($_SESSION['user']) and empty($_SESSION['token'])) { ?>
       <a href='/logout'>
         <span class='fa-solid fa-person-running'></span>
         Disconected
-      </a>
-<?php  }else{ ?>
+      </a>";
+}else{
+  echo "
           <a href='/user'>
             <span class='fa-solid fa-address-card'></span>
             Profil 
@@ -108,11 +109,11 @@ if (empty($_SESSION['user']) and empty($_SESSION['token'])) { ?>
           <a href='/logout'>
             <span class='fa-solid fa-person-running'></span>
             Disconected
-          </a>
-<?php  }
+          </a> ";
+        }
 }
-?>
 
+echo "
 </div>
 
 <p class='divider'>---------------------------------------</p>
@@ -122,4 +123,4 @@ if (empty($_SESSION['user']) and empty($_SESSION['token'])) { ?>
   <label for='theme'>theme-color</label>
 </div>
 
-<p class='divider'>---------------------------------------</p>
+<p class='divider'>---------------------------------------</p>";
