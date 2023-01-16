@@ -79,29 +79,28 @@ echo "
 <div class='content'>
   <div id='menu' class='left'>
     <ul>
-      <div class='connect'>";
+      <div class='connect'>
+";
 
-if (empty($_SESSION['user']) and empty($_SESSION['token'])) {
-  echo "
+if (empty($_SESSION['user']) and empty($_SESSION['token'])) { echo"
    <a href='$link'>
           <!-- <a href='#' onClick=\"createNotification('On an Future Update', '!')\"> -->
             <span class='fa-solid fa-person'></span>
             Connection
           </a>";
 } else {
-  if ($_SERVER["REQUEST_URI"] === "/user") {
-      echo "
+  if ($_SERVER["REQUEST_URI"] === "/user") { echo"
       <a href='/'>
         <span class='fa-solid fa-house'></span>
-        Home 
+        Home
       </a>
       
       <a href='/logout'>
         <span class='fa-solid fa-person-running'></span>
         Disconected
       </a>";
-  }else{
-    echo "
+}else{
+  echo "
           <a href='/user'>
             <span class='fa-solid fa-address-card'></span>
             Profil 
@@ -110,12 +109,11 @@ if (empty($_SESSION['user']) and empty($_SESSION['token'])) {
           <a href='/logout'>
             <span class='fa-solid fa-person-running'></span>
             Disconected
-          </a>";
-  }
+          </a> ";
+        }
 }
 
 echo "
-
 </div>
 
 <p class='divider'>---------------------------------------</p>
