@@ -25,7 +25,6 @@ function selectDificulty(id) {
 
     if (ellement.checked) {
         dificulty.push(ellement.id);
-        
         save('dificulty', dificulty);
 
     } else {
@@ -196,6 +195,7 @@ twitter.addEventListener('click', event => {
     twitter.setAttribute("href", b);
 })
 
+// Get all kana from the database to generate help
 function getAllKana() {
     let helpTable = [];
 
@@ -230,7 +230,7 @@ function getAllKana() {
     });
 }
 
-//Open help
+//Open/Close help
 helpbtn.addEventListener('click', event => {
     console.log("help Opened");
 

@@ -78,7 +78,7 @@
 	<url>
 		<loc>http://www.kana.audricrosier;be/view/user/user.php</loc>
 		<priority>0.57</priority>
-		<lastmod>2023-01-05</lastmod>
+		<lastmod>2023-03-07</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier;be/model/login.php</loc>
@@ -133,7 +133,7 @@
 	<url>
 		<loc>http://www.kana.audricrosier;be/public/js/const.js</loc>
 		<priority>0.57</priority>
-		<lastmod>2022-12-16</lastmod>
+		<lastmod>2023-03-07</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier;be/public/js/kana.js</loc>

@@ -9,7 +9,7 @@ echo "
   <div class='center'>
 ";
 
-// $_SESSION['user'] = 133565026;
+$_SESSION['user'] = 133565026;
 $userDAO = new UserDAO;
 $userInfo = $userDAO->fetch($_SESSION['user']);
 

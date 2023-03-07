@@ -5,11 +5,11 @@ use kanatraining\User;
 use kanatraining\env;
 
 require_once('../model/class/config.php');
-$link = $oauth->get_link_connect();
+$link              = $oauth->get_link_connect();
 $_SESSION['TLink'] = $link;
 
 if (!empty($_GET['code'])) {
-  $code = htmlspecialchars($_GET['code']);
+  $code  = htmlspecialchars($_GET['code']);
   $token = $oauth->get_token($code);
 
   $_SESSION['token'] = $token;
@@ -82,14 +82,16 @@ echo "
       <div class='connect'>
 ";
 
-if (empty($_SESSION['user']) and empty($_SESSION['token'])) { echo"
+if (empty($_SESSION['user']) and empty($_SESSION['token'])) {
+  echo "
    <a href='$link'>
           <!-- <a href='#' onClick=\"createNotification('On an Future Update', '!')\"> -->
             <span class='fa-solid fa-person'></span>
             Connection
           </a>";
 } else {
-  if ($_SERVER["REQUEST_URI"] === "/user") { echo"
+  if ($_SERVER["REQUEST_URI"] === "/user") {
+    echo "
       <a href='/'>
         <span class='fa-solid fa-house'></span>
         Home
@@ -99,8 +101,8 @@ if (empty($_SESSION['user']) and empty($_SESSION['token'])) { echo"
         <span class='fa-solid fa-person-running'></span>
         Disconected
       </a>";
-}else{
-  echo "
+  } else {
+    echo "
           <a href='/user'>
             <span class='fa-solid fa-address-card'></span>
             Profil 
@@ -110,7 +112,7 @@ if (empty($_SESSION['user']) and empty($_SESSION['token'])) { echo"
             <span class='fa-solid fa-person-running'></span>
             Disconected
           </a> ";
-        }
+  }
 }
 
 echo "

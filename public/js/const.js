@@ -1,5 +1,3 @@
-console.log('hello world, Constent files')
-
 var input = document.querySelector('.input');
 var character = document.querySelector('.character');
 

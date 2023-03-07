@@ -7,7 +7,6 @@ link.href = 'css/darktheme.css';
 
 //Change Theme
 function selectTheme(NextTheme) {
-    let cc = NextTheme
     switch (NextTheme) {
         case "light":
             // console.log('in light');
@@ -37,7 +36,6 @@ function selectTheme(NextTheme) {
 
             // console.log(NextTheme);
             save('theme', NextTheme);
-            // document.cookie = "theme=" + NextTheme;
             break;
     }
 }

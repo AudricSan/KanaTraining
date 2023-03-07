@@ -3,33 +3,35 @@
 use Kanatraining\User;
 use Kanatraining\Env;
 
-class UserDAO extends Env
-{
+class UserDAO extends Env {
     //DON'T TOUCH IT, LITTLE PRICK
     private $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
-    private $username; private $password; private $host; private $dbname; private $table; private $connection;
+    private $username;
+    private $password;
+    private $host;
+    private $dbname;
+    private $table;
+    private $connection;
 
-    public function __construct()
-    {
+    public function __construct() {
         // Change the values according to your hosting.
-        $this->username = parent::env('DB_USERNAME', 'root');     // The login to connect to the DB
-        $this->password = parent::env('DB_PASSWORD', '');         // The password to connect to the DB
-        $this->host =     parent::env('DB_HOST', 'localhost');    // The name of the server where my DB is located
-        $this->dbname =   parent::env('DB_NAME');                 // The name of the DB you want to attack.
-        $this->table =    "kanauser";                             // The table to attack
+        $this->username = parent::env('DB_USERNAME', 'root'); // The login to connect to the DB
+        $this->password = parent::env('DB_PASSWORD', ''); // The password to connect to the DB
+        $this->host     = parent::env('DB_HOST', 'localhost'); // The name of the server where my DB is located
+        $this->dbname   = parent::env('DB_NAME'); // The name of the DB you want to attack.
+        $this->table    = "kanauser"; // The table to attack
 
         $this->connection = new PDO("mysql:host={$this->host};dbname={$this->dbname};charset=utf8", $this->username, $this->password, $this->options);
         $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     }
 
-    public function fetchAll()
-    {
+    public function fetchAll() {
         try {
             $statement = $this->connection->prepare("SELECT * FROM {$this->table}");
             $statement->execute();
             $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-            $Users = array();
+            $Users   = array();
 
             foreach ($results as $result) {
                 array_push($Users, $this->create($result));
@@ -41,8 +43,7 @@ class UserDAO extends Env
         }
     }
 
-    public function fetch($id)
-    {
+    public function fetch($id) {
         try {
             $statement = $this->connection->prepare("SELECT * FROM {$this->table} WHERE User_ID = ?");
             $statement->execute([$id]);
@@ -57,8 +58,7 @@ class UserDAO extends Env
         }
     }
 
-    public function create($data)
-    {
+    public function create($data) {
         if (!$data) {
             return false;
         }
@@ -72,9 +72,9 @@ class UserDAO extends Env
                 $data['user_mail'],
                 $data['User_Avatar'],
                 $data['User_ScoreHighest']
-            );   
+            );
 
-        }else{
+        } else {
             return new User(
                 $data->_id,
                 $data->_name,
@@ -82,15 +82,13 @@ class UserDAO extends Env
                 $data->_type,
                 $data->_email,
                 $data->_avatar,
-                $data->_best,
-                $data->_last,
-            );       
+                $data->_best
+            );
         }
 
     }
 
-    public function store($data)
-    {
+    public function store($data) {
 
         if (empty($data)) {
             return false;
@@ -123,13 +121,12 @@ class UserDAO extends Env
         header('location: /user');
     }
 
-    public function update($id, $data)
-    {
+    public function update($id, $data) {
         if (empty($data) || empty($id)) {
             return false;
         }
 
-        if($data['id'] === false){
+        if ($data['id'] === false) {
             echo 'false';
             header('location: /user');
             return false;
@@ -157,7 +154,7 @@ class UserDAO extends Env
                 User_ScoreHighest   = ?,
                 User_ScoreLower     = ?, WHERE
                 admin_id            = ?");
-                
+
                 $statement->execute([
                     $user->_login,
                     $user->_displayName,
@@ -177,29 +174,59 @@ class UserDAO extends Env
 
         header('location: /user ');
     }
-    
-    public function scoreUpdate($id)
-    {
+
+    public function scoreUpdate($id) {
         if (empty($id)) {
             return false;
         }
-
         $olduser = $this->fetch($id);
 
-        if ($_COOKIE['best'] < $olduser->_best) {
+        $lastScore = explode(' ', $_COOKIE['score'], 2);
+        $lastScore = $lastScore[0];
+        $lsScore   = explode('/', $lastScore);
+
+        $Lscore    = $lsScore[0];
+        $LscoreMax = $lsScore[1];
+
+        $Lscore    = intval($Lscore);
+        $LscoreMax = intval($LscoreMax);
+
+        $dbScore   = explode('/', $olduser->_best);
+        $dScore    = $dbScore[0];
+        $dScoreMax = $dbScore[1];
+
+        $dbScore    = intval($dScore);
+        $dbScoreMax = intval($dScoreMax);
+
+        if ($dbScoreMax === 0) {
+            $dbScoreMax = 1;
+        }
+
+        if ($LscoreMax === 0) {
+            $LscoreMax = 1;
+        }
+
+        $NewBest = ($Lscore / $LscoreMax) * 100;
+        $OldBest = ($dbScore / $dbScoreMax) * 100;
+
+        if ($LscoreMax < $dbScoreMax) {
             $best = $olduser->_best;
-        }else{
-            $best = $_COOKIE['best'];
+        } else {
+            if ($NewBest > $OldBest) {
+                $best = $lastScore;
+            }else{
+                $best = $olduser->_best;
+            }
         }
 
         $user = $this->create([
-            'User_ID'             => $id,
-            'User_Name'           => $olduser->_name,
-            'user_viewer'         => $olduser->_viewerCount,
-            'user_type'           => $olduser->_type,
-            'user_mail'           => $olduser->_email,
-            'User_Avatar'         => $olduser->_avatar,
-            'User_ScoreHighest'   => $best
+            'User_ID'           => $id,
+            'User_Name'         => $olduser->_name,
+            'user_viewer'       => $olduser->_viewerCount,
+            'user_type'         => $olduser->_type,
+            'user_mail'         => $olduser->_email,
+            'User_Avatar'       => $olduser->_avatar,
+            'User_ScoreHighest' => $best
         ]);
 
         if ($user) {
@@ -214,7 +241,6 @@ class UserDAO extends Env
             } catch (PDOException $e) {
                 var_dump($e->getMessage());
                 die();
-                return false;
             }
         }
 
