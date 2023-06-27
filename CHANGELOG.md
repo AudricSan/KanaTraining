@@ -1,4 +1,8 @@
 # Changelog
+
+## v2.0 beta
+- Rebuild All Aps
+
 ## v1.0.3
 ### Added or Changed
 - delete all traces related to 'PictureTagDAO' Add a function to replace deleted features
@@ -21,7 +25,6 @@
 ## v1.0.2
 - ONLY LOCAL VERSION
 
-
 ## v1.0.1
 ### Added or Changed
 - Added this changelog :)
@@ -34,7 +37,6 @@
 
 ### Removed
 - Back to top link in readme
-
 
 ## v1.0.0
 ### Added

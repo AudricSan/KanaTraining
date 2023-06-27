@@ -23,7 +23,8 @@ function foot()
   include_once('include/footer.php');
 }
 
-function core(){
+function core()
+{
   include_once('include/core.php');
 }
 // End operator function.
@@ -33,6 +34,14 @@ Route::add('/', function () {
   head();
   core();
   foot();
+});
+
+Route::add('/newweb', function () {
+  include_once('include/index.html');
+});
+
+Route::add('/newcore', function () {
+  include_once('include/core.html');
 });
 
 Route::add('/logout', function () {

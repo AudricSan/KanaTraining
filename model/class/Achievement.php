@@ -2,16 +2,18 @@
 
 namespace Kanatraining;
 
-class User {
+class Achievement {
     private int $_id;
-    private string $_displayName;
-    private string $_avatar;
-    
+    private string $_Name;
+    private string $_Icon;
+    private string $_Condition;
+
     //Constructeur
-    public function __construct($Cid, $Cname, $Cavatar) {
-        $this->_id          = intval($Cid);
-        $this->_displayName = $Cname;
-        $this->_avatar      = $Cavatar;
+    public function __construct($Cid, $Cname, $Cicon, $Ccond) {
+        $this->_id        = intval($Cid);
+        $this->_Name      = $Cname;
+        $this->_Icon      = $Cicon;
+        $this->_Condition = $Ccond;
     }
 
     //SUPER SETTER

@@ -1,7 +1,16 @@
 <?php
 
+$_SESSION['user'] = 133565026;
+
 require_once('../model/class/User.php');
+require_once('../model/class/UserScore.php');
+require_once('../model/class/UserAchievement.php');
+require_once('../model/class/Achievement.php');
+
 require_once('../model/dao/UserDAO.php');
+require_once('../model/dao/UserAchievementDAO.php');
+require_once('../model/dao/AchievementDAO.php');
+require_once('../model/dao/UserScoreDAO.php');
 
 echo "
  </ul>
@@ -9,14 +18,37 @@ echo "
   <div class='center'>
 ";
 
-$_SESSION['user'] = 133565026;
-$userDAO = new UserDAO;
-$userInfo = $userDAO->fetch($_SESSION['user']);
+$userDAO            = new UserDAO;
+$UserAchievementDAO = new UserAchievementDAO;
+$AchievementDAO     = new AchievementDAO;
+$UserScoreDAO       = new UserScoreDAO;
+
+$userInfo        = $userDAO->fetch($_SESSION['user']);
+$achievement     = $AchievementDAO->fetchAll();
+$userAchievement = $UserAchievementDAO->fetch($_SESSION['user']);
+$userScore       = $UserScoreDAO->fetch($_SESSION['user']);
+
+// var_dump($userInfo);
+// var_dump($userAchievement);
+// var_dump($userScore);
+// var_dump($achievement);
 
 ?>
-
 <div class='outside'>
   <div class='color'>
+    <div id='achievement'>
+      <?php
+      $class = NULL;
+      foreach ($achievement as $avalue) {
+        foreach ($userAchievement as $uavalue) {
+          if ($uavalue->_Achievement === $avalue->_id) {
+            $class = "apply";
+          }
+        }
+        echo "<img class='$class' src='$avalue->_Icon'>";
+      }
+      ?>
+    </div>
   </div>
 
   <div class='imgback'>
@@ -24,20 +56,29 @@ $userInfo = $userDAO->fetch($_SESSION['user']);
   </div>
 
   <div class='info'>
+    <div>
+      <h2> User Name </h2>
+      <p>
+        <?= $userInfo->_displayName ?>
+      </p>
+    </div>
 
     <div>
-    <h2> User Name </h2>
-    <p> <?= $userInfo->_name ?>  </p>
-    </div>
-    
-    <div>
-    <h2> High Score </h2>
-    <p> <?= $userInfo->_best ?> </p>
+      <h2> High Score </h2>
+      <div class='score'>
+        <?php
+        foreach ($userScore as $value) {
+          echo "<p>" . $value->_Dificulty . " : " . $value->_ScoreHighest . '</p>';
+        }
+        ?>
+      </div>
     </div>
 
     <div>
       <h2> Last Score </h2>
-      <p id='score'></p>
+      <p>
+        <span id='dificulty'></span> : <span id='score'></span>
+      </p>
     </div>
 
     <div class='btn'>
@@ -45,11 +86,14 @@ $userInfo = $userDAO->fetch($_SESSION['user']);
     </div>
 
     <div class='btn'>
-      <a href='leaderboard'> <span class='fa-solid fa-graduation-cap'></span> Leaderboard </a>     
+      <a href='leaderboard'> <span class='fa-solid fa-graduation-cap'></span> Leaderboard </a>
     </div>
   </div>
 </div>
 
 <script>
   document.getElementById('score').innerHTML = localStorage.getItem('score');
+  document.getElementById('dificulty').innerHTML = localStorage.getItem('dificulty');
+  const element = document.getElementById('achievement');
+  element.remove();
 </script>

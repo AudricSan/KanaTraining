@@ -1,147 +1,225 @@
 @import url(color.css);
-@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
 
+:root {
+  --body-width: 60%;
+  --margin-nav: 3%;
+  --border-radius: 15px;
+}
+
+//Html Structure
 body {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
 
-  align-items: center;
-  align-content: center;
-
-  font-family: 'Open Sans';
-
+  max-width: var(--body-width);
   background-color: var(--background);
+  margin-left: auto;
+  margin-right: auto;
 
-  img.logo {
-    width: 10%;
-    height: auto;
-    margin-top: 2em;
-    margin-bottom: 1em;
-  }
+  nav {
+    position: fixed;
+    margin-top: var(--margin-nav);
+    height: 80px;
+    width: var(--body-width);
+    z-index: 9999;
+    background-color: white;
 
-  .hidden {
-    display: none;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  .content {
-    // max-width: 1500px;
-    min-width: 1000px;
-    min-height: 500px;
+    border-radius: var(--border-radius);
 
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1em;
-
-    .left {
-      grid-column: 1;
-      grid-row: 1 / 2;
+    h1 {
+      margin-left: 2%;
     }
 
-    .center {
-      grid-column: 2;
-      grid-row: 1;
+    .menu {
+      text-align: right;
+      min-width: 60%;
 
-      text-align: center;
+      a {
+        margin-right: var(--margin-nav);
+      }
+    }
 
+    &.hidder {
+      margin-top: 0;
+      background-color: var(--background);
+    }
+  }
+
+  main {
+    padding: var(--margin-nav);
+    margin-top: 20%;
+    margin-bottom: 10%;
+
+    .banner {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      
-      .hiragana-symbol {
-        .character {
-          margin: 0.2em 0;
-          font-size: 10em;
+      flex-direction: row;
+      justify-content: space-between;
+
+        p {
+          margin-top: 5%;
+          margin-bottom: 7%;
+        }
+
+      img {
+        height: 230px;
+        margin-right: 10%;
+      }
+    }
+
+    .content {
+      margin-top: 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .card {
+        background: white;
+        padding-top: 5%;
+        width: 300px;
+        border-radius: var(--border-radius);
+        box-shadow: -1px 15px 30px -12px black;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: nowrap;
+
+        margin-bottom: 2em;
+
+        .card_image {
+          margin-top: 5%;
+          text-align: center;
+          height: 230px;
+          margin-bottom: 35px;
+        }
+
+        .card_name {
+          text-align: center;
+          font-size: 26px;
+          font-weight: 900;
+          margin-bottom: 1%;
+        }
+
+        .card_description {
+          padding: 5%;
+          margin: 5%;
         }
       }
+    }
+  }
+}
 
-      form {
-        z-index: 1;
-        margin-top: 1em;
+//Globals Ellements
+body {
+  h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+  }
 
-        input[type="text"] {
-          border: 0;
-          padding: 0;
-          outline: none;
+  h2 {
+    font-size: 2em;
+    font-weight: 400;
+  }
 
-          text-align: center;
-          font-size: 1.2em;
-          height: 2em;
+  h5 {
+    font-size: 1em;
+    font-weight: 600;
+  }
 
-          border-radius: 1em;
-          color: #fff;
-          background-color: var(--charleston-green);
-        }
+  p {
+    font-size: 1em;
+    font-weight: 100;
+  }
 
-        input[type="submit"] {
+  .btn {
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: solid 1px black;
+
+    &.full {
+      border: none;
+      background-color: var(--blue-yonder);
+    }
+  }
+}
+
+//Small Screen
+@media only screen and (max-width: 1500px) {
+
+  //Html Structure
+  body {
+    nav {
+      h1 {
+        &.logo {
           display: none;
         }
       }
+
+      .menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-left: 3%;
+      }
     }
-    
-    .center2 {
-      grid-column: 2;
-      grid-row: 2;
 
-      text-align: center;
+    main {
+      .banner {
+        margin-top: 5%;
+        display: block;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+        div {
+          max-width: 100%;
+        }
 
-      .toast {
-        position: absolute;
+        img {
+          display: none;
+        }
+      }
 
-        min-width: 350px;
-        min-height: 20px;
-        
-        background-color: #fff;
-        font-size: 1.2em;
-        padding: 1em;
-        border: solid black 1px;
-        border-radius: 1em;
-        text-align: center;
+      .nomobile {
+        display: none;
+      }
 
-        transform: translateX(-50%);
-        translate: 0px -150px;
+      .content {
+        margin-top: 3em;
+        display: flex;
+        flex-direction: column;
 
-        span{
-          font-weight: 700;
+        .card {
+          width: fit-content;
         }
       }
     }
+  }
+}
 
-    .right {
-      grid-column: 3;
-      grid-row: 1 / 2;
+@media only screen and (max-width: 500px) {
+  :root {
+    --body-width: 90%;
+    --margin-nav: 3%;
+  }
 
-      text-align: right;
+  //Html Structure
+  body {
+    main {
+      margin-top: 20%;
     }
+  }
 
-    .down {
-      grid-column: 2;
-      grid-row: 2;
-
-      text-align: center;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      & > * {
-        margin-top: 0.8em;
-      }
-
-      .author {
-        display: grid;
-        grid-template-columns: repeat(3, auto);
-        grid-gap: 1em;
-      }
-
-      .twitter-share{
-        text-align: center;
-      }
+  //Globals Ellements
+  body {
+    .btn {
+      padding: 3% 5%;
     }
   }
 }

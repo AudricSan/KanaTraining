@@ -3,6 +3,7 @@
 
    /* background */
    --background: #f6f8ff;
+   --background-nav: #f4f4f4;
 
    /* HEX */
    --charleston-green: #293132;
@@ -23,4 +24,7 @@
    --gradient-top-left: linear-gradient(225deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff);
    --gradient-bottom-left: linear-gradient(315deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff);
    --gradient-radial: radial-gradient(#293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff);
+
+
+   --border-radius: 15px;
 }
