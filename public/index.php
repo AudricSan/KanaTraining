@@ -41,7 +41,7 @@ Route::add('/newweb', function () {
 });
 
 Route::add('/newcore', function () {
-  include_once('include/core.html');
+  include_once('include/index2.html');
 });
 
 Route::add('/logout', function () {

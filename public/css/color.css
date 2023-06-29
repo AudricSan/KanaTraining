@@ -2,23 +2,23 @@
    /* Light Theme */
 
    /* background */
-   --background: #f6f8ff;
-   --background-nav: #f4f4f4;
+   /* --background: #f6f8ff; */
+   /* --background-nav: #f4f4f4; */
 
    /* HEX */
-   --charleston-green: #293132;
-   --dark-liver: #474044ff;
-   --independence: #4f5165ff;
-   --blue-yonder: #547aa5ff;
-   --medium-turquoise: #50d8d7ff;
-   --white: #fff;
-   --black: #000;
+   /* --charleston-green: #293132; */
+   /* --dark-liver: #474044ff; */
+   /* --independence: #4f5165ff; */
+   /* --blue-yonder: #547aa5ff; */
+   /* --medium-turquoise: #50d8d7ff; */
+   /* --white: #fff; */
+   /* --black: #000; */
 
    /* Gradient */
-   --gradient-top: linear-gradient(0deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff);
-   --gradient-right: linear-gradient(90deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff);
-   --gradient-bottom: linear-gradient(180deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff);
-   --gradient-left: linear-gradient(270deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff);
+   /* --gradient-top: linear-gradient(0deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff); */
+   /* --gradient-right: linear-gradient(90deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff); */
+   /* --gradient-bottom: linear-gradient(180deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff); */
+   /* --gradient-left: linear-gradient(270deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff); */
    --gradient-top-right: linear-gradient(45deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff);
    --gradient-bottom-right: linear-gradient(135deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff);
    --gradient-top-left: linear-gradient(225deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff);
