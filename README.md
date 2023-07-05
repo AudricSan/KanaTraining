@@ -1,6 +1,7 @@
 # Kanatraining
 
 Kanatraining is a platform for learning Japanese characters (kanas) - hiraganas and katakanas.
+[README-FR](/README%20-%20FR.md)
 
 ## Description
 

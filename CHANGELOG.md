@@ -1,6 +1,8 @@
 # Changelog
 
 ## v2.0 beta
+### Added
+- Readme en-fr
 - Rebuild All Aps
 
 ## v1.0.3
