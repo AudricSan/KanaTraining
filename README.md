@@ -1,5 +1,5 @@
 # Kanatraining Readme
-## Kanatraining french readme (/README%20-%20FR.md)
+## [Kanatraining french readme](/README%20-%20FR.md)
 
 Kanatraining is a platform for learning Japanese characters (kanas) - hiraganas and katakanas.
 
