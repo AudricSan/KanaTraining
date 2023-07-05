@@ -1,6 +1,6 @@
 # Kanatraining
 
-
+Kanatraining is a platform for learning Japanese characters (kanas) - hiraganas and katakanas.
 
 ## Description
 
@@ -16,7 +16,7 @@ Kanatraining is a comprehensive online platform designed to help you learn and m
 
 ## Installation
 
-Kanatraining is a web-based platform, so there is no need for installation. Simply visit our website [Kanatraining.com](https://www.kanatraining.com) using a web browser and create an account to get started.
+Kanatraining is a web-based platform, so there is no need for installation. Simply visit our website [Kanatraining.com](https://www.kana.audricrosier.be) using a web browser and create an account to get started.
 
 ## Usage
 
@@ -65,7 +65,7 @@ Please refer to our contribution guidelines for more detailed information.
 
 ## License
 
-Kanatraining is released under the [MIT License](https://opensource.org/licenses/MIT). Please refer to the [LICENSE](/CHANGELOG.md) file for more details.
+Kanatraining is published under [AGPL]((https://www.gnu.org/licenses/)). Please refer to the [LICENSE](/CHANGELOG.md) file for more details.
 
 ## Project Status
 

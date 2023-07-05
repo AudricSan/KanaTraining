@@ -16,7 +16,7 @@ Kanatraining est un site interactif conçu pour aider les apprenants à maîtris
 
 ## Installation
 
-Kanatraining est une plateforme basée sur le web, il n'est donc pas nécessaire de l'installer. Il suffit de visiter notre site web [Kanatraining.com] (https://www.kanatraining.com) à l'aide d'un navigateur web et de créer un compte pour commencer.
+Kanatraining est une plateforme basée sur le web, il n'est donc pas nécessaire de l'installer. Il suffit de visiter notre site web [Kanatraining.com](https://www.kana.audricrosier.be) à l'aide d'un navigateur web et de créer un compte pour commencer.
 
 ## Utilisation
 
@@ -68,7 +68,7 @@ Veuillez vous référer à nos directives de contribution pour des informations 
 
 ## Licence
 
-Kanatraining est publié sous [MIT License] (https://opensource.org/licenses/MIT). Veuillez vous référer au fichier [LICENSE](/CHANGELOG.md) pour plus de détails.
+Kanatraining est publié sous [AGPL]((https://www.gnu.org/licenses/)). Veuillez vous référer au fichier [LICENSE](/CHANGELOG.md) pour plus de détails.
 
 ## Statut du projet
 
