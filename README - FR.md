@@ -4,23 +4,23 @@ Kanatraining est une plateforme d'apprentissage des caractères japonais (kanas)
 
 ## Description
 
-Kanatraining est un site interactif conçu pour aider les apprenants à maîtriser les hiraganas et les katakanas, les deux systèmes de caractères de base de l'écriture japonaise. Notre plateforme propose des leçons structurées, des exercices pratiques et des jeux ludiques pour rendre l'apprentissage des caractères japonais à la fois amusant et efficace. Que vous soyez débutant ou que vous souhaitiez consolider vos connaissances, Kanatraining est là pour vous accompagner tout au long de votre parcours.
+Kanatraining est une plateforme en ligne complète conçue pour vous aider à apprendre et à maîtriser les caractères japonais. Notre site se concentre sur l'enseignement des hiragana, katakana et kanji, les trois systèmes d'écriture fondamentaux de la langue japonaise. Que vous soyez un débutant désireux d'explorer le monde des caractères japonais ou un apprenant avancé cherchant à consolider ses connaissances, Kanatraining offre une expérience d'apprentissage conviviale et engageante.
 
-## Fonctionnalités
+## Caractéristiques
 
-- Leçons interactives pour apprendre les formes, les sons et les règles des hiraganas et des katakanas.
-- Jeux ludiques pour renforcer l'apprentissage de manière divertissante.
-- Suivi de progression pour visualiser vos avancées et suivre votre performance.
-- Quiz interactifs pour tester vos connaissances et évaluer votre niveau.
-- Communauté d'apprenants japonais passionnés pour échanger et partager des conseils.
+- Apprenez et pratiquez les caractères hiragana, katakana et kanji grâce à des leçons interactives.
+- Améliorez votre compréhension grâce à des exercices, des quiz et des jeux amusants.
+- Suivez vos progrès et revoyez facilement les leçons précédentes.
+- Accédez à une communauté d'apprenants pour échanger des conseils et des expériences.
+- Explorez des ressources supplémentaires pour l'apprentissage de la langue japonaise.
 
 ## Installation
 
-Kanatraining est une plateforme basée sur le web, il n'est donc pas nécessaire de l'installer. Il suffit de visiter notre site web [Kanatraining.com](https://www.kana.audricrosier.be) à l'aide d'un navigateur web et de créer un compte pour commencer.
+Kanatraining est une plateforme web, il n'y a donc pas besoin d'installation. Il suffit de visiter notre site Web [KanaTraining](https://www.kana.audricrosier.be) à l'aide d'un navigateur Web et de créer un compte pour commencer.
 
 ## Utilisation
 
-Une fois que vous avez créé un compte sur Kanatraining, vous pouvez commencer à apprendre les caractères japonais. La plateforme propose un programme structuré avec des leçons couvrant les hiragana, les katakana et les kanji. Chaque leçon fournit des explications, des exemples et des exercices pour renforcer votre compréhension.
+Une fois que vous avez créé un compte sur Kanatraining, vous pouvez commencer votre apprentissage des caractères japonais. La plateforme propose un programme structuré avec des leçons couvrant les hiragana, les katakana et les kanji. Chaque leçon fournit des explications, des exemples et des exercices pour renforcer votre compréhension.
 
 Vous pouvez suivre vos progrès, consulter vos statistiques de performance et revoir les leçons précédentes chaque fois que vous avez besoin de renforcer vos connaissances. Participez à des quiz interactifs pour tester vos compétences et évaluer votre niveau.
 
@@ -28,39 +28,36 @@ Rejoignez nos forums communautaires dynamiques pour vous connecter avec d'autres
 
 ### Utilisation - Structure
 
-1. Inscrivez-vous sur Kanatraining en créant un compte.
-2. Choisissez entre les leçons, les exercices ou les jeux selon vos besoins.
+1. S'inscrire sur Kanatraining en créant un compte.
+2. Choisissez entre des leçons, des exercices ou des jeux en fonction de vos besoins.
 3. Suivez les instructions fournies pour chaque activité et pratiquez autant que vous le souhaitez.
-4. Utilisez le suivi de progression pour suivre vos avancées et identifier les domaines à améliorer.
-5. Participez aux quiz interactifs pour tester vos connaissances.
-6. Rejoignez la communauté pour interagir avec d'autres apprenants et partager des conseils et des astuces.
+4. Utilisez l'outil de suivi des progrès pour surveiller vos progrès et identifier les domaines à améliorer.
+5. Rejoignez la communauté pour interagir avec d'autres apprenants et partager des conseils et des astuces.
 
-## Support
+## Assistance
 
 Si vous avez des questions, si vous avez besoin d'aide ou si vous souhaitez nous faire part de vos commentaires, n'hésitez pas à nous contacter par le biais de nos canaux de support :
 
-- Issue Tracker : [github.com/kanatraining/issues](https://github.com/kanatraining/issues)
-
+- Issue Tracker : [Issues](https://github.com/AudricSan/KanaTraining/issues)
 
 ## Feuille de route
 
 Nous avons des projets passionnants pour l'avenir de Kanatraining. Voici quelques-unes des fonctionnalités et des améliorations que nous envisageons :
 
-- Leçons et exercices des Kana.
-- Leçons et exercices de kanji.
+- Leçons et exercices de kanji avancés.
 - Modules d'enrichissement du vocabulaire.
 - Intégration avec des ressources populaires d'apprentissage de la langue japonaise.
 
-Restez à l'écoute pour les mises à jour et les nouvelles versions !
+Restez à l'écoute des mises à jour et des nouvelles versions !
 
-## Contributeurs
+## Contribuer
 
 Les contributions de la communauté sont les bienvenues pour améliorer Kanatraining. Si vous avez des idées, des corrections de bogues ou de nouvelles fonctionnalités à proposer, veuillez suivre les étapes suivantes :
 
-1. Fork le repository.
+1. Mettre le dépôt en fourche (Fork).
 2. Créez une nouvelle branche pour votre fonctionnalité ou correction de bug.
 3. Effectuez vos modifications et assurez-vous qu'elles sont correctement testées.
-4. Soumettez une demande "pull" décrivant les modifications que vous avez apportées.
+4. Soumettez une demande d'extraction décrivant les modifications que vous avez apportées.
 
 Veuillez vous référer à nos directives de contribution pour des informations plus détaillées.
 
@@ -68,7 +65,7 @@ Veuillez vous référer à nos directives de contribution pour des informations 
 
 ## Licence
 
-Kanatraining est publié sous [AGPL]((https://www.gnu.org/licenses/)). Veuillez vous référer au fichier [LICENSE](/CHANGELOG.md) pour plus de détails.
+Kanatraining est publié sous [AGPL](https://www.gnu.org/licenses). Veuillez vous référer au fichier [LICENSE](/LICENSE) pour plus de détails.
 
 ## Statut du projet
 

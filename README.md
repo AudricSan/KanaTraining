@@ -16,7 +16,7 @@ Kanatraining is a comprehensive online platform designed to help you learn and m
 
 ## Installation
 
-Kanatraining is a web-based platform, so there is no need for installation. Simply visit our website [Kanatraining.com](https://www.kana.audricrosier.be) using a web browser and create an account to get started.
+Kanatraining is a web-based platform, so there is no need for installation. Simply visit our website [KanaTraining](https://www.kana.audricrosier.be) using a web browser and create an account to get started.
 
 ## Usage
 
@@ -24,8 +24,7 @@ Once you have created an account on Kanatraining, you can begin your journey of 
 
 You can track your progress, view your performance statistics, and revisit previous lessons whenever you need to reinforce your knowledge. Engage in interactive quizzes to test your skills and evaluate your proficiency.
 
-Join our vibrant community forums to connect with other learners, ask questions, and share your learning experiences. The forums provide a supportive environment for collaborative learning and cultural exchange
-.
+Join our vibrant community forums to connect with other learners, ask questions, and share your learning experiences. The forums provide a supportive environment for collaborative learning and cultural exchange.
 ### Usage - Structure
 
 1. Register on Kanatraining by creating an account.
@@ -38,7 +37,7 @@ Join our vibrant community forums to connect with other learners, ask questions,
 
 If you have any questions, need assistance, or want to provide feedback, please reach out to us through our support channels:
 
-- Issue Tracker: [github.com/kanatraining/issues](https://github.com/kanatraining/issues)
+- Issue Tracker: [Issues](https://github.com/AudricSan/KanaTraining/issues)
 
 ## Roadmap
 
@@ -65,7 +64,7 @@ Please refer to our contribution guidelines for more detailed information.
 
 ## License
 
-Kanatraining is published under [AGPL]((https://www.gnu.org/licenses/)). Please refer to the [LICENSE](/CHANGELOG.md) file for more details.
+Kanatraining is published under [AGPL](https://www.gnu.org/licenses). Please refer to the [LICENSE](/LICENSE) file for more details.
 
 ## Project Status
 
