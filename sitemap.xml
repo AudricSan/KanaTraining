@@ -71,34 +71,9 @@
 		<lastmod>2022-10-08</lastmod>
 	</url>
 	<url>
-		<loc>http://www.kana.audricrosier;be/model/dao/UserScoreDAO.php</loc>
-		<priority>0.57</priority>
-		<lastmod>2023-03-29</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier;be/model/dao/UserAchievementDAO.php</loc>
-		<priority>0.57</priority>
-		<lastmod>2023-03-29</lastmod>
-	</url>
-	<url>
 		<loc>http://www.kana.audricrosier;be/model/class/Achievement.php</loc>
 		<priority>0.57</priority>
 		<lastmod>2023-03-29</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier;be/model/class/UserScore.php</loc>
-		<priority>0.57</priority>
-		<lastmod>2023-03-29</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier;be/view/user/board.php</loc>
-		<priority>0.57</priority>
-		<lastmod>2023-01-05</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier;be/view/user/user.php</loc>
-		<priority>0.57</priority>
-		<lastmod>2023-03-30</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier;be/model/login.php</loc>
@@ -171,11 +146,6 @@
 		<lastmod>2023-03-29</lastmod>
 	</url>
 	<url>
-		<loc>http://www.kana.audricrosier;be/model/dao/AchievementDAO.php</loc>
-		<priority>0.57</priority>
-		<lastmod>2023-03-29</lastmod>
-	</url>
-	<url>
 		<loc>http://www.kana.audricrosier;be/public/include/core.php</loc>
 		<priority>0.57</priority>
 		<lastmod>2023-05-11</lastmod>
@@ -184,11 +154,6 @@
 		<loc>http://www.kana.audricrosier;be/public/include/core.html</loc>
 		<priority>0.57</priority>
 		<lastmod>2023-05-25</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier;be/public/include/index2.html</loc>
-		<priority>0.57</priority>
-		<lastmod>2023-06-29</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier;be/BackUP/2.0/model/const.js</loc>
