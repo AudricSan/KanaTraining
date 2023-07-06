@@ -9,6 +9,13 @@ class Route
   private static $pathNotFound = null;
   private static $methodNotAllowed = null;
 
+  /**
+   * Function used to add a new route
+   * @param string $expression    Route string or expression
+   * @param callable $function    Function to call if route with allowed method is found
+   * @param string|array $method  Either a string of allowed method or an array with string values
+   *
+   */
   public static function add($expression, $function, $method = 'get')
   {
     array_push(self::$routes, array(
@@ -122,11 +129,15 @@ class Route
       // But a matching path exists
       if ($path_match_found) {
         if (self::$methodNotAllowed) {
-          call_user_func_array(self::$methodNotAllowed, array($path, $method));
+          if ($return_value = call_user_func_array(self::$methodNotAllowed, array($path, $method))) {
+            echo $return_value;
+          }
         }
       } else {
         if (self::$pathNotFound) {
-          call_user_func_array(self::$pathNotFound, array($path));
+          if ($return_value = call_user_func_array(self::$pathNotFound, array($path))) {
+            echo $return_value;
+          }
         }
       }
     }
