@@ -5,7 +5,7 @@ namespace Kanatraining;
 class Route
 {
 
-  private static $routes = array();
+  private static $routes = Array();
   private static $pathNotFound = null;
   private static $methodNotAllowed = null;
 
