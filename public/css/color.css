@@ -13,6 +13,16 @@
    --white: #fff;
    --black: #000;
 
+   /* Menu Colors */
+   --active: #275EFE;
+   --active-inner: #fff;
+   --border-hover: #275EFE;
+   --background: #fff;
+   --disabled: #F6F8FF;
+   --disabled-inner: #E1E6F9;
+   --border: #BBC1E1;
+   --focus: 2px rgba(39, 94, 254, .3);
+
    /* Gradient */
    --gradient-top: linear-gradient(0deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff);
    --gradient-right: linear-gradient(90deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff);

@@ -10,46 +10,47 @@
 }
 
 body {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  display: flex;
+  flex-direction: column;
   padding: 1em 3em 0em 3em;
 }
-body header {
-  grid-area: 1/1/2/4;
-}
 body main {
-  grid-area: 2/1/4/4;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 }
-body main ._1 {
-  grid-area: 1/1/3/2;
+body main ._1 nav ul input {
+  display: inline-block;
 }
 body main ._2 {
-  grid-area: 1/2/2/3;
-  justify-self: center;
-  align-self: center;
+  margin-top: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-content: center;
-  flex-wrap: nowrap;
   justify-content: space-between;
+}
+body main ._2 h2 {
+  font-size: 5em;
 }
 body main ._2 div {
   text-align: center;
 }
 body main ._4 {
-  grid-area: 1/3/3/4;
   justify-self: right;
 }
 body footer {
-  grid-area: 4/1/5/4;
-  justify-self: center;
+  margin-top: 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body footer div {
+  display: flex;
+  flex-direction: row;
+}
+body footer div p {
+  margin: 0 1em 0 1em;
 }/*# sourceMappingURL=index.css.map */
