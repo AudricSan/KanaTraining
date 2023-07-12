@@ -49,7 +49,7 @@
 
 <body>
     <header>
-        <img class="logo" src="image/logo.png"/>
+        <img class="logo" src="image/logo.png" />
         <h1>Entraînez vos Kanas</h1>
     </header>
 
@@ -57,11 +57,7 @@
         <section class="_1">
             <nav>
                 <ul>
-                    <a href='$link'>
-                        <!-- <a href='#' onClick=\"createNotification('On an Future Update', '!')\"> -->
-                        <span class='fa-solid fa-person'></span>
-                        Connection
-                    </a>
+                    <a href='$link'> <span class='fa-solid fa-person'></span> Connection </a>
 
                     <p class="divider">---------------------------------------</p>
 
@@ -130,12 +126,12 @@
 
             <form class="forms" action="#" onsubmit="checkAnswerd(); return false" autocomplete="off">
                 <input name="input" type="text" class="input" autofocus maxlength="3" />
-                <input type="submit" class="hidden"/>
+                <input type="submit" class="hidden" />
             </form>
         </section>
 
         <section class="_4">
-            <a href="#">AIDE<span class="material-icons-round iconhelp">info</span></a>
+            <a href="#"><span class="material-icons-round iconhelp">info</span></a>
             <a><span class="material-icons-round">close</span></a>
         </section>
     </main>
@@ -164,7 +160,10 @@
                 Le projet sur GitHub <span class="fab fa-github icongit"></span>
             </a>
         </div>
+    </footer>
 
+    <!-- Script Block -->
+    <div>
         <script src="/kana"></script>
         <script src="js/const.js"></script>
         <script src="js/save.js"></script>
@@ -172,7 +171,7 @@
         <script src="js/hamburger.js"></script>
         <script src="js/theme.js"></script>
         <script src="js/app.js"></script>
-    </footer>
+    </div>
 </body>
 
 </html>
