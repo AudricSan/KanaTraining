@@ -1,0 +1,72 @@
+@import url(color.css);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+.logo {
+  size: 50%;
+  height: 25%;
+}
+
+.hidden{
+  display: none;
+}
+
+body {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+
+  padding: 1em 3em 0em 3em;
+
+  header {
+    grid-area: 1 / 1 / 2 / 4;
+
+    nav {}
+  }
+
+  main {
+    grid-area: 2 / 1 / 4 / 4;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+
+    ._1 {
+      grid-area: 1 / 1 / 3 / 2;
+    }
+
+    ._2 {
+      grid-area: 1 / 2 / 2 / 3;
+      justify-self: center;
+      align-self: center;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+
+      div {
+        text-align: center;
+      }
+    }
+
+    ._4 {
+      grid-area: 1 / 3 / 3 / 4;
+      justify-self: right;
+    }
+  }
+
+  footer {
+    grid-area: 4 / 1 / 5 / 4;
+    justify-self: center;
+  }
+}

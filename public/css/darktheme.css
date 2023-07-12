@@ -1,0 +1,39 @@
+@import url(color.css);
+body {
+  background-color: var(--charleston-green);
+  color: var(--background);
+}
+body .content #menu {
+  color: white;
+}
+body .content .center form input[type=text] {
+  background-color: var(--background);
+  color: var(--charleston-green);
+}
+body .content .center .outside {
+  background: #323232;
+}
+body .content .center .outside .color {
+  background: #4f4f4f;
+}
+body .content .center .outside .imgback {
+  background: #323232;
+}
+body .content .center .outside .info {
+  background: #4f4f4f;
+}
+body .content .center .outside .info div h2 {
+  color: #caccce;
+}
+body .content .center2 .toast {
+  background-color: var(--blue-yonder);
+  border: solid white 1px;
+}
+body #help {
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+  color: white;
+}
+body #help::-webkit-scrollbar-thumb {
+  background: var(--blue-yonder);
+}/*# sourceMappingURL=darktheme.css.map */

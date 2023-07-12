@@ -1,0 +1,58 @@
+@import url(color.css);
+
+body {
+    background-color: var(--charleston-green);
+    color: var(--background);
+
+    .content {
+        #menu {
+            color: white;
+        }
+
+        .center {
+            form {
+                input[type="text"] {
+                    background-color: var(--background);
+                    color: var(--charleston-green);
+                }
+            }
+
+            .outside {
+                background: #323232;
+
+                .color {
+                    background: #4f4f4f;
+                }
+
+                .imgback {
+                    background: #323232;
+                }
+
+                .info {
+                    background: #4f4f4f;
+                    div {
+                        h2 {
+                            color: #caccce;
+                        }
+                    }
+                }
+            }
+        }
+
+        .center2 {
+            .toast {
+                background-color: var(--blue-yonder);
+                border: solid white 1px;
+            }
+        }
+    }
+
+    #help {
+        backdrop-filter: blur(30px);
+        color: white;
+
+        &::-webkit-scrollbar-thumb {
+            background: var(--blue-yonder);
+        }
+    }
+}
