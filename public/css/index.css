@@ -21,8 +21,11 @@ body main {
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 }
-body main ._1 nav ul input {
-  display: inline-block;
+body main ._1 nav ul p {
+  margin-bottom: 0.6em;
+}
+body main ._1 nav ul form {
+  margin-top: 0.2em;
 }
 body main ._2 {
   margin-top: 2em;
@@ -30,14 +33,12 @@ body main ._2 {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  text-align: center;
 }
 body main ._2 h2 {
   font-size: 5em;
 }
-body main ._2 div {
-  text-align: center;
-}
-body main ._4 {
+body main ._3 {
   justify-self: right;
 }
 body footer {
