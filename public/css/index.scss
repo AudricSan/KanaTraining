@@ -16,10 +16,6 @@ body {
 
   padding: 1em 3em 0em 3em;
 
-  header {
-    nav {}
-  }
-
   main {
     display: grid;
 
@@ -30,10 +26,14 @@ body {
     grid-row-gap: 10px;
 
     ._1 {
-      nav{
-        ul{
-          input {
-            display: inline-block;
+      nav {
+        ul {
+          p{
+            margin-bottom: 0.6em;
+          }
+
+          form{
+            margin-top: 0.2em;
           }
         }
       }
@@ -47,23 +47,21 @@ body {
       align-items: center;
       justify-content: space-between;
 
-      h2{
-        font-size: 5em;
-      }
+      text-align: center;
 
-      div {
-        text-align: center;
+      h2 {
+        font-size: 5em;
       }
     }
 
-    ._4 {
+    ._3 {
       justify-self: right;
     }
   }
 
   footer {
     margin-top: 5em;
-    
+
     display: flex;
     flex-direction: column;
 
