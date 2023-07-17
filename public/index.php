@@ -32,7 +32,7 @@ function foot()
 
 Route::add('/', function () {
   // head();
-  include_once('../view/test.html');
+  include('../view/test.html');
   // foot();
 });
 
