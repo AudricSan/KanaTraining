@@ -20,6 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/eb747bd21c.js" crossorigin="anonymous"></script>
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="view/image/favicon/apple-touch-icon.png" />
@@ -43,11 +44,9 @@
     <link href="public/css/reset.css" rel="stylesheet" />
     <link href="public/css/index.css" rel="stylesheet" />
     <link href="public/css/menu.css" rel="stylesheet" />
-    <link href="public/css/help.css" rel="stylesheet" />
-    <link href="public/css/user.css" rel="stylesheet" />
 </head>
 
-<body>
+<body onload="getSave()">
     <header>
         <img class="logo" src="image/logo.png" />
         <h1>Entraînez vos Kanas</h1>
@@ -57,92 +56,104 @@
         <section class="_1">
             <nav>
                 <ul>
-                    <a href='$link'> <span class='fa-solid fa-person'></span> Connection </a>
+                    <a href="JavaScript:createNotification('in as future update')" class='fa-solid fa-person'></span>
+                        Connection </a>
+                    <!-- <a href='$link'> <span class='fa-solid fa-person'></span> Connection </a> -->
 
                     <p class="divider">---------------------------------------</p>
 
-                    <input type="checkbox" class="switch theme" id="theme" name="cc" onchange="selectTheme()" />
-                    <label for="theme">theme-color</label>
+                    <form action="">
+                        <input type="checkbox" class="switch theme" id="theme" name="cc" onchange="selectTheme()" />
+                        <label for="theme">theme-color</label>
+                    </form>
 
                     <p class="divider">---------------------------------------</p>
 
-                    <input type="checkbox" class="switch" id="hiragana" name="cc" onchange="selectDificulty(this.id)" />
-                    <label for="hiragana">Hiragana</label>
+                    <form action="">
+                        <input type="checkbox" class="switch" id="hiragana" name="cc"
+                            onchange="selectDificulty(this.id)" />
+                        <label for="hiragana">Hiragana</label>
+                    </form>
 
-                    <br />
+                    <form action="">
+                        <input type="checkbox" class="switch" id="hiraganaCombo" name="cc"
+                            onchange="selectDificulty(this.id)" />
+                        <label for="hiraganaCombo">Hiragana Combo</label>
+                    </form>
 
-                    <input type="checkbox" class="switch" id="hiraganaCombo" name="cc"
-                        onchange="selectDificulty(this.id)" />
-                    <label for="hiraganaCombo">Hiragana Combo</label>
+                    <form action="">
+                        <input type="checkbox" class="switch" id="hiraganaDakuon" name="cc"
+                            onchange="selectDificulty(this.id)" />
+                        <label for="hiraganaDakuon">Hiragana Dakuon</label>
+                    </form>
 
-                    <br />
-
-                    <input type="checkbox" class="switch" id="hiraganaDakuon" name="cc"
-                        onchange="selectDificulty(this.id)" />
-                    <label for="hiraganaDakuon">Hiragana Dakuon</label>
-
-                    <br />
-
-                    <input type="checkbox" class="switch" id="hiraganaDakuonCombo" name="cc"
-                        onchange="selectDificulty(this.id)" />
-                    <label for="hiraganaDakuonCombo">Hiragana Dakuon Combo </label>
+                    <form action="">
+                        <input type="checkbox" class="switch" id="hiraganaDakuonCombo" name="cc"
+                            onchange="selectDificulty(this.id)" />
+                        <label for="hiraganaDakuonCombo">Hiragana Dakuon Combo </label>
+                    </form>
 
                     <p class="divider">---------------------------------------</p>
 
-                    <input type="checkbox" class="switch" id="katakana" name="cc" onchange="selectDificulty(this.id)" />
-                    <label for="katakana">Katakana</label>
+                    <form action="">
+                        <input type="checkbox" class="switch" id="katakana" name="cc"
+                            onchange="selectDificulty(this.id)" />
+                        <label for="katakana">Katakana</label>
+                    </form>
 
-                    <br />
+                    <form action="">
+                        <input type="checkbox" class="switch" id="katakanaCombo" name="cc"
+                            onchange="selectDificulty(this.id)" />
+                        <label for="katakanaCombo">Katakana Combo</label>
+                    </form>
 
-                    <input type="checkbox" class="switch" id="katakanaCombo" name="cc"
-                        onchange="selectDificulty(this.id)" />
-                    <label for="katakanaCombo">Katakana Combo</label>
+                    <form action="">
+                        <input type="checkbox" class="switch" id="katakanaDakuon" name="cc"
+                            onchange="selectDificulty(this.id)" />
+                        <label for="katakanaDakuon">Katakana Dakuon</label>
+                    </form>
 
-                    <br />
 
-                    <input type="checkbox" class="switch" id="katakanaDakuon" name="cc"
-                        onchange="selectDificulty(this.id)" />
-                    <label for="katakanaDakuon">Katakana Dakuon</label>
-
-                    <br />
-
-                    <input type="checkbox" class="switch" id="katakanaDakuonCombo" name="cc"
-                        onchange="selectDificulty(this.id)" />
-                    <label for="katakanaDakuonCombo">Katakana Dakuon Combo </label>
+                    <form action="">
+                        <input type="checkbox" class="switch" id="katakanaDakuonCombo" name="cc"
+                            onchange="selectDificulty(this.id)" />
+                        <label for="katakanaDakuonCombo">Katakana Dakuon Combo </label>
+                    </form>
                 </ul>
             </nav>
         </section>
 
         <section class="_2">
-            <h2> あ </h2>
+            <h2 class="character"> あ </h2>
 
             <div>
                 <span class="material-icons-round iconkeyboard">keyboard_double_arrow_right</span>
                 <span class="material-icons-round iconkeyboard">keyboard</span>
                 <span class="material-icons-round iconkeyboard">keyboard_double_arrow_left</span>
-
-                <p>BAD answerd, the good one is <span>'A'</span> </p>
             </div>
 
             <form class="forms" action="#" onsubmit="checkAnswerd(); return false" autocomplete="off">
+
+                <div>
+                    <span>Votre score</span>
+                    <span class="fa-solid fa-star"></span>
+                    <span class="good">0</span>/<span class="total">0</span>
+                </div>
+
+                <div id="toast">
+                </div>
+
                 <input name="input" type="text" class="input" autofocus maxlength="3" />
-                <input type="submit" class="hidden" />
             </form>
         </section>
 
-        <section class="_4">
+        <section class="_3">
             <a href="#"><span class="material-icons-round iconhelp">info</span></a>
             <a><span class="material-icons-round">close</span></a>
         </section>
     </main>
 
     <footer>
-        <div>
-            <span>Votre score</span>
-            <span class="fa-solid fa-star"></span>
-            <span>0</span>/<span>0</span>
-        </div>
-
         <a href="" target="_blank" class="twitter-share">
             <i class="fa fa-twitter"> </i>
             <span>Partager sur Twitter</span>
@@ -164,13 +175,12 @@
 
     <!-- Script Block -->
     <div>
-        <script src="/kana"></script>
+        <script src="js/kana.js"></script>
         <script src="js/const.js"></script>
-        <script src="js/save.js"></script>
-        <script src="js/function.js"></script>
-        <script src="js/hamburger.js"></script>
         <script src="js/theme.js"></script>
-        <script src="js/app.js"></script>
+        <script src="js/function.js"></script>
+
+        <script src="js/save.js"></script>
     </div>
 </body>
 
