@@ -1,4 +1,4 @@
-//add-Remove difficulty
+// add-Remove difficulty
 function selectDificulty(id) {
   let ellement = document.getElementById(id);
 
@@ -76,116 +76,122 @@ function getRandom(type) {
   }
 }
 
-// //notification
-// function createNotification(txt, c) {
-//     const notif = document.createElement("div");
-//     const correct = document.createElement('span');
+// notification
+function createNotification(txt, c) {
+  const notif = document.createElement("p");
+  const correct = document.createElement("span");
 
-//     notif.classList.add("toast");
+  notif.innerText = txt + " ";
 
-//     notif.innerText = txt + " ";
+  if (c != undefined) {
+    correct.innerText = '"' + c + '"';
+  }
 
-//     if (c != undefined) {
-//         correct.innerText = "\"" + c + "\"";
-//     }
+  toast.appendChild(notif);
+  notif.appendChild(correct);
 
-//     toast.appendChild(notif);
-//     notif.appendChild(correct);
+  setTimeout(() => {
+    notif.remove();
+  }, delay);
+}
 
-//     setTimeout(() => {
-//         notif.remove();
-//     }, delay);
-// }
+// Answerd checker
+function checkAnswerd() {
+  if (document.getElementsByClassName("toast").length === 0) {
+    let a = input.value.toLowerCase();
+    let b = selectedCharacter[1];
+    c = b.split("-");
+    d = c.indexOf(a);
 
-// //Answerd checker
-// function checkAnswerd() {
-//     if (document.getElementsByClassName("toast").length === 0) {
-//         let a = input.value.toLowerCase()
-//         let b = selectedCharacter[1];
-//         c = b.split("-");
-//         d = c.indexOf(a);
+    if (d != -1) {
+      e = c[d];
+      if (a === e) {
+        input.value = "";
+        goodAnswerd();
+      } else {
+        input.value = "";
+        badAnswerd();
+      }
+    } else {
+      input.value = "";
+      badAnswerd();
+    }
+  } else {
+    return;
+  }
 
-//         if (d != -1) {
-//             e = c[d];
-//             if (a === e) {
-//                 input.value = "";
-//                 goodAnswerd();
-//             } else {
-//                 input.value = "";
-//                 badAnswerd();
-//             }
-//         } else {
-//             input.value = "";
-//             badAnswerd();
-//         }
-//     } else {
-//         return;
-//     }
+  a = parseInt(myPoint.innerText);
+  b = parseInt(totalPoint.innerText);
 
-//     a = parseInt(myPoint.innerText);
-//     b = parseInt(totalPoint.innerText);
+  score = a + "/" + b;
+  save("score", score);
+  createCookie("score", score, 1);
 
-//     score = a + "/" + b;
-//     save('score', score)
-//     createCookie('score', score, 365)
+  pr = (a / b) * 100;
+  save("ratio", pr);
 
-//     pr = (a / b)*100
-//     save('ratio', pr)
+  best = localStorage.getItem("bestRatio");
+  if (pr >= best) {
+    save("bestRatio", pr);
+    save("best", score);
+    createCookie("best", score, 1);
+  }
+}
 
-//     best = localStorage.getItem('bestRatio')
-//     if (pr >= best) {
-//         save('bestRatio',  pr)
-//         save('best',  score)
-//         createCookie('best', score, 365)
-//     }
-// }
+// If is good
+function goodAnswerd() {
+  createNotification("good ! " + "+1");
+  incrementGood();
+}
 
-// //If is good
-// function goodAnswerd() {
-//     createNotification("good ! " + "+1");
-//     incrementGood();
-// }
+// if is not!
+function badAnswerd() {
+  let a = selectedCharacter[1];
+  createNotification("Nop bad answerd, the good one is", a);
+  incrementTotal();
+}
 
-// //if is not!
-// function badAnswerd() {
-//     let a = selectedCharacter[1];
-//     createNotification("Nop bad answerd, the good one is", a);
-//     incrementTotal();
-// }
+// increment point
+function incrementGood() {
+  a = parseInt(myPoint.innerText);
+  a += 1;
+  myPoint.innerText = a.toString();
 
-// //increment point
-// function incrementGood() {
-//     a = parseInt(myPoint.innerText);
-//     a += 1;
-//     myPoint.innerText = a.toString();
+  incrementTotal();
+}
 
-//     incrementTotal();
-// };
+// increment total
+function incrementTotal() {
+  b = parseInt(totalPoint.innerText);
+  b += 1;
 
-// //increment total
-// function incrementTotal() {
-//     b = parseInt(totalPoint.innerText);
-//     b += 1;
+  totalPoint.innerText = b.toString();
 
-//     totalPoint.innerText = b.toString();
+  setTimeout(() => {
+    startGame();
+  }, delay);
 
-//     setTimeout(() => {
-//         startGame();
-//     }, delay);
+  a = myPoint.innerText;
+}
 
-//     a = myPoint.innerText;
-// };
+// Cookies
+function createCookie(string, score, time) {
+  var date = new Date();
+  date.setDate(date.getDate() + 1);
+  var dateString = date.toGMTString();
+  document.cookie = "best=" + score + "; expires=" + dateString;
+}
 
-// //share to Twitter
-// twitter.addEventListener('click', event => {
-//     var b = twitter.getAttribute('href');
+//share to Twitter
+twitter.addEventListener('click', event => {
+    var b = twitter.getAttribute('href');
 
-//     var good = myPoint.textContent;
-//     var total = totalPoint.textContent;
+    var good = myPoint.textContent;
+    var total = totalPoint.textContent;
 
-//     b = "https://twitter.com/intent/tweet?text=" + encodeURIComponent("I just scored " + good + " out of " + total + " in my Hiragana Training. \nCan you do better? https://kana.audricrosier.be");
-//     twitter.setAttribute("href", b);
-// })
+    b = "https://twitter.com/intent/tweet?text=" + encodeURIComponent("I just scored " + good + " out of " + total + " in my Hiragana Training. \nCan you do better? https://kana.audricrosier.be");
+    twitter.setAttribute("href", b);
+})
 
 // // Get all kana from the database to generate help
 // function getAllKana() {
