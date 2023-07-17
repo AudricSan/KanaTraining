@@ -68,7 +68,12 @@
 	<url>
 		<loc>http://www.kana.audricrosier;be/view/test.html</loc>
 		<priority>0.71</priority>
-		<lastmod>2023-07-12</lastmod>
+		<lastmod>2023-07-17</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier;be/public/js/kana.js</loc>
+		<priority>0.57</priority>
+		<lastmod>2023-07-14</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier;be/model/dao/studentLessonDAO.php</loc>
@@ -91,11 +96,6 @@
 		<lastmod>2023-05-25</lastmod>
 	</url>
 	<url>
-		<loc>http://www.kana.audricrosier;be/model/class/kanji.js</loc>
-		<priority>0.57</priority>
-		<lastmod>2023-03-28</lastmod>
-	</url>
-	<url>
 		<loc>http://www.kana.audricrosier;be/public/js/kana.js</loc>
 		<priority>0.57</priority>
 		<lastmod>2022-10-25</lastmod>
@@ -103,17 +103,12 @@
 	<url>
 		<loc>http://www.kana.audricrosier;be/public/js/const.js</loc>
 		<priority>0.57</priority>
-		<lastmod>2023-03-07</lastmod>
+		<lastmod>2023-07-17</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier;be/model/class/oauthtwitch.php</loc>
 		<priority>0.57</priority>
 		<lastmod>2022-12-13</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier;be/model/class/kana.js</loc>
-		<priority>0.57</priority>
-		<lastmod>2023-04-07</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier;be/model/class/config.php</loc>
@@ -194,6 +189,11 @@
 		<loc>http://www.kana.audricrosier;be/view</loc>
 		<priority>0.57</priority>
 		<lastmod>2023-07-11</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier;be/public/js/kanji.js</loc>
+		<priority>0.57</priority>
+		<lastmod>2023-07-14</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier;be/ellements/img/favicon/html_code.html</loc>
