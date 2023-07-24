@@ -7,11 +7,20 @@ function selectDificulty(id) {
     save("dificulty", dificulty);
   } else {
     const index = dificulty.indexOf(ellement.id);
+
     if (index > -1) {
       dificulty.splice(index, 1);
     }
-
     save("dificulty", dificulty);
+  }
+
+  if (dificulty.length === 1) {
+    let ellement = document.getElementById(dificulty[0]);
+    ellement.setAttribute("disabled", "disabled");
+  } else {
+    console.log(dificulty);
+    let ellement = document.getElementById(dificulty[0]);
+    ellement.removeAttribute("disabled", "disabled");
   }
 
   startGame();
@@ -183,15 +192,23 @@ function createCookie(string, score, time) {
 }
 
 //share to Twitter
-twitter.addEventListener('click', event => {
-    var b = twitter.getAttribute('href');
+twitter.addEventListener("click", (event) => {
+  var b = twitter.getAttribute("href");
 
-    var good = myPoint.textContent;
-    var total = totalPoint.textContent;
+  var good = myPoint.textContent;
+  var total = totalPoint.textContent;
 
-    b = "https://twitter.com/intent/tweet?text=" + encodeURIComponent("I just scored " + good + " out of " + total + " in my Hiragana Training. \nCan you do better? https://kana.audricrosier.be");
-    twitter.setAttribute("href", b);
-})
+  b =
+    "https://twitter.com/intent/tweet?text=" +
+    encodeURIComponent(
+      "I just scored " +
+        good +
+        " out of " +
+        total +
+        " in my Hiragana Training. \nCan you do better? https://kana.audricrosier.be"
+    );
+  twitter.setAttribute("href", b);
+});
 
 // // Get all kana from the database to generate help
 // function getAllKana() {
