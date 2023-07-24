@@ -36,8 +36,28 @@ body main ._2 {
   text-align: center;
 }
 body main ._2 h2 {
-  font-size: 5em;
+  font-size: 10em;
   flex-basis: 50%;
+}
+body main ._2 form input {
+  border-radius: 25px;
+  font-size: 1em;
+  padding: 1em;
+}
+body main ._2 form div {
+  margin-bottom: 2em;
+}
+body main ._2 form div#toast {
+  position: absolute;
+}
+body main ._2 form div#toast p {
+  width: 300px;
+  border-radius: 25px;
+  position: relative;
+  left: -3.5em;
+  background-color: wheat;
+  color: black;
+  padding: 1em;
 }
 body main ._3 {
   justify-self: right;

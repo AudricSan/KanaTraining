@@ -50,8 +50,35 @@ body {
       text-align: center;
 
       h2 {
-        font-size: 5em;
+        font-size: 10em;
         flex-basis: 50%;
+      }
+
+      form {
+
+        input {
+          border-radius: 25px;
+          font-size: 1em;
+          padding: 1em;
+        }
+
+        div {
+          margin-bottom: 2em;
+
+          &#toast {
+            position: absolute;
+
+            p {
+              width: 300px;
+              border-radius: 25px;
+              position: relative;
+              left: -3.5em;
+              background-color: wheat;
+              color: black;
+              padding: 1em;
+            }
+          }
+        }
       }
     }
 
