@@ -18,7 +18,6 @@ function selectDificulty(id) {
     let ellement = document.getElementById(dificulty[0]);
     ellement.setAttribute("disabled", "disabled");
   } else {
-    console.log(dificulty);
     let ellement = document.getElementById(dificulty[0]);
     ellement.removeAttribute("disabled", "disabled");
   }
@@ -99,8 +98,12 @@ function createNotification(txt, c) {
   toast.appendChild(notif);
   notif.appendChild(correct);
 
+  console.log(input);
+  input.setAttribute("disabled", "disabled");
   setTimeout(() => {
     notif.remove();
+    input.removeAttribute("disabled", "disabled");
+    input.focus();
   }, delay);
 }
 
