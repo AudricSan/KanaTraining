@@ -10,14 +10,7 @@ let myPoint = document.querySelector('.good');
 let totalPoint = document.querySelector('.total');
 
 const twitter = document.querySelector('.twitter-share');
+const helpContainer = document.querySelector(".helpContainer");
 
-
-
-
-
-
-
-// const helpspawner = document.getElementById("help-spawner");
-// const helpContainer = document.getElementById("help");
-// const closer = document.querySelector('.helpcloser');
-// const helpbtn = document.querySelector('.help');
+const helpOpen = document.querySelector('.helpOpen');
+const helpClose = document.querySelector('.helpClose');
