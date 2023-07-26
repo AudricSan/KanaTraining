@@ -68,7 +68,7 @@
 	<url>
 		<loc>http://www.kana.audricrosier;be/view/test.html</loc>
 		<priority>0.71</priority>
-		<lastmod>2023-07-17</lastmod>
+		<lastmod>2023-07-26</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier;be/public/js/kana.js</loc>
@@ -103,7 +103,7 @@
 	<url>
 		<loc>http://www.kana.audricrosier;be/public/js/const.js</loc>
 		<priority>0.57</priority>
-		<lastmod>2023-07-17</lastmod>
+		<lastmod>2023-07-26</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier;be/model/class/oauthtwitch.php</loc>
