@@ -218,7 +218,7 @@ function helpGenerator() {
   let helpTable = []
 
   dificulty.forEach((e) => {
-    helpTable.push(Hiragana[e])
+    helpTable.push(myKana[e])
   })
 
   helpContainer.removeChild
