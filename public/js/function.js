@@ -72,7 +72,7 @@ function getRandom(type) {
   let selected
 
   while (selected != "undefined") {
-    let selected = Hiragana[type]
+    let selected = myKana[type]
     let nb = getRandomInteger(0, selected.length - 1)
 
     if (selected != undefined) {
