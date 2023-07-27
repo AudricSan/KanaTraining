@@ -1,4 +1,5 @@
 # Kanatraining
+>[Kanatraining English readme](/README.md)
 
 Kanatraining est une plateforme d'apprentissage des caractères japonais (kanas) - hiraganas et katakanas.
 
