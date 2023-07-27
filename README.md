@@ -1,26 +1,8 @@
 # Kanatraining Readme
-<!-- >[Kanatraining french readme](/README%20-%20FR.md) -->
-
 Kanatraining is a platform for learning Japanese characters (kanas) - hiraganas and katakanas.
 
 ## Description
 Kanatraining is a comprehensive online platform designed to help you learn and master Japanese characters. Our site focuses on teaching hiragana, katakana, and kanji, the three fundamental writing systems of the Japanese language. Whether you're a beginner eager to explore the world of Japanese characters or an advanced learner seeking to solidify your knowledge, Kanatraining offers a user-friendly and engaging learning experience.
-
-<!-- ## Table of Contents
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
-- [Features](#Features)
-- [Installation](#Installation)
-- [Usage](#Usage)
-- [Support](#Support)
-- [Roadmap](#Roadmap)
-- [Technologies](#Technologies)
-- [Contributing](#Contributing)
-- [License](#License)
-- [Documentation](#Documentation)
-- [Support](#Support)
-- [Status](#Project Status) -->
 
 ## Features
 - Learn and practice hiragana, katakana, and kanji characters through interactive lessons.
@@ -40,13 +22,6 @@ Once you have created an account on Kanatraining, you can begin your journey of 
 You can track your progress, view your performance statistics, and revisit previous lessons whenever you need to reinforce your knowledge. Engage in interactive quizzes to test your skills and evaluate your proficiency.
 
 Join our vibrant community forums to connect with other learners, ask questions, and share your learning experiences. The forums provide a supportive environment for collaborative learning and cultural exchange.
-
-<!-- ### Usage - Structure
-1. Register on Kanatraining by creating an account.
-2. Choose between lessons, exercises or games according to your needs.
-3. Follow the instructions provided for each activity and practice as much as you like.
-4. Use the Progress Tracker to monitor your progress and identify areas for improvement.
-5. Join the community to interact with other learners and share tips and tricks. -->
 
 ## Support
 If you have any questions, need assistance, or want to provide feedback, please reach out to us through our support channels:
