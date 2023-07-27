@@ -1,0 +1,5 @@
+@import url(color.css);
+body {
+  background-color: var(--charleston-green);
+  color: var(--background);
+}/*# sourceMappingURL=darktheme.css.map */

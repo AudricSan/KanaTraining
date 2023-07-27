@@ -1,225 +1,145 @@
 @import url(color.css);
-@import url("https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
-:root {
-  --body-width: 60%;
-  --margin-nav: 3%;
-  --border-radius: 15px;
+.logo {
+  size: 50%;
+  height: 25%;
 }
 
-//Html Structure
+.hidden {
+  display: none;
+}
+
 body {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
 
-  max-width: var(--body-width);
-  background-color: var(--background);
-  margin-left: auto;
-  margin-right: auto;
-
-  nav {
-    position: fixed;
-    margin-top: var(--margin-nav);
-    height: 80px;
-    width: var(--body-width);
-    z-index: 9999;
-    background-color: white;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    border-radius: var(--border-radius);
-
-    h1 {
-      margin-left: 2%;
-    }
-
-    .menu {
-      text-align: right;
-      min-width: 60%;
-
-      a {
-        margin-right: var(--margin-nav);
-      }
-    }
-
-    &.hidder {
-      margin-top: 0;
-      background-color: var(--background);
-    }
-  }
+  padding: 1em 3em 0em 3em;
 
   main {
-    padding: var(--margin-nav);
-    margin-top: 20%;
-    margin-bottom: 10%;
+    display: grid;
 
-    .banner {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+
+    ._1 {
+      nav {
+        ul {
+          p {
+            margin-bottom: 0.6em;
+          }
+
+          form {
+            margin-top: 0.2em;
+          }
+        }
+      }
+    }
+
+    ._2 {
+      margin-top: 2em;
+
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
 
-        p {
-          margin-top: 5%;
-          margin-bottom: 7%;
-        }
+      text-align: center;
 
-      img {
-        height: 230px;
-        margin-right: 10%;
+      h2 {
+        font-size: 10em;
+        flex-basis: 50%;
       }
-    }
 
-    .content {
-      margin-top: 10%;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+      form {
 
-      .card {
-        background: white;
-        padding-top: 5%;
-        width: 300px;
-        border-radius: var(--border-radius);
-        box-shadow: -1px 15px 30px -12px black;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        align-content: center;
-        flex-wrap: nowrap;
-
-        margin-bottom: 2em;
-
-        .card_image {
-          margin-top: 5%;
+        input {
           text-align: center;
-          height: 230px;
-          margin-bottom: 35px;
+          border-radius: 25px;
+          font-size: 1em;
+          padding: 1em;
         }
-
-        .card_name {
-          text-align: center;
-          font-size: 26px;
-          font-weight: 900;
-          margin-bottom: 1%;
-        }
-
-        .card_description {
-          padding: 5%;
-          margin: 5%;
-        }
-      }
-    }
-  }
-}
-
-//Globals Ellements
-body {
-  h1 {
-    font-size: 2.5em;
-    font-weight: 600;
-  }
-
-  h2 {
-    font-size: 2em;
-    font-weight: 400;
-  }
-
-  h5 {
-    font-size: 1em;
-    font-weight: 600;
-  }
-
-  p {
-    font-size: 1em;
-    font-weight: 100;
-  }
-
-  .btn {
-    padding: 10px 25px;
-    border-radius: 25px;
-    border: solid 1px black;
-
-    &.full {
-      border: none;
-      background-color: var(--blue-yonder);
-    }
-  }
-}
-
-//Small Screen
-@media only screen and (max-width: 1500px) {
-
-  //Html Structure
-  body {
-    nav {
-      h1 {
-        &.logo {
-          display: none;
-        }
-      }
-
-      .menu {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        margin-left: 3%;
-      }
-    }
-
-    main {
-      .banner {
-        margin-top: 5%;
-        display: block;
 
         div {
-          max-width: 100%;
-        }
+          margin-bottom: 2em;
 
-        img {
-          display: none;
+          &#toast {
+            position: absolute;
+
+            p {
+              width: 300px;
+              border-radius: 25px;
+              position: relative;
+              left: -3.5em;
+              background-color: wheat;
+              color: black;
+              padding: 1em;
+            }
+          }
         }
       }
+    }
 
-      .nomobile {
-        display: none;
-      }
+    ._3 {
+      justify-self: right;
+      display: flex;
+      flex-direction: row;
 
-      .content {
-        margin-top: 3em;
-        display: flex;
-        flex-direction: column;
+      .helpSpawner {
+        position: absolute;
+        right: 6em;
 
-        .card {
-          width: fit-content;
+        max-height: 500px;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+          width: 5px;
+        }
+    
+        &::-webkit-scrollbar-thumb {
+          background: var(--dark-liver);
+        }
+
+        .helpContainer {
+          margin-right: 0.5em;
+          position: relative;
+          display: grid;
+          gap: 0.5em;
+          grid-template-columns: repeat(7, 1fr);
+
+          li {
+            padding: 1em;
+            border: dotted 1px white;
+
+            p {
+              line-height: 1.5em;
+              text-align: center;
+            }
+          }
         }
       }
     }
   }
-}
 
-@media only screen and (max-width: 500px) {
-  :root {
-    --body-width: 90%;
-    --margin-nav: 3%;
-  }
+  footer {
+    margin-top: 5em;
 
-  //Html Structure
-  body {
-    main {
-      margin-top: 20%;
-    }
-  }
+    display: flex;
+    flex-direction: column;
 
-  //Globals Ellements
-  body {
-    .btn {
-      padding: 3% 5%;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      display: flex;
+      flex-direction: row;
+
+      p {
+        margin: 0 1em 0 1em;
+      }
     }
   }
 }

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Entraînez vos Kanas</title>
+
+    <!-- Meta Application -->
+    <meta name="application-name" content="KanaTraining" />
+    <meta name="creator" content="Audric Rosier" />
+    <meta name="publisher" content="Audric Rosier" />
+    <meta name="author" content="https://github.com/AudricSan" />
+    <meta name="description" content="Application simple pour apprendre gratuitement les Kanas." />
+
+    <!-- Meta Robots -->
+    <meta name="robots" content="index,follow,noodp,noimageindex" />
+
+    <!-- CSS des icônes -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/eb747bd21c.js" crossorigin="anonymous"></script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="view/image/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="view/image/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="194x194" href="view/image/favicon/favicon-194x194.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="view/image/favicon/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="view/image/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="view/image/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="view/image/favicon/safari-pinned-tab.svg" color="#ffffff" />
+    <link rel="shortcut icon" href="view/image/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="view/image/favicon/mstile-144x144.png" />
+    <meta name="msapplication-config" content="view/image/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Favicon en SVG -->
+    <link rel="icon" type="image/svg+xml" href="view/image/favicon/svg/favicon.svg" />
+    <link rel="icon" type="image/png" href="view/image/favicon/svg/favicon.png" />
+
+    <!-- CSS -->
+    <link href="public/css/reset.css" rel="stylesheet" />
+    <link href="public/css/index.css" rel="stylesheet" />
+    <link href="public/css/menu.css" rel="stylesheet" />
+</head>
+
+<body onload="getSave()">
+    <header>
+        <img class="logo" src="image/logo.png" />
+        <h1>Entraînez vos Kanas</h1>
+    </header>
+
+    <main>
+        <section class="_1">
+            <nav>
+                <ul>
+                    <a href="JavaScript:createNotification('in as future update')" class='fa-solid fa-person'></span> Connection </a>
+                    <!-- <a href='$link'> <span class='fa-solid fa-person'></span> Connection </a> -->
+
+                    <p class="divider">---------------------------------------</p>
+
+                    <form action="">
+                        <input type="checkbox" class="switch theme" id="theme" name="cc" onchange="selectTheme()" />
+                        <label for="theme">theme-color</label>
+                    </form>
+
+                    <p class="divider">---------------------------------------</p>
+
+                    <form action="">
+                        <input type="checkbox" class="switch" id="hiragana" name="cc" onchange="selectDificulty(this.id)" />
+                        <label for="hiragana">Hiragana</label>
+                    </form>
+
+                    <form action="">
+                        <input type="checkbox" class="switch" id="hiraganaCombo" name="cc" onchange="selectDificulty(this.id)" />
+                        <label for="hiraganaCombo">Hiragana Combo</label>
+                    </form>
+
+                    <form action="">
+                        <input type="checkbox" class="switch" id="hiraganaDakuon" name="cc" onchange="selectDificulty(this.id)" />
+                        <label for="hiraganaDakuon">Hiragana Dakuon</label>
+                    </form>
+
+                    <form action="">
+                        <input type="checkbox" class="switch" id="hiraganaDakuonCombo" name="cc" onchange="selectDificulty(this.id)" />
+                        <label for="hiraganaDakuonCombo">Hiragana Dakuon Combo </label>
+                    </form>
+
+                    <p class="divider">---------------------------------------</p>
+
+                    <form action="">
+                        <input type="checkbox" class="switch" id="katakana" name="cc" onchange="selectDificulty(this.id)" />
+                        <label for="katakana">Katakana</label>
+                    </form>
+
+                    <form action="">
+                        <input type="checkbox" class="switch" id="katakanaCombo" name="cc" onchange="selectDificulty(this.id)" />
+                        <label for="katakanaCombo">Katakana Combo</label>
+                    </form>
+
+                    <form action="">
+                        <input type="checkbox" class="switch" id="katakanaDakuon" name="cc" onchange="selectDificulty(this.id)" />
+                        <label for="katakanaDakuon">Katakana Dakuon</label>
+                    </form>
+
+
+                    <form action="">
+                        <input type="checkbox" class="switch" id="katakanaDakuonCombo" name="cc" onchange="selectDificulty(this.id)" />
+                        <label for="katakanaDakuonCombo">Katakana Dakuon Combo </label>
+                    </form>
+                </ul>
+            </nav>
+        </section>
+
+        <section class="_2">
+            <h2 class="character"> あ </h2>
+
+            <div>
+                <span class="material-icons-round iconkeyboard">keyboard_double_arrow_right</span>
+                <span class="material-icons-round iconkeyboard">keyboard</span>
+                <span class="material-icons-round iconkeyboard">keyboard_double_arrow_left</span>
+            </div>
+
+            <form class="forms" action="#" onsubmit="checkAnswerd(); return false" autocomplete="off">
+
+                <div>
+                    <span>Votre score</span>
+                    <span class="fa-solid fa-star"></span>
+                    <span class="good">0</span>/<span class="total">0</span>
+                </div>
+
+                <div id="toast">
+                </div>
+
+                <input name="input" type="text" class="input" autofocus maxlength="3" />
+            </form>
+        </section>
+
+        <section class="_3">
+
+            <div class="helpSpawner">
+                <ul class="helpContainer">
+                </ul>
+            </div>
+
+            <a href="#" class="helpOpen"><span class="material-icons-round iconhelp">info</span></a>
+            <a href="#" class="helpClose hidden"><span class="material-icons-round">close</span></a>
+        </section>
+    </main>
+
+    <footer>
+        <a href="" target="_blank" class="twitter-share">
+            <i class="fa fa-twitter"> </i>
+            <span>Partager sur Twitter</span>
+        </a>
+
+        <div class="author">
+            <a href="https://twitter.com/AudricSan" target="_blank">
+                <span class="fa-solid fa-user"></span>
+                par Audric_San
+            </a>
+
+            <p>|</p>
+
+            <a href="https://github.com/AudricSan/KanaTraining" target="_blank" class="git">
+                Le projet sur GitHub <span class="fab fa-github icongit"></span>
+            </a>
+        </div>
+
+        <!-- Script Block -->
+        <div>
+            <script src="js/theme.js"></script>
+            <script src="js/kana.js"></script>
+            <script src="js/const.js"></script>
+            <script src="js/save.js"></script>
+            <script src="js/function.js"></script>
+        </div>
+    </footer>
+</body>
+
+</html>

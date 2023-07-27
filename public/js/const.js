@@ -1,21 +1,18 @@
-var input = document.querySelector('.input');
-var character = document.querySelector('.character');
+let dificulty = [];
 
-var dificulty = [];
-var NextTheme;
+const myKana = new kana();
 
-var selectedCharacter;
+let character = document.querySelector('.character');
 
-const toast = document.getElementById("notification");
+const toast = document.getElementById("toast");
+const delay = 1000;
 
-const helpspawner = document.getElementById("help-spawner");
-const helpContainer = document.getElementById("help");
-const closer = document.querySelector('.helpcloser');
-const helpbtn = document.querySelector('.help');
-
-var myPoint = document.querySelector('.good');
-var totalPoint = document.querySelector('.total');
+let input = document.querySelector('.input');
+let myPoint = document.querySelector('.good');
+let totalPoint = document.querySelector('.total');
 
 const twitter = document.querySelector('.twitter-share');
 
-const delay = 1000;
+const helpContainer = document.querySelector(".helpContainer");
+const helpOpen = document.querySelector('.helpOpen');
+const helpClose = document.querySelector('.helpClose');

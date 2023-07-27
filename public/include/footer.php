@@ -1,17 +1,32 @@
-<footer>
-    <script src='/kana'></script>
-    
-    <script src='js/const.js'></script>
+<?php
+echo "
+    <footer>
+            <a href='' target='_blank' class='twitter-share'>
+                <i class='fa fa-twitter'> </i>
+                <span>Partager sur Twitter</span>
+            </a>
 
-    <script src='js/save.js'></script>
+            <div class='author'>
+                <a href='https://twitter.com/AudricSan' target='_blank'>
+                    <span class='fa-solid fa-user'></span>
+                    par Audric_San
+                </a>
 
-    <script src='js/function.js'></script>
+                <p>|</p>
 
-    <script src='js/hamburger.js'></script>
-    <script src='js/theme.js'></script>
+                <a href='https://github.com/AudricSan/KanaTraining' target='_blank' class='git'>
+                    Le projet sur GitHub <span class='fab fa-github icongit'></span>
+                </a>
+            </div>
 
-    <script src='js/app.js'></script>
-</footer>
-</body>
+            <!-- Script Block -->
+            <script src='js/theme.js'></script>
+            <script src='js/kana.js'></script>
+            <script src='js/const.js'></script>
+            <script src='js/save.js'></script>
+            <script src='js/function.js'></script>
+        </footer>
+    </body>
 
-</html>
+    </html>
+";
