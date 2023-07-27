@@ -1,5 +1,7 @@
 let dificulty = [];
-const Hiragana = new kana();
+
+const myKana = new kana();
+
 let character = document.querySelector('.character');
 
 const toast = document.getElementById("toast");
@@ -10,7 +12,7 @@ let myPoint = document.querySelector('.good');
 let totalPoint = document.querySelector('.total');
 
 const twitter = document.querySelector('.twitter-share');
-const helpContainer = document.querySelector(".helpContainer");
 
+const helpContainer = document.querySelector(".helpContainer");
 const helpOpen = document.querySelector('.helpOpen');
 const helpClose = document.querySelector('.helpClose');
