@@ -1,4 +1,4 @@
-class kana {
+class kanji {
     constructor() { }
 
     kanjiN5 = [];
