@@ -6,7 +6,6 @@ namespace kanatraining;
 use Kanatraining\Route;
 use LessonDAO;
 use StudentDAO;
-use UserDAO;
 use StudentAchievementDAO;
 use StudentLessonDAO;
 
@@ -31,9 +30,9 @@ function foot()
 // Base Route
 
 Route::add('/', function () {
-  // head();
-  include('../view/test.html');
-  // foot();
+  head();
+  include('../view/index.php');
+  foot();
 });
 
 Route::add('/test', function () {
