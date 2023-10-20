@@ -1,7 +1,7 @@
 {
   "sitemap.xml": {
     "Protocol": "http",
-    "DomainName": "kana.audricrosier;be",
+    "DomainName": "kana.audricrosier.be",
     "Root": "./",
     "IncludeExt": [
       ".html",
