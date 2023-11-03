@@ -4,7 +4,6 @@ use Kanatraining\Env;
 use Kanatraining\Achievement;
 use Kanatraining\Student;
 use Kanatraining\studentLesson;
-use Vtiful\Kernel\Format;
 
 class StudentLessonDAO extends Env
 {
