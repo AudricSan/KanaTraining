@@ -1,10 +1,13 @@
 <?php
+
+
 echo "
     <main>
         <section class='_1'>
             <nav>
                 <ul>
-                    <a href='JavaScript:createNotification('in as future update')' class='fa-solid fa-person'></span> Connection </a>
+                    <a href='JavaScript:createNotification(\"in as future update\")' class='fa-solid fa-person'></span> Connection </a>
+                    <a href='/login' class='fa-solid fa-person'></span> Connection </a>
 
                     <p class='divider'>---------------------------------------</p>
 
