@@ -8,6 +8,7 @@ use LessonDAO;
 use StudentDAO;
 use StudentAchievementDAO;
 use StudentLessonDAO;
+use OAuthTwitch;
 
 // Include class
 include '../model/class/Route.php';
@@ -33,6 +34,12 @@ Route::add('/', function () {
   head();
   include('../view/index.php');
   foot();
+});
+
+Route::add('/login', function () {
+  include('../model/class/config.php');
+  $link = $oauth->get_link_connect();
+  header('Location: ' . $link);
 });
 
 Route::add('/test', function () {
