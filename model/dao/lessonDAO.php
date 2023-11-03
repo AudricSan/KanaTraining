@@ -2,7 +2,6 @@
 
 use Kanatraining\Env;
 use Kanatraining\Lesson;
-use Vtiful\Kernel\Format;
 
 class LessonDAO extends Env
 {
