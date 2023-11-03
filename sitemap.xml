@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>http://www.kana.audricrosier.be/public</loc>
+		<loc>http://www.kana.audricrosier.be/view</loc>
 		<priority>0.80</priority>
-		<lastmod>2023-10-20</lastmod>
+		<lastmod>2023-11-03</lastmod>
 	</url>
 	<url>
-		<loc>http://www.kana.audricrosier.be/view</loc>
+		<loc>http://www.kana.audricrosier.be/public</loc>
 		<priority>0.80</priority>
 		<lastmod>2023-11-03</lastmod>
 	</url>
@@ -16,97 +16,7 @@
 		<lastmod>2023-10-20</lastmod>
 	</url>
 	<url>
-		<loc>http://www.kana.audricrosier.be/model/class/achievement.php</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-10-20</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/model/class/lesson.php</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-10-20</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/model/class/oauthtwitch.php</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-10-20</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/model/class/Route.php</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-10-20</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/model/class/student.php</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-10-20</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/model/class/studentAchievement.php</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-10-20</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/model/class/studentLesson.php</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-10-20</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/model/dao/lessonDAO.php</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-11-03</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/model/dao/studentAchievementDAO.php</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-11-03</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/model/dao/studentDAO.php</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-11-03</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/model/dao/studentLessonDAO.php</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-11-03</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/public/include/footer.php</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-10-20</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/public/include/header.php</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-10-20</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/public/js/const.js</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-10-20</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/public/js/function.js</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-10-20</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/public/js/kana.js</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-10-20</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/public/js/kanji.js</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-10-20</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/public/js/save.js</loc>
-		<priority>0.40</priority>
-		<lastmod>2023-10-20</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/public/js/theme.js</loc>
+		<loc>http://www.kana.audricrosier.be/view/error/405.php</loc>
 		<priority>0.40</priority>
 		<lastmod>2023-10-20</lastmod>
 	</url>
@@ -116,7 +26,97 @@
 		<lastmod>2023-10-20</lastmod>
 	</url>
 	<url>
-		<loc>http://www.kana.audricrosier.be/view/error/405.php</loc>
+		<loc>http://www.kana.audricrosier.be/public/js/theme.js</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-10-20</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/public/js/save.js</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-10-20</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/public/js/kanji.js</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-10-20</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/public/js/kana.js</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-10-20</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/public/js/function.js</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-10-20</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/public/js/const.js</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-10-20</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/public/include/header.php</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-10-20</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/public/include/footer.php</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-10-20</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/model/dao/studentLessonDAO.php</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-11-03</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/model/dao/studentDAO.php</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-11-03</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/model/dao/studentAchievementDAO.php</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-11-03</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/model/dao/lessonDAO.php</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-11-03</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/model/class/studentLesson.php</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-10-20</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/model/class/studentAchievement.php</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-10-20</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/model/class/student.php</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-10-20</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/model/class/Route.php</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-10-20</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/model/class/oauthtwitch.php</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-11-03</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/model/class/lesson.php</loc>
+		<priority>0.40</priority>
+		<lastmod>2023-10-20</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/model/class/achievement.php</loc>
 		<priority>0.40</priority>
 		<lastmod>2023-10-20</lastmod>
 	</url>
