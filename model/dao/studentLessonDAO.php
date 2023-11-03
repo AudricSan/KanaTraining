@@ -20,11 +20,7 @@ class StudentLessonDAO extends Env
     public function __construct()
     {
         // Change the values according to your hosting.
-        $this->username = parent::env('DB_USERNAME', 'root');   // The login to connect to the DB
-        $this->password = parent::env('DB_PASSWORD', '');       // The password to connect to the DB
-        $this->host     = parent::env('DB_HOST', 'localhost');  // The name of the server where my DB is located
-        $this->dbname   = parent::env('DB_NAME');               // The name of the DB you want to attack.
-        $this->table    = "student_lessons";               // The table to attack
+        $this->dbname   = parent::env('DB_NAME', 'kanatraining'); // The name of the DB you want to attack.
 
         $this->connection = new PDO("mysql:host={$this->host};dbname={$this->dbname};charset=utf8", $this->username, $this->password, $this->options);
         $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
