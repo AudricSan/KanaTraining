@@ -1,13 +1,20 @@
 <?php
-
+$link = $_SESSION['TLink'];
 
 echo "
     <main>
         <section class='_1'>
             <nav>
-                <ul>
-                    <a href='JavaScript:createNotification(\"in as future update\")' class='fa-solid fa-person'></span> Connection </a>
-                    <a href='/login' class='fa-solid fa-person'></span> Connection </a>
+                <ul>";
+
+if (!empty($_SESSION['email'])) {
+    echo "<a href='/student' class='fa-solid fa-person'></span> My student Page </a>";
+} else {
+    // echo "<a href='$link' class='fa-solid fa-person'></span> Connection </a>";
+    echo "<a href='JavaScript:createNotification(\"in as future update\")' class='fa-solid fa-person'></span> Connection </a>";
+}
+
+echo "
 
                     <p class='divider'>---------------------------------------</p>
 
