@@ -36,13 +36,41 @@ Route::add('/', function () {
   foot();
 });
 
-Route::add('/login', function () {
-  include('../model/class/config.php');
-  $link = $oauth->get_link_connect();
-  header('Location: ' . $link);
+Route::add('/callback', function () {
+  include_once('../model/class/callback.php');
 });
 
-Route::add('/test', function () {
+// ERROR
+// 404 not found route
+Route::pathNotFound(function ($path) {
+  head();
+  include_once('../view/error/404.php');
+  foot();
+});
+
+// 405 method not allowed route
+Route::methodNotAllowed(function ($path, $method) {
+  head();
+  include_once('../view/error/405.php');
+  foot();
+});
+
+// This route is for debugging only
+// Return all known routes
+Route::add('/php.routes', function () {
+  $routes = Route::getAll();
+  echo '<ul>';
+  foreach ($routes as $route) {
+    echo '<li>' . $route['expression'] . ' (' . $route['method'] . ')</li>';
+  }
+  echo '</ul>';
+});
+
+Route::add('/php.info', function () {
+  phpinfo();
+});
+
+Route::add('/debug', function () {
   //STUDENT
   echo 'STUDENT';
   include '../model/class/Student.php';
@@ -82,36 +110,6 @@ Route::add('/test', function () {
   $studentLesson = $studentLessonDAO->fetch(1);
   var_dump($studentLessons);
   var_dump($studentLesson);
-});
-
-// ERROR
-// 404 not found route
-Route::pathNotFound(function ($path) {
-  head();
-  include_once('../view/error/404.php');
-  foot();
-});
-
-// 405 method not allowed route
-Route::methodNotAllowed(function ($path, $method) {
-  head();
-  include_once('../view/error/405.php');
-  foot();
-});
-
-// This route is for debugging only
-// Return all known routes
-Route::add('/php.routes', function () {
-  $routes = Route::getAll();
-  echo '<ul>';
-  foreach ($routes as $route) {
-    echo '<li>' . $route['expression'] . ' (' . $route['method'] . ')</li>';
-  }
-  echo '</ul>';
-});
-
-Route::add('/php.info', function () {
-  phpinfo();
 });
 
 // Exécuter le routeur avec le chemin de base donné
