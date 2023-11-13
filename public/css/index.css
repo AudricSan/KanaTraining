@@ -2,12 +2,28 @@
 @import url(color.css);
 @import url("https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
 .logo {
-  size: 50%;
-  height: 25%;
+  width: 10%;
+  height: auto;
 }
 
 .hidden {
   display: none;
+}
+
+button {
+  display: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--dark-liver);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+button hover {
+  background-color: var(--black-bean);
 }
 
 body {
