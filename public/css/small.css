@@ -12,21 +12,16 @@
     grid-row-gap: 10px;
   }
   body main ._1 nav {
-    text-align: center;
-  }
-  body main ._1 ul {
     text-align: left;
   }
-  body main ._2 form input {
-    font-size: 1.2em; /* Taille de police légèrement plus grande */
+  body main ._2 {
+    font-size: 1.2em;
+  }
+  body main ._2 form div#toast p {
+    top: -0.1em;
+    left: -2.3em;
   }
   body main ._2 h2 {
-    font-size: 6em; /* Taille de police réduite */
-  }
-  body main ._3 .helpSpawner {
-    right: 1em; /* Position ajustée vers la droite */
-  }
-  body main ._3 .helpSpawner .helpContainer {
-    grid-template-columns: repeat(3, 1fr); /* Moins de colonnes pour les éléments d'aide */
+    font-size: 8em; /* Taille de police réduite */
   }
 }/*# sourceMappingURL=small.css.map */

@@ -13,44 +13,55 @@
 
       ._1 {
         nav {
-          text-align: center;
-        }
-
-        ul{
           text-align: left;
         }
       }
 
       ._2 {
-        form {
-          // div#toast p {
-          //   // width: 100% !important; /* Ajustement de la largeur du toast */
-          //   // left: 60%; /* Centrage horizontal */
-          //   // transform: translate(-63%, 3%);
-          // }
+        font-size: 1.2em;
 
-          input {
-            font-size: 1.2em; /* Taille de police légèrement plus grande */
+        form {
+          div {
+            &#toast {
+              p {
+                top: -0.1em;
+                left: -2.3em;
+              }
+            }
           }
         }
 
         h2 {
-          font-size: 6em; /* Taille de police réduite */
+          font-size: 8em; /* Taille de police réduite */
         }
       }
 
-      ._3 {
-        .helpSpawner {
-          right: 1em; /* Position ajustée vers la droite */
+      // ._3 {
+      //   .helpOpen{
+      //     color: red;
+      //     position: relative;
+      //     right: 2em;
+      //     top: -25em;
+      //   }
 
-          .helpContainer {
-            grid-template-columns: repeat(
-              3,
-              1fr
-            ); /* Moins de colonnes pour les éléments d'aide */
-          }
-        }
-      }
+      //   .helpClose{
+      //     color: red;
+      //     position: relative;
+      //     right: 2em;
+      //     top: -25em;
+      //   }
+
+      //   .helpSpawner {
+      //     right: 1em; /* Position ajustée vers la droite */
+
+      //     .helpContainer {
+      //       grid-template-columns: repeat(
+      //         3,
+      //         1fr
+      //       ); /* Moins de colonnes pour les éléments d'aide */
+      //     }
+      //   }
+      // }
     }
   }
 }

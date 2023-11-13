@@ -1,5 +1,5 @@
 @import url(color.css);
-@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
 
 .logo {
   size: 50%;
@@ -55,7 +55,6 @@ body {
       }
 
       form {
-
         input {
           text-align: center;
           border-radius: 25px;
@@ -71,6 +70,7 @@ body {
 
             p {
               width: 300px;
+
               border-radius: 25px;
               position: relative;
               left: -3.5em;
@@ -89,8 +89,10 @@ body {
       flex-direction: row;
 
       .helpSpawner {
+        z-index: 99;
+
         position: absolute;
-        right: 6em;
+        right: 5em;
 
         max-height: 500px;
         overflow-y: scroll;
@@ -98,7 +100,7 @@ body {
         &::-webkit-scrollbar {
           width: 5px;
         }
-    
+
         &::-webkit-scrollbar-thumb {
           background: var(--dark-liver);
         }
@@ -109,6 +111,12 @@ body {
           display: grid;
           gap: 0.5em;
           grid-template-columns: repeat(7, 1fr);
+
+          background-image: url("url_de_votre_image.jpg"); /* Remplacez par l'URL de votre image */
+          z-index: 99;
+          backdrop-filter: blur(
+            5px
+          ); /* Ajustez le niveau de flou selon vos préférences */
 
           li {
             padding: 1em;
@@ -125,7 +133,7 @@ body {
   }
 
   footer {
-    margin-top: 5em;
+    margin: 5em 0 2em 0;
 
     display: flex;
     flex-direction: column;
