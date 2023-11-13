@@ -263,21 +263,32 @@ helpClose.addEventListener('click', event => {
   helpContainer.innerHTML = ''
 })
 
-dificultyToggle.addEventListener('click', event => {
-  // console.log("help Opened")
+navbtn.addEventListener('click', event => {
+  if (flipFlopState) {
+    nav.classList.add('hidden')
+    menuIcon.classList.remove('fa-caret-up')
+    menuIcon.classList.add('fa-caret-down')
+  } else {
+    nav.classList.remove('hidden')
+    menuIcon.classList.remove('fa-caret-down')
+    menuIcon.classList.add('fa-caret-up')
+  }
 
-  helpClose.classList.remove('hidden')
-  helpOpen.classList.add('hidden')
-
-  input.setAttribute("disabled", "disabled")
-  helpGenerator()
+  toggleFlipFlop()
 })
 
-// Initialisation à un état
-var flipFlopState = false;
-
-// Fonction pour basculer entre les états
 function toggleFlipFlop() {
-    flipFlopState = !flipFlopState; // Inverse l'état actuel
-    return flipFlopState; // Renvoie le nouvel état
+  flipFlopState = !flipFlopState
+  return flipFlopState
 }
+
+function handleScreenWidthChange(screenWidth) {
+  if (screenWidth.matches) {
+    nav.classList.add('hidden')
+  } else {
+    nav.classList.remove('hidden')
+  }
+}
+
+handleScreenWidthChange(screenWidth)
+screenWidth.addListener(handleScreenWidthChange);
