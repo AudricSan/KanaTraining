@@ -36,6 +36,12 @@ Route::add('/', function () {
   foot();
 });
 
+Route::add('/student', function () {
+  head();
+  include('../view/student/index.php');
+  foot();
+});
+
 Route::add('/callback', function () {
   include_once('../model/class/callback.php');
 });
