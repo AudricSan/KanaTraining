@@ -72,50 +72,6 @@ echo "
     <header>
         <img class='logo' src='image/logo.png' />
         <h1>Entraînez vos Kanas</h1>
+        <button class='navbtn'> Menu <i class='menuicon fa-solid fa-caret-down'></i> </button>
     </header>
 ";
-
-// if (empty($_SESSION['user']) and empty($_SESSION['token'])) {
-//   echo "
-//    <a href='$link'>
-//           <!-- <a href='#' onClick=\"createNotification('On an Future Update', '!')\"> -->
-//             <span class='fa-solid fa-person'></span>
-//             Connection
-//           </a>";
-// } else {
-//   if ($_SERVER["REQUEST_URI"] === "/user") {
-//     echo "
-//       <a href='/'>
-//         <span class='fa-solid fa-house'></span>
-//         Home
-//       </a>
-      
-//       <a href='/logout'>
-//         <span class='fa-solid fa-person-running'></span>
-//         Disconected
-//       </a>";
-//   } else {
-//     echo "
-//           <a href='/user'>
-//             <span class='fa-solid fa-address-card'></span>
-//             Profil 
-//           </a>
-          
-//           <a href='/logout'>
-//             <span class='fa-solid fa-person-running'></span>
-//             Disconected
-//           </a> ";
-//   }
-// }
-
-// echo "
-// </div>
-
-// <p class='divider'>---------------------------------------</p>
-
-// <div class='theme'>
-//   <input type='checkbox' class='switch theme' id='theme' name='cc' onchange='selectTheme()' />
-//   <label for='theme'>theme-color</label>
-// </div>
-
-// <p class='divider'>---------------------------------------</p>";
