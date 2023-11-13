@@ -1,21 +1,21 @@
 <?php
 $link = $_SESSION['TLink'];
+// $_SESSION['email'] = "audricrosier@gmail.com";
 
 echo "
     <main>
         <section class='_1'>
-            <nav>
-                <ul>";
+            <nav>";
 
 if (!empty($_SESSION['email'])) {
     echo "<a href='/student' class='fa-solid fa-person'></span> My student Page </a>";
 } else {
-    // echo "<a href='$link' class='fa-solid fa-person'></span> Connection </a>";
+    echo "<!-- <a href='$link' class='fa-solid fa-person'></span> Connection </a> -->";
     echo "<a href='JavaScript:createNotification(\"in as future update\")' class='fa-solid fa-person'></span> Connection </a>";
 }
 
 echo "
-
+                <ul>
                     <p class='divider'>---------------------------------------</p>
 
                     <form action=''>
