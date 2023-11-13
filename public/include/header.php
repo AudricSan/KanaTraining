@@ -65,6 +65,7 @@ echo "
     <link href='public/css/reset.css' rel='stylesheet' />
     <link href='public/css/index.css' rel='stylesheet' />
     <link href='public/css/menu.css' rel='stylesheet' />
+    <link href='public/css/small.css' rel='stylesheet' />
 </head>
 
 <body onload='getSave()'>
