@@ -98,7 +98,6 @@ function createNotification(txt, c) {
   toast.appendChild(notif)
   notif.appendChild(correct)
 
-  console.log(input)
   input.setAttribute("disabled", "disabled")
   setTimeout(() => {
     notif.remove()
@@ -205,10 +204,10 @@ twitter.addEventListener("click", (event) => {
     "https://twitter.com/intent/tweet?text=" +
     encodeURIComponent(
       "I just scored " +
-        good +
-        " out of " +
-        total +
-        " in my Hiragana Training. \nCan you do better? https://kana.audricrosier.be"
+      good +
+      " out of " +
+      total +
+      " in my Hiragana Training. \nCan you do better? https://kana.audricrosier.be"
     )
   twitter.setAttribute("href", b)
 })
@@ -244,19 +243,41 @@ function helpGenerator() {
 
 //Open/Close help
 helpOpen.addEventListener('click', event => {
-  console.log("help Opened")
+  // console.log("help Opened")
 
   helpClose.classList.remove('hidden')
   helpOpen.classList.add('hidden')
 
+  input.setAttribute("disabled", "disabled")
   helpGenerator()
 })
 
 helpClose.addEventListener('click', event => {
-  console.log("help Closed")
+  // console.log("help Closed")
 
   helpClose.classList.add('hidden')
   helpOpen.classList.remove('hidden')
+  input.removeAttribute("disabled", "disabled")
+  input.focus()
 
   helpContainer.innerHTML = ''
 })
+
+dificultyToggle.addEventListener('click', event => {
+  // console.log("help Opened")
+
+  helpClose.classList.remove('hidden')
+  helpOpen.classList.add('hidden')
+
+  input.setAttribute("disabled", "disabled")
+  helpGenerator()
+})
+
+// Initialisation à un état
+var flipFlopState = false;
+
+// Fonction pour basculer entre les états
+function toggleFlipFlop() {
+    flipFlopState = !flipFlopState; // Inverse l'état actuel
+    return flipFlopState; // Renvoie le nouvel état
+}
