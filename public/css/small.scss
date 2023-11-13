@@ -1,0 +1,56 @@
+@import url(color.css);
+
+/* Styles pour mobile */
+@media screen and (max-width: 768px) {
+  body {
+    align-items: center;
+
+    main {
+      grid-template-columns: 1fr; /* Une seule colonne pour les appareils mobiles */
+      grid-template-rows: auto; /* Ajustement automatique des lignes */
+      grid-column-gap: 0; /* Pas besoin d'espacement entre les colonnes */
+      grid-row-gap: 10px;
+
+      ._1 {
+        nav {
+          text-align: center;
+        }
+
+        ul{
+          text-align: left;
+        }
+      }
+
+      ._2 {
+        form {
+          // div#toast p {
+          //   // width: 100% !important; /* Ajustement de la largeur du toast */
+          //   // left: 60%; /* Centrage horizontal */
+          //   // transform: translate(-63%, 3%);
+          // }
+
+          input {
+            font-size: 1.2em; /* Taille de police légèrement plus grande */
+          }
+        }
+
+        h2 {
+          font-size: 6em; /* Taille de police réduite */
+        }
+      }
+
+      ._3 {
+        .helpSpawner {
+          right: 1em; /* Position ajustée vers la droite */
+
+          .helpContainer {
+            grid-template-columns: repeat(
+              3,
+              1fr
+            ); /* Moins de colonnes pour les éléments d'aide */
+          }
+        }
+      }
+    }
+  }
+}

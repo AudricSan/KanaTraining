@@ -1,0 +1,32 @@
+@charset "UTF-8";
+@import url(color.css);
+/* Styles pour mobile */
+@media screen and (max-width: 768px) {
+  body {
+    align-items: center;
+  }
+  body main {
+    grid-template-columns: 1fr; /* Une seule colonne pour les appareils mobiles */
+    grid-template-rows: auto; /* Ajustement automatique des lignes */
+    grid-column-gap: 0; /* Pas besoin d'espacement entre les colonnes */
+    grid-row-gap: 10px;
+  }
+  body main ._1 nav {
+    text-align: center;
+  }
+  body main ._1 ul {
+    text-align: left;
+  }
+  body main ._2 form input {
+    font-size: 1.2em; /* Taille de police légèrement plus grande */
+  }
+  body main ._2 h2 {
+    font-size: 6em; /* Taille de police réduite */
+  }
+  body main ._3 .helpSpawner {
+    right: 1em; /* Position ajustée vers la droite */
+  }
+  body main ._3 .helpSpawner .helpContainer {
+    grid-template-columns: repeat(3, 1fr); /* Moins de colonnes pour les éléments d'aide */
+  }
+}/*# sourceMappingURL=small.css.map */
