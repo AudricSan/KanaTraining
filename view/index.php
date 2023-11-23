@@ -66,6 +66,33 @@ echo "
                     <form action=''>
                         <input type='checkbox' class='switch' id='katakanaDakuonCombo' name='cc' onchange='selectDificulty(this.id)' />
                         <label for='katakanaDakuonCombo'>Katakana Dakuon Combo </label>
+
+                    <p class='divider'>---------------------------------------</p>
+
+                    <form action=''>
+                        <input type='checkbox' class='switch' id='kanjin5' name='cc' onchange='selectDificulty(this.id)' />
+                        <label for='kanjin5'>Kanji JLPT N5</label>
+                    </form>
+
+                    <form action=''>
+                        <input type='checkbox' class='switch' id='kanjin4' name='cc' onchange='selectDificulty(this.id)' />
+                        <label for='kanjin4'>Kanji JLPT N4</label>
+                    </form>
+
+                    <form action=''>
+                        <input type='checkbox' class='switch' id='kanjin3' name='cc' onchange='selectDificulty(this.id)' />
+                        <label for='kanjin3'>Kanji JLPT N3</label>
+                    </form>
+
+                    <form action=''>
+                        <input type='checkbox' class='switch' id='kanjin2' name='cc' onchange='selectDificulty(this.id)' />
+                        <label for='kanjin2'>Kanji JLPT N2</label>
+                    </form>
+
+
+                    <form action=''>
+                        <input type='checkbox' class='switch' id='kanjin1' name='cc' onchange='selectDificulty(this.id)' />
+                        <label for='kanjin1'>Kanji JLPT N1</label>
                     </form>
                 </ul>
             </nav>
@@ -73,6 +100,7 @@ echo "
 
         <section class='_2'>
             <h2 class='character'> あ </h2>
+            <h3 class='kanjitype'> read </h3>
 
             <div>
                 <span class='material-icons-round iconkeyboard'>keyboard_double_arrow_right</span>
