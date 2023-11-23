@@ -88,12 +88,12 @@
 	<url>
 		<loc>http://www.kana.audricrosier.be/public/js/const.js</loc>
 		<priority>0.40</priority>
-		<lastmod>2023-11-13</lastmod>
+		<lastmod>2023-11-24</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier.be/public/js/function.js</loc>
 		<priority>0.40</priority>
-		<lastmod>2023-11-13</lastmod>
+		<lastmod>2023-11-24</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier.be/public/js/kana.js</loc>
@@ -103,7 +103,7 @@
 	<url>
 		<loc>http://www.kana.audricrosier.be/public/js/kanji.js</loc>
 		<priority>0.40</priority>
-		<lastmod>2023-10-20</lastmod>
+		<lastmod>2023-11-24</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier.be/public/js/save.js</loc>

@@ -59,9 +59,37 @@ function startGame() {
     case "katakanaDakuonCombo":
       selectedCharacter = getRandom("katakanaDakuonCombo")
       break
+
+    case "kanjin5":
+      selectedCharacter = getRandomkanji("kanjiN5")
+      break
+
+    case "kanjin4":
+      selectedCharacter = getRandomkanji("kanjiN4")
+      break
+
+    case "kanjin3":
+      selectedCharacter = getRandomkanji("kanjiN3")
+      break
+
+    case "kanjin2":
+      selectedCharacter = getRandomkanji("kanjiN2")
+      break
+
+    case "kanjin1":
+      selectedCharacter = getRandomkanji("kanjiN1")
+      break
   }
 
+  console.log(selectedCharacter)
   character.innerHTML = selectedCharacter[0]
+  kanjitype.innerHTML = ''
+
+  if (selectedCharacter[2] == 'translate' || selectedCharacter[2] == 'read') {
+    kanjitype.innerHTML = selectedCharacter[2]
+    input.maxLength = 20
+  }
+
 }
 
 function getRandomInteger(min, max) {
@@ -81,6 +109,29 @@ function getRandom(type) {
         return selected
       }
     }
+  }
+}
+
+function getRandomkanji(type) {
+  let selected
+
+  while (selected != "undefined") {
+    let selected = myKanji[type]
+    let nb = getRandomInteger(0, selected.length - 1)
+    selected = selected[nb]
+
+    selected[0] = selected["kanji"]
+
+    var randomValue = Math.random();
+    if (randomValue < 0.5) {
+      selected[1] = selected["read"]
+      selected[2] = "read"
+    } else {
+      selected[1] = selected["translate"]
+      selected[2] = "translate"
+    }
+
+    return selected
   }
 }
 
