@@ -22,6 +22,7 @@ echo "
             <!-- Script Block -->
             <script src='js/theme.js'></script>
             <script src='js/kana.js'></script>
+            <script src='js/kanji.js'></script>
             <script src='js/const.js'></script>
             <script src='js/save.js'></script>
             <script src='js/function.js'></script>
