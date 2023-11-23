@@ -1,8 +1,10 @@
 let dificulty = []
 
 const myKana = new kana()
+const myKanji = new kanji()
 
 let character = document.querySelector('.character')
+let kanjitype = document.querySelector('.kanjitype')
 
 const toast = document.getElementById("toast")
 const delay = 1000
