@@ -70,29 +70,29 @@ echo "
                     <p class='divider'>---------------------------------------</p>
 
                     <form action=''>
-                        <input type='checkbox' class='switch' id='kanjin5' name='cc' onchange='selectDificulty(this.id)' />
-                        <label for='kanjin5'>Kanji JLPT N5</label>
+                        <input type='checkbox' class='switch' id='kanjiN5' name='cc' onchange='selectDificulty(this.id)' />
+                        <label for='kanjiN5'>Kanji JLPT N5</label>
                     </form>
 
                     <form action=''>
-                        <input type='checkbox' class='switch' id='kanjin4' name='cc' onchange='selectDificulty(this.id)' disabled/>
-                        <label for='kanjin4'>Kanji JLPT N4</label>
+                        <input type='checkbox' class='switch' id='kanjiN4' name='cc' onchange='selectDificulty(this.id)' disabled/>
+                        <label for='kanjiN4'>Kanji JLPT N4</label>
                     </form>
 
                     <form action=''>
-                        <input type='checkbox' class='switch' id='kanjin3' name='cc' onchange='selectDificulty(this.id)' disabled/>
-                        <label for='kanjin3'>Kanji JLPT N3</label>
+                        <input type='checkbox' class='switch' id='kanjiN3' name='cc' onchange='selectDificulty(this.id)' disabled/>
+                        <label for='kanjiN3'>Kanji JLPT N3</label>
                     </form>
 
                     <form action=''>
-                        <input type='checkbox' class='switch' id='kanjin2' name='cc' onchange='selectDificulty(this.id)' disabled/>
-                        <label for='kanjin2'>Kanji JLPT N2</label>
+                        <input type='checkbox' class='switch' id='kanjiN2' name='cc' onchange='selectDificulty(this.id)' disabled/>
+                        <label for='kanjiN2'>Kanji JLPT N2</label>
                     </form>
 
 
                     <form action=''>
-                        <input type='checkbox' class='switch' id='kanjin1' name='cc' onchange='selectDificulty(this.id)' />
-                        <label for='kanjin1'>Kanji JLPT N1</label>
+                        <input type='checkbox' class='switch' id='kanjiN1' name='cc' onchange='selectDificulty(this.id)' />
+                        <label for='kanjiN1'>Kanji JLPT N1</label>
                     </form>
                 </ul>
             </nav>
