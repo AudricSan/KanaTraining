@@ -77,6 +77,8 @@ body {
         position: absolute;
         top: 63%;
 
+        z-index: 1;
+
         background-color: #989595;
         color: #fff;
         text-align: center;
@@ -138,6 +140,7 @@ body {
 
         .helpContainer {
           margin-right: 0.5em;
+          margin-left: 6.5em;
           position: relative;
           display: grid;
           gap: 0.5em;
@@ -146,7 +149,7 @@ body {
           background-image: url("url_de_votre_image.jpg"); /* Remplacez par l'URL de votre image */
           z-index: 99;
           backdrop-filter: blur(
-            5px
+            20px
           ); /* Ajustez le niveau de flou selon vos préférences */
 
           li {
