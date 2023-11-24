@@ -75,17 +75,17 @@ echo "
                     </form>
 
                     <form action=''>
-                        <input type='checkbox' class='switch' id='kanjin4' name='cc' onchange='selectDificulty(this.id)' />
+                        <input type='checkbox' class='switch' id='kanjin4' name='cc' onchange='selectDificulty(this.id)' disabled/>
                         <label for='kanjin4'>Kanji JLPT N4</label>
                     </form>
 
                     <form action=''>
-                        <input type='checkbox' class='switch' id='kanjin3' name='cc' onchange='selectDificulty(this.id)' />
+                        <input type='checkbox' class='switch' id='kanjin3' name='cc' onchange='selectDificulty(this.id)' disabled/>
                         <label for='kanjin3'>Kanji JLPT N3</label>
                     </form>
 
                     <form action=''>
-                        <input type='checkbox' class='switch' id='kanjin2' name='cc' onchange='selectDificulty(this.id)' />
+                        <input type='checkbox' class='switch' id='kanjin2' name='cc' onchange='selectDificulty(this.id)' disabled/>
                         <label for='kanjin2'>Kanji JLPT N2</label>
                     </form>
 
