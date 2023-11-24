@@ -102,7 +102,7 @@ echo "
             <h2 class='character'> あ </h2>
             <h3 class='kanjitype'> read </h3>
 
-            <div>
+            <div class='keyboard'>
                 <span class='material-icons-round iconkeyboard'>keyboard_double_arrow_right</span>
                 <span class='material-icons-round iconkeyboard'>keyboard</span>
                 <span class='material-icons-round iconkeyboard'>keyboard_double_arrow_left</span>
@@ -110,7 +110,7 @@ echo "
 
             <form class='forms' action='#' onsubmit='checkAnswerd(); return false' autocomplete='off'>
 
-                <div>
+                <div class='score'>
                     <span>Votre score</span>
                     <span class='fa-solid fa-star'></span>
                     <span class='good'>0</span>/<span class='total'>0</span>

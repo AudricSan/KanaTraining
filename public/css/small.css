@@ -37,6 +37,15 @@
     margin: 0;
     font-size: 1.2em;
   }
+  body main ._2 h3 {
+    top: 50%;
+  }
+  body main ._2 div.keyboard {
+    display: none;
+  }
+  body main ._2 div.score {
+    margin-top: 2em;
+  }
   body main ._2 form div#toast p {
     top: -0.1em;
     left: -2.3em;
@@ -80,5 +89,17 @@
   }
   body footer div p {
     margin: 0 1em 0 1em;
+  }
+}
+@media screen and (min-width: 2000px) and (max-width: 2560px) {
+  body header {
+    max-height: 290px;
+  }
+  body header .logo {
+    width: 7%;
+    height: auto;
+  }
+  body main ._2 h3 {
+    top: 63%;
   }
 }/*# sourceMappingURL=small.css.map */

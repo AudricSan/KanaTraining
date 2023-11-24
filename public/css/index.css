@@ -56,6 +56,16 @@ body main ._2 h2 {
   font-size: 10em;
   flex-basis: 50%;
 }
+body main ._2 h3 {
+  font-size: 1.3em;
+  position: absolute;
+  top: 63%;
+  background-color: #989595;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px 80px 10px 80px;
+}
 body main ._2 form input {
   text-align: center;
   border-radius: 25px;
