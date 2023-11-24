@@ -60,6 +60,7 @@ body main ._2 h3 {
   font-size: 1.3em;
   position: absolute;
   top: 63%;
+  z-index: 1;
   background-color: #989595;
   color: #fff;
   text-align: center;
@@ -107,14 +108,15 @@ body main ._3 .helpSpawner::-webkit-scrollbar-thumb {
 }
 body main ._3 .helpSpawner .helpContainer {
   margin-right: 0.5em;
+  margin-left: 6.5em;
   position: relative;
   display: grid;
   gap: 0.5em;
   grid-template-columns: repeat(7, 1fr);
   background-image: url("url_de_votre_image.jpg"); /* Remplacez par l'URL de votre image */
   z-index: 99;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px); /* Ajustez le niveau de flou selon vos préférences */
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px); /* Ajustez le niveau de flou selon vos préférences */
 }
 body main ._3 .helpSpawner .helpContainer li {
   padding: 1em;
