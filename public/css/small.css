@@ -38,13 +38,13 @@
     font-size: 1.2em;
   }
   body main ._2 h3 {
-    top: 50%;
+    top: 60%;
   }
   body main ._2 div.keyboard {
     display: none;
   }
   body main ._2 div.score {
-    margin-top: 2em;
+    margin-top: 3em;
   }
   body main ._2 form div#toast p {
     top: -0.1em;
