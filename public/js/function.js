@@ -60,23 +60,23 @@ function startGame() {
       selectedCharacter = getRandom("katakanaDakuonCombo")
       break
 
-    case "kanjin5":
+    case "kanjiN5":
       selectedCharacter = getRandomkanji("kanjiN5")
       break
 
-    case "kanjin4":
+    case "kanjiN4":
       selectedCharacter = getRandomkanji("kanjiN4")
       break
 
-    case "kanjin3":
+    case "kanjiN3":
       selectedCharacter = getRandomkanji("kanjiN3")
       break
 
-    case "kanjin2":
+    case "kanjiN2":
       selectedCharacter = getRandomkanji("kanjiN2")
       break
 
-    case "kanjin1":
+    case "kanjiN1":
       selectedCharacter = getRandomkanji("kanjiN1")
       break
   }
@@ -269,11 +269,16 @@ function helpGenerator() {
 
   dificulty.forEach((e) => {
     helpTable.push(myKana[e])
+    helpTable.push(myKanji[e])
+
+    newhelpTable = helpTable.filter(function (element) {
+      return element !== undefined;
+    });
   })
 
   helpContainer.removeChild
 
-  helpTable.forEach((e) => {
+  newhelpTable.forEach((e) => {
     e.forEach((a) => {
       const li = document.createElement("li")
       const helpHiragana = document.createElement("p")
@@ -282,8 +287,14 @@ function helpGenerator() {
       helpHiragana.classList.add("kana")
       helpRomanji.classList.add("romanji")
 
-      helpHiragana.innerText = a[0]
-      helpRomanji.innerText = a[1]
+      if (a[2] === true || a[2] === false) {
+        helpHiragana.innerText = a[0]
+        helpRomanji.innerText = a[1]
+      } else {
+        texta = a['kanji'] + ' || ' + a['translate']
+        helpHiragana.innerText = texta
+        helpRomanji.innerText = a['read']
+      }
 
       helpContainer.appendChild(li)
       li.appendChild(helpHiragana)
@@ -317,10 +328,12 @@ helpClose.addEventListener('click', event => {
 navbtn.addEventListener('click', event => {
   if (flipFlopState) {
     nav.classList.add('hidden')
+    kanjitype.classList.remove('hidden')
     menuIcon.classList.remove('fa-caret-up')
     menuIcon.classList.add('fa-caret-down')
   } else {
     nav.classList.remove('hidden')
+    kanjitype.classList.add('hidden')
     menuIcon.classList.remove('fa-caret-down')
     menuIcon.classList.add('fa-caret-up')
   }
