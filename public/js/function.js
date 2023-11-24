@@ -81,13 +81,17 @@ function startGame() {
       break
   }
 
-  console.log(selectedCharacter)
   character.innerHTML = selectedCharacter[0]
   kanjitype.innerHTML = ''
 
   if (selectedCharacter[2] == 'translate' || selectedCharacter[2] == 'read') {
     kanjitype.innerHTML = selectedCharacter[2]
     input.maxLength = 20
+    kanjitype.classList.remove('hidden')
+  }
+
+  if (kanjitype.innerText === '') {
+    kanjitype.classList.add('hidden')
   }
 
 }
