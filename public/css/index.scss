@@ -1,18 +1,21 @@
+// Importation des feuilles de style
 @import url(color.css);
 @import url("https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
 
+// Logo
 .logo {
   width: 10%;
   height: auto;
 }
 
+// Éléments cachés par défaut
 .hidden {
   display: none;
 }
 
+// Bouton générique
 button {
   display: none;
-
   padding: 10px 20px;
   font-size: 16px;
   background-color: var(--dark-liver);
@@ -23,26 +26,25 @@ button {
   text-align: center;
   transition: background-color 0.3s;
 
-  & hover {
+  &:hover {
     background-color: var(--black-bean);
   }
 }
 
+// Styles globaux
 body {
-  display: flex;
-  flex-direction: column;
-
+  font-family: "Open Sans", sans-serif;
   padding: 1em 3em 0em 3em;
 
+  // Styles de la section principale
   main {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, 1fr);
-
     grid-column-gap: 10px;
     grid-row-gap: 10px;
 
+    // Styles de la première section
     ._1 {
       nav {
         ul {
@@ -57,14 +59,13 @@ body {
       }
     }
 
+    // Styles de la deuxième section
     ._2 {
-      margin-top: 2em;
-
+      margin-bottom: 5em;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-end;
-
       text-align: center;
 
       h2 {
@@ -74,17 +75,15 @@ body {
 
       h3 {
         font-size: 1.3em;
-        position: absolute;
-        top: 63%;
-
-        z-index: 1;
-
         background-color: #989595;
         color: #fff;
         text-align: center;
-
         border-radius: 6px;
         padding: 10px 80px 10px 80px;
+
+        position: relative;
+        top: -5%;
+        // z-index: 1;
       }
 
       form {
@@ -103,7 +102,6 @@ body {
 
             p {
               width: 300px;
-
               border-radius: 25px;
               position: relative;
               left: -3.5em;
@@ -116,17 +114,16 @@ body {
       }
     }
 
+    // Styles de la troisième section
     ._3 {
       justify-self: right;
-      display: flex;
-      flex-direction: row;
+      // display: flex;
+      // flex-direction: row;
 
       .helpSpawner {
         z-index: 99;
-
         position: absolute;
         right: 5em;
-
         max-height: 500px;
         overflow-y: scroll;
 
@@ -145,12 +142,9 @@ body {
           display: grid;
           gap: 0.5em;
           grid-template-columns: repeat(7, 1fr);
-
-          background-image: url("url_de_votre_image.jpg"); /* Remplacez par l'URL de votre image */
+          background-image: url("url_de_votre_image.jpg");
           z-index: 99;
-          backdrop-filter: blur(
-            20px
-          ); /* Ajustez le niveau de flou selon vos préférences */
+          backdrop-filter: blur(20px);
 
           li {
             padding: 1em;
@@ -166,14 +160,12 @@ body {
     }
   }
 
+  // Styles du pied de page
   footer {
-    margin: 5em 0 2em 0;
+    margin: 3em 0 0em 0;
 
     display: flex;
-    flex-direction: column;
-
     justify-content: center;
-    align-items: center;
 
     div {
       display: flex;
