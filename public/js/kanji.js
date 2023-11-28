@@ -106,5 +106,4 @@ class kanji {
         { kanji: '高', read: 'こう-たか.い-たか', translate: 'high-tall' },
         { kanji: '魚', read: 'ぎょ-うお-さかな', translate: 'fish' },
     ];
-
 }
