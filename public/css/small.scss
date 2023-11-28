@@ -1,102 +1,43 @@
-@import url(color.css);
-
-/* Styles pour mobile */
-@media screen and (max-width: 768px) {
+// Media Query pour les écrans de petite taille (max-width: 768px)
+@media only screen and (max-width: 768px) {
   header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
-
-    .logo {
-      width: 80%;
-      height: auto;
-    }
-
-    h1 {
-      display: none;
-    }
-
-    button {
-      display: inline-block;
-      margin: 0 0 1em 0;
-
-      i {
-        margin: 0 0 0 1em;
-      }
-    }
+    margin-bottom: 1em;
   }
 
+  // Styles globaux
   body {
-    align-items: center;
-
+    // Styles de la section principale
     main {
       grid-template-columns: 1fr;
-      grid-column-gap: 0;
-      grid-row-gap: 10px;
 
+      // Styles de la première section
       ._1 {
+        order: 3;
+        margin: 0 auto; /* This centers the text horizontally */
+        max-width: 500px;
         nav {
-          text-align: left;
+          text-align: justify;
         }
       }
 
+      // Styles de la deuxième section
       ._2 {
-        margin: 0;
-        font-size: 1.2em;
-
-        h3 {
-          top: 60%;
-        }
-
         div {
           &.keyboard {
-            display: none;
+            display: none; // Ajout pour cacher le clavier en version mobile
           }
-
-          &.score {
-            margin-top: 3em;
-          }
-        }
-
-        form {
-          div {
-            &#toast {
-              p {
-                top: -0.1em;
-                left: -2.3em;
-              }
-            }
-          }
-        }
-
-        h2 {
-          font-size: 8em; /* Taille de police réduite */
         }
       }
 
+      // Styles de la troisième section
       ._3 {
-        .helpOpen {
-          // color: red;
-          position: relative;
-          right: 2em;
-          top: -25em;
-        }
-
-        .helpClose {
-          // color: red;
-          position: relative;
-          right: 2em;
-          top: -25em;
-        }
+        order: -1;
 
         .helpSpawner {
-          position: absolute;
-          top: 55%;
-          left: 13%;
-          right: 10%;
-
-          max-height: 250px;
+          right: 4em;
+          top: 11em;
+          max-height: 700px;
 
           .helpContainer {
             grid-template-columns: repeat(3, 1fr);
@@ -105,45 +46,9 @@
       }
     }
 
+    // Styles du pied de page
     footer {
-      margin: 2em 0 2em 0;
-
-      display: flex;
-      flex-direction: column;
-
-      justify-content: center;
-      align-items: center;
-
-      div {
-        &.author {
-          display: none;
-        }
-        display: flex;
-        flex-direction: row;
-
-        p {
-          margin: 0 1em 0 1em;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 2000px) and (max-width: 2560px) {
-  body {
-    header {
-      max-height: 290px;
-      .logo {
-        width: 7%;
-        height: auto;
-      }
-    }
-    main {
-      ._2 {
-        h3 {
-          top: 63%;
-        }
-      }
+      margin-bottom: 2em;
     }
   }
 }

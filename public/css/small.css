@@ -1,105 +1,34 @@
-@charset "UTF-8";
-@import url(color.css);
-/* Styles pour mobile */
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
-  }
-  header .logo {
-    width: 80%;
-    height: auto;
-  }
-  header h1 {
-    display: none;
-  }
-  header button {
-    display: inline-block;
-    margin: 0 0 1em 0;
-  }
-  header button i {
-    margin: 0 0 0 1em;
-  }
-  body {
-    align-items: center;
+    margin-bottom: 1em;
   }
   body main {
     grid-template-columns: 1fr;
-    grid-column-gap: 0;
-    grid-row-gap: 10px;
+  }
+  body main ._1 {
+    order: 3;
+    margin: 0 auto; /* This centers the text horizontally */
+    max-width: 500px;
   }
   body main ._1 nav {
-    text-align: left;
-  }
-  body main ._2 {
-    margin: 0;
-    font-size: 1.2em;
-  }
-  body main ._2 h3 {
-    top: 60%;
+    text-align: justify;
   }
   body main ._2 div.keyboard {
     display: none;
   }
-  body main ._2 div.score {
-    margin-top: 3em;
-  }
-  body main ._2 form div#toast p {
-    top: -0.1em;
-    left: -2.3em;
-  }
-  body main ._2 h2 {
-    font-size: 8em; /* Taille de police réduite */
-  }
-  body main ._3 .helpOpen {
-    position: relative;
-    right: 2em;
-    top: -25em;
-  }
-  body main ._3 .helpClose {
-    position: relative;
-    right: 2em;
-    top: -25em;
+  body main ._3 {
+    order: -1;
   }
   body main ._3 .helpSpawner {
-    position: absolute;
-    top: 55%;
-    left: 13%;
-    right: 10%;
-    max-height: 250px;
+    right: 4em;
+    top: 11em;
+    max-height: 700px;
   }
   body main ._3 .helpSpawner .helpContainer {
     grid-template-columns: repeat(3, 1fr);
   }
   body footer {
-    margin: 2em 0 2em 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  body footer div {
-    display: flex;
-    flex-direction: row;
-  }
-  body footer div.author {
-    display: none;
-  }
-  body footer div p {
-    margin: 0 1em 0 1em;
-  }
-}
-@media screen and (min-width: 2000px) and (max-width: 2560px) {
-  body header {
-    max-height: 290px;
-  }
-  body header .logo {
-    width: 7%;
-    height: auto;
-  }
-  body main ._2 h3 {
-    top: 63%;
+    margin-bottom: 2em;
   }
 }/*# sourceMappingURL=small.css.map */
