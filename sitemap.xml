@@ -83,17 +83,17 @@
 	<url>
 		<loc>http://www.kana.audricrosier.be/public/include/header.php</loc>
 		<priority>0.40</priority>
-		<lastmod>2023-11-13</lastmod>
+		<lastmod>2023-11-28</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier.be/public/js/const.js</loc>
 		<priority>0.40</priority>
-		<lastmod>2023-11-24</lastmod>
+		<lastmod>2023-11-28</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier.be/public/js/function.js</loc>
 		<priority>0.40</priority>
-		<lastmod>2023-11-24</lastmod>
+		<lastmod>2023-11-28</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier.be/public/js/kana.js</loc>
