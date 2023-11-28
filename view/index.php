@@ -91,7 +91,7 @@ echo "
 
 
                     <form action=''>
-                        <input type='checkbox' class='switch' id='kanjiN1' name='cc' onchange='selectDificulty(this.id)' />
+                        <input type='checkbox' class='switch' id='kanjiN1' name='cc' onchange='selectDificulty(this.id)' disabled/>
                         <label for='kanjiN1'>Kanji JLPT N1</label>
                     </form>
                 </ul>
