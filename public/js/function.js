@@ -314,6 +314,8 @@ helpOpen.addEventListener('click', event => {
   helpClose.classList.remove('hidden')
   helpOpen.classList.add('hidden')
 
+  // blurbox.classList.add('blur')
+
   input.setAttribute("disabled", "disabled")
   helpGenerator()
 })
@@ -323,6 +325,9 @@ helpClose.addEventListener('click', event => {
 
   helpClose.classList.add('hidden')
   helpOpen.classList.remove('hidden')
+
+  // blurbox.classList.remove('blur')
+
   input.removeAttribute("disabled", "disabled")
   input.focus()
 
@@ -353,6 +358,7 @@ function toggleFlipFlop() {
 function handleScreenWidthChange(screenWidth) {
   if (screenWidth.matches) {
     nav.classList.add('hidden')
+    nav.classList.remove('hidden')
   } else {
     nav.classList.remove('hidden')
   }
