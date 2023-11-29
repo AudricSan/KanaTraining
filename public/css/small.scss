@@ -17,6 +17,7 @@
         margin: 0 auto; /* This centers the text horizontally */
         max-width: 500px;
         nav {
+          position: inherit;
           text-align: justify;
         }
       }
@@ -48,6 +49,7 @@
 
     // Styles du pied de page
     footer {
+      position: inherit;
       margin-bottom: 2em;
     }
   }

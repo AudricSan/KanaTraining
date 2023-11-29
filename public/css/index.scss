@@ -185,11 +185,13 @@ body {
   // Styles du pied de page
   footer {
     position: relative;
+
     z-index: -1;
     margin: 3em 0 0em 0;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
     div {
       display: flex;

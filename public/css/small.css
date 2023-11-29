@@ -12,6 +12,7 @@
     max-width: 500px;
   }
   body main ._1 nav {
+    position: inherit;
     text-align: justify;
   }
   body main ._2 div.keyboard {
@@ -29,6 +30,7 @@
     grid-template-columns: repeat(3, 1fr);
   }
   body footer {
+    position: inherit;
     margin-bottom: 2em;
   }
 }/*# sourceMappingURL=small.css.map */
