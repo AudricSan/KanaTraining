@@ -70,7 +70,7 @@ echo "
 
 <body onload='getSave()'>
     <div id='blur' class=''></div>
-    
+
     <header>
         <img class='logo' src='image/logo.png' />
         <h1>Entraînez vos Kanas</h1>

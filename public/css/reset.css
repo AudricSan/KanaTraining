@@ -169,6 +169,7 @@ h6 {
 
 h1 {
   font-size: 24px;
+  z-index: -1;
 }
 
 h2 {
@@ -235,6 +236,7 @@ a,
   text-decoration: none !important;
   outline: none !important;
   transition: all 0.3s ease-in-out;
+  z-index: 138;
 }
 
 img {

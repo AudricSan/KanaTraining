@@ -309,24 +309,20 @@ function helpGenerator() {
 
 //Open/Close help
 helpOpen.addEventListener('click', event => {
-  // console.log("help Opened")
-
   helpClose.classList.remove('hidden')
   helpOpen.classList.add('hidden')
 
-  // blurbox.classList.add('blur')
+  blurbox.classList.add('blur')
 
   input.setAttribute("disabled", "disabled")
   helpGenerator()
 })
 
 helpClose.addEventListener('click', event => {
-  // console.log("help Closed")
-
   helpClose.classList.add('hidden')
   helpOpen.classList.remove('hidden')
 
-  // blurbox.classList.remove('blur')
+  blurbox.classList.remove('blur')
 
   input.removeAttribute("disabled", "disabled")
   input.focus()
