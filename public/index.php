@@ -42,6 +42,12 @@ Route::add('/student', function () {
   foot();
 });
 
+Route::add('/login', function () {
+  head();
+  include('../view/student/login.php');
+  foot();
+});
+
 Route::add('/callback', function () {
   include_once('../model/class/callback.php');
 });
@@ -86,36 +92,6 @@ Route::add('/debug', function () {
   $Student = $StudentDAO->fetch(1);
   var_dump($Students);
   var_dump($Student);
-
-  // LESSONS
-  echo 'LESSON';
-  include '../model/class/lesson.php';
-  include '../model/dao/lessonDAO.php';
-  $lessonDAO = new LessonDAO;
-  $lessons = $lessonDAO->fetchAll();
-  $lesson = $lessonDAO->fetch(1);
-  var_dump($lessons);
-  var_dump($lesson);
-
-  //Student Achievement
-  echo 'STUDENT ACHIEVEMENT';
-  include '../model/class/studentAchievement.php';
-  include '../model/dao/studentAchievementDAO.php';
-  $studentAchievementDAO = new StudentAchievementDAO;
-  $studentAchievements = $studentAchievementDAO->fetchAll();
-  $studentAchievement = $studentAchievementDAO->fetch(1);
-  var_dump($studentAchievements);
-  var_dump($studentAchievement);
-
-  //Student Lesson
-  echo 'STUDENT LESSON';
-  include '../model/class/studentLesson.php';
-  include '../model/dao/studentLessonDAO.php';
-  $studentLessonDAO = new studentLessonDAO;
-  $studentLessons = $studentLessonDAO->fetchAll();
-  $studentLesson = $studentLessonDAO->fetch(1);
-  var_dump($studentLessons);
-  var_dump($studentLesson);
 });
 
 // Exécuter le routeur avec le chemin de base donné
