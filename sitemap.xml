@@ -2,23 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>http://www.kana.audricrosier.be/view</loc>
+		<priority>1.00</priority>
+		<lastmod>2024-08-10</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/view</loc>
 		<priority>0.80</priority>
 		<lastmod>2024-02-02</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier.be/public</loc>
 		<priority>0.80</priority>
-		<lastmod>2024-02-02</lastmod>
-	</url>
-	<url>
-		<loc>http://www.kana.audricrosier.be/view/test.html</loc>
-		<priority>0.60</priority>
-		<lastmod>2023-10-20</lastmod>
+		<lastmod>2024-07-27</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier.be/view/student</loc>
 		<priority>0.60</priority>
 		<lastmod>2024-02-02</lastmod>
+	</url>
+	<url>
+		<loc>http://www.kana.audricrosier.be/view/test2.html</loc>
+		<priority>0.60</priority>
+		<lastmod>2024-08-10</lastmod>
 	</url>
 	<url>
 		<loc>http://www.kana.audricrosier.be/view/error/405.php</loc>
