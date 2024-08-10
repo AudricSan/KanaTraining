@@ -36,6 +36,16 @@ Route::add('/', function () {
   foot();
 });
 
+Route::add('/test', function () {
+  include('../view/test2.html');
+}); 
+
+Route::add('/nindex', function () {
+  // head();
+  include('../view/index.html');
+  // foot();
+});
+
 Route::add('/student', function () {
   head();
   include('../view/student/index.php');
