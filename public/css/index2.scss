@@ -1,58 +1,47 @@
-/* Style du header */
 header {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   padding: 1rem;
   background-color: #f4f4f4;
-  border-bottom: 2px solid #ddd;
   justify-content: space-between;
   align-items: center;
-  justify-items: stretch;
-  align-content: center;
 
   .logo {
+    display: inline-flex;
+
     img {
-      width: auto;
-      height: 100%;
-
-      margin-right: 1em;
+      margin-right: 0.5em;
     }
-
-    padding-top: 1em;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: nowrap;
 
     h1 {
       font-size: 2em;
+      padding: 0;
+      font-weight: 600;
     }
-    grid-column: 1 / 2; /* Occupe la première colonne */
   }
 
   .nav {
-    grid-column: 2 / 4; /* Occupe la deuxième colonne */
-    text-align: center;
-    justify-self: end;
+    margin-left: auto;
+    display: flex;
+    gap: 1em;
+    margin-right: 1rem;
+    font-weight: 600;
+
     a {
       text-decoration: none;
       color: #333;
-      margin: 0 1rem;
     }
   }
 
   .auth {
-    grid-column: 4 / 5; /* Occupe la troisième colonne */
-    text-align: right;
+
   }
 }
 
 .btn {
   display: inline-block; /* Permet au bouton de se comporter comme un élément en ligne avec les propriétés de bloc */
-  padding: 0.75rem 1.5rem; /* Espacement interne du bouton */
+  padding: 0.5rem 1rem; /* Espacement interne du bouton */
   font-size: 1rem; /* Taille de la police */
-  font-weight: bold; /* Police en gras */
+  font-weight: 900; /* Police en gras */
   text-align: center; /* Centrage du texte */
   text-decoration: none; /* Retirer la décoration du texte (souligné) */
   color: #fff; /* Couleur du texte */
@@ -63,11 +52,11 @@ header {
   transition: background-color 0.3s, transform 0.2s; /* Transition fluide pour les changements de couleur et d'échelle */
 
   &.desable {
-    background-color: #4d4d4d; /* Couleur de fond au survol */
+    background-color: #424242; /* Couleur de fond au survol */
   }
 
   &.unset {
-    background-color: #2c353f; /* Couleur de fond au survol */
+    background-color: hsl(0, 0%, 71%); /* Couleur de fond au survol */
   }
 
   &:hover {
@@ -116,6 +105,68 @@ main {
           rgba(0, 0, 0, 0.4) 100%
         ),
         url(https://cdn.usegalileo.ai/stability/e23d78ee-aa5e-41bb-a5e1-93561d07c586.png);
+
+      background-repeat: no-repeat;
+      background-position: center;
+
+      padding: 1rem;
+      min-height: 500px;
+
+      display: flex;
+      align-items: stretch;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      flex-wrap: nowrap;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &.hero-text {
+          text-align: center;
+          color: #fff;
+
+          h1 {
+            color: white; /* Text color */
+            font-size: 4rem; /* Font size for large screens */
+            font-weight: 900; /* Black weight for boldness */
+            line-height: 1.1; /* Tight line height */
+          }
+
+          h2 {
+            font-weight: 400; /* Normal font weight */
+            font-size: 1rem; /* Slightly larger font size on smaller screens */
+          }
+        }
+
+        &.search-container {
+          margin-top: 1em;
+          display: flex;
+          flex-direction: row;
+
+          background-color: #ffffff;
+          border-radius: 10px;
+          padding: 5px;
+
+          border: solid 1px #212121;
+
+          .search-icon {
+            border: none;
+            background-color: transparent;
+            padding: 0.5rem 0 0.5rem 0;
+          }
+
+          .search-input {
+            flex-grow: 1;
+            border: none;
+            background-color: transparent;
+            color: black;
+            outline: none;
+          }
+        }
+      }
     }
   }
 }

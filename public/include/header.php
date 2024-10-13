@@ -1,22 +1,22 @@
 <?php
 session_start();
 
-use kanatraining\User;
-use kanatraining\Env;
+// use kanatraining\User;
+// use kanatraining\Env;
 
-require_once('../model/class/config.php');
-$link = $oauth->get_link_connect();
-$_SESSION['TLink'] = $link;
+// require_once('../model/class/config.php');
+// $link = $oauth->get_link_connect();
+// $_SESSION['TLink'] = $link;
 
-if (!empty($_GET['code'])) {
-  $code  = htmlspecialchars($_GET['code']);
-  $token = $oauth->get_token($code);
+// if (!empty($_GET['code'])) {
+//   $code  = htmlspecialchars($_GET['code']);
+//   $token = $oauth->get_token($code);
 
-  $_SESSION['token'] = $token;
+//   $_SESSION['token'] = $token;
 
-  header('Location: /callback');
-  die();
-}
+//   header('Location: /callback');
+//   die();
+// }
 
 echo "
 <!DOCTYPE html>

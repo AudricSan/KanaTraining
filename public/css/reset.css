@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Quicksand:wght@300..700&display=swap');
+
 html,
 body,
 div,
@@ -143,7 +145,7 @@ body {
   line-height: 1.80857;
   font-weight: normal;
   overflow-x: hidden;
-  font-family: Poppins;
+  font-family: quicksand;
 }
 
 a {
