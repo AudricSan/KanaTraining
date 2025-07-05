@@ -353,12 +353,22 @@ function toggleFlipFlop() {
 
 function handleScreenWidthChange(screenWidth) {
   if (screenWidth.matches) {
-    nav.classList.add('hidden')
-    nav.classList.remove('hidden')
+    nav.classList.add('hidden');
   } else {
-    nav.classList.remove('hidden')
+    nav.classList.remove('hidden');
   }
 }
+// Détection et application automatique du thème système
+function applySystemTheme() {
+  const themeSwitch = document.getElementById('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.body.classList.toggle('dark-theme', prefersDark);
+  if (themeSwitch) themeSwitch.checked = prefersDark;
+}
+// Appliquer au chargement
+applySystemTheme();
+// Écouter les changements système
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applySystemTheme);
 
-handleScreenWidthChange(screenWidth)
+handleScreenWidthChange(screenWidth);
 screenWidth.addListener(handleScreenWidthChange);
