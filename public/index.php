@@ -1,18 +1,19 @@
 <?php
 
 // Use this namespace
-namespace kanatraining;
+namespace Kanatraining;
 
 use Kanatraining\Route;
-use LessonDAO;
-use StudentDAO;
-use StudentAchievementDAO;
-use StudentLessonDAO;
-use OAuthTwitch;
+use Kanatraining\DAO\StudentDAO;
+use Kanatraining\DAO\AchievementDAO;
 
 // Include class
 include '../model/class/Route.php';
 include '../model/class/env.php';
+include '../model/class/Database.php';
+include '../model/class/TwitchOAuth.php';
+include '../model/dao/StudentDAO.php';
+include '../model/dao/AchievementDAO.php';
 
 // Define a global basepath
 define('BASEPATH', '/');
@@ -36,17 +37,12 @@ Route::add('/', function () {
   foot();
 });
 
-Route::add('/test', function () {
-  include('../view/test2.html');
-}); 
-
-Route::add('/nindex', function () {
-  // head();
-  include('../view/index.html');
-  // foot();
-});
-
 Route::add('/student', function () {
+  env::startSession();
+  if (empty($_SESSION['student_id'])) {
+    header('Location: /login');
+    exit;
+  }
   head();
   include('../view/student/index.php');
   foot();
@@ -61,6 +57,67 @@ Route::add('/login', function () {
 Route::add('/callback', function () {
   include_once('../model/class/callback.php');
 });
+
+Route::add('/login/twitch', function () {
+  env::startSession();
+
+  $env = new env();
+  $state = bin2hex(random_bytes(16));
+  $_SESSION['oauth_state'] = $state;
+
+  $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+  $redirectUri = $scheme . '://' . $_SERVER['HTTP_HOST'] . '/callback';
+
+  $oauth = new TwitchOAuth($env, $redirectUri);
+  header('Location: ' . $oauth->buildAuthorizeUrl($state));
+  exit;
+});
+
+Route::add('/logout', function () {
+  env::startSession();
+  $_SESSION = [];
+  session_destroy();
+  header('Location: /');
+  exit;
+});
+
+Route::add('/api/score', function () {
+  env::startSession();
+  header('Content-Type: application/json');
+
+  if (empty($_SESSION['student_id'])) {
+    http_response_code(401);
+    return json_encode(['error' => 'not authenticated']);
+  }
+
+  $input = json_decode(file_get_contents('php://input'), true) ?? [];
+
+  $pdo = Database::get(new env());
+  $studentDAO = new StudentDAO($pdo);
+  $achievementDAO = new AchievementDAO($pdo);
+  $studentId = (int) $_SESSION['student_id'];
+
+  try {
+    $stats = $studentDAO->recordAnswer(
+      $studentId,
+      !empty($input['correct']),
+      (int) ($input['good'] ?? 0),
+      (int) ($input['total'] ?? 0)
+    );
+  } catch (\RuntimeException $e) {
+    unset($_SESSION['student_id']);
+    http_response_code(404);
+    return json_encode(['error' => 'student not found']);
+  }
+
+  $newAchievements = $achievementDAO->checkAndUnlock($studentId, $stats);
+  $stats['newAchievements'] = array_map(fn ($a) => [
+    'name' => $a['achievements_Name'],
+    'icon' => $a['achievements_Icon'],
+  ], $newAchievements);
+
+  return json_encode($stats);
+}, 'post');
 
 // ERROR
 // 404 not found route
@@ -86,22 +143,6 @@ Route::add('/php.routes', function () {
     echo '<li>' . $route['expression'] . ' (' . $route['method'] . ')</li>';
   }
   echo '</ul>';
-});
-
-Route::add('/php.info', function () {
-  phpinfo();
-});
-
-Route::add('/debug', function () {
-  //STUDENT
-  echo 'STUDENT';
-  include '../model/class/Student.php';
-  include '../model/dao/StudentDAO.php';
-  $StudentDAO = new StudentDAO;
-  $Students = $StudentDAO->fetchAll();
-  $Student = $StudentDAO->fetch(1);
-  var_dump($Students);
-  var_dump($Student);
 });
 
 // Exécuter le routeur avec le chemin de base donné

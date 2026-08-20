@@ -1,7 +1,5 @@
-class kana {
-    constructor() { }
-
-    hiragana = [
+const kana = {
+    hiragana: [
         ["あ", "a", true],
         ["い", "i", true],
         ["う", "u", true],
@@ -60,9 +58,9 @@ class kana {
         ["を", "wo", true],
 
         ["ん", "n-nn", true]
-    ];
+    ],
 
-    hiraganaCombo = [
+    hiraganaCombo: [
         ["きゃ", "kya", true],
         ["きゅ", "kyu", true],
         ["きょ", "kyo", true],
@@ -90,9 +88,9 @@ class kana {
         ["りゃ", "rya", true],
         ["りゅ", "ryu", true],
         ["りょ", "ryo", true]
-    ];
+    ],
 
-    hiraganaDakuon = [
+    hiraganaDakuon: [
         ["が", "ga", true],
         ["ぎ", "gi", true],
         ["ぐ", "gu", true],
@@ -124,9 +122,9 @@ class kana {
         ["ぽ", "po", true],
 
         ["ゔ", "vu", true]
-    ];
+    ],
 
-    hiraganaDakuonCombo = [
+    hiraganaDakuonCombo: [
         ["ぎゃ", "gya", true],
         ["ぎゅ", "gyu", true],
         ["ぎょ", "gyo", true],
@@ -146,10 +144,9 @@ class kana {
         ["ぴゃ", "pya", true],
         ["ぴゅ", "pyu", true],
         ["ぴょ", "pyo", true]
-   
-    ];
+    ],
 
-    katakana = [
+    katakana: [
         ["ア", "a", true],
         ["イ", "i", true],
         ["ウ", "u", true],
@@ -206,9 +203,9 @@ class kana {
         ["ヲ", "wo", true],
 
         ["ン", "n", true]
-    ];
+    ],
 
-    katakanaCombo = [
+    katakanaCombo: [
         ["キャ", "kya", true],
         ["キュ", "kyu", true],
         ["キョ", "kyo", true],
@@ -240,9 +237,9 @@ class kana {
         ["リャ", "rya", true],
         ["リュ", "ryu", true],
         ["リョ", "ryo", true]
-    ];
+    ],
 
-    katakanaDakuon = [
+    katakanaDakuon: [
         ["ガ", "ga", true],
         ["ギ", "gi", true],
         ["グ", "gu", true],
@@ -272,9 +269,9 @@ class kana {
         ["プ", "pu", true],
         ["ペ", "pe", true],
         ["ポ", "po", true]
-    ];
+    ],
 
-    katakanaDakuonCombo = [
+    katakanaDakuonCombo: [
         ["ビャ", "bya", true],
         ["ビュ", "byu", true],
         ["ビョ", "byo", true],
@@ -286,5 +283,5 @@ class kana {
         ["ジャ", "ja", true],
         ["ジュ", "ju", true],
         ["ジョ", "jo", true],
-    ];
-}
+    ],
+};

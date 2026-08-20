@@ -1,7 +1,8 @@
-let dificulty = []
+let difficulty = []
+let selectedCharacter
 
-const myKana = new kana()
-const myKanji = new kanji()
+const myKana = kana
+const myKanji = kanji
 
 let character = document.querySelector('.character')
 let kanjitype = document.querySelector('.kanjitype')
@@ -26,6 +27,5 @@ const nav = document.querySelector('nav')
 const blurbox = document.getElementById('blur')
 
 const screenWidth = window.matchMedia('(max-width: 770px)')
-// screenWidth.addListener(handleScreenWidthChange)
 
 const menuIcon = document.querySelector('.menuicon')

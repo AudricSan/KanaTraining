@@ -21,27 +21,27 @@ function save(name, value) {
 
 // Retrieve the backup in the local storage
 function getSave() {
-  let save = saveInArray();
+  const savedEntries = saveInArray();
 
-  if (save) {
-    if (save.length === 0) {
+  if (savedEntries) {
+    if (savedEntries.length === 0) {
       document.getElementById("hiragana").checked = true;
       selectDificulty("hiragana");
     } else {
-      save.forEach((element) => {
-        // console.log(element);
-
+      savedEntries.forEach((element) => {
         switch (element[0]) {
-          case "dificulty":
-            element = element[1];
+          case "difficulty":
+            const value = element[1];
 
-            if (element != "") {
-              let split = element.split(",");
-              difTable = split;
+            if (value !== "") {
+              const difTable = value.split(",");
 
-              difTable.forEach((element) => {
-                document.getElementById(element).checked = true;
-                selectDificulty(element);
+              difTable.forEach((id) => {
+                const checkbox = document.getElementById(id);
+                if (checkbox) {
+                  checkbox.checked = true;
+                  selectDificulty(id);
+                }
               });
             } else {
               document.getElementById("hiragana").checked = true;
@@ -50,8 +50,8 @@ function getSave() {
             break;
 
           case "theme":
-            NextTheme = element[1];
-            selectTheme(NextTheme);
+            const nextTheme = element[1];
+            selectTheme(nextTheme);
             break;
         }
       });

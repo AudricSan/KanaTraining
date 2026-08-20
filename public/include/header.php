@@ -1,22 +1,5 @@
 <?php
-session_start();
-
-// use kanatraining\User;
-// use kanatraining\Env;
-
-// require_once('../model/class/config.php');
-// $link = $oauth->get_link_connect();
-// $_SESSION['TLink'] = $link;
-
-// if (!empty($_GET['code'])) {
-//   $code  = htmlspecialchars($_GET['code']);
-//   $token = $oauth->get_token($code);
-
-//   $_SESSION['token'] = $token;
-
-//   header('Location: /callback');
-//   die();
-// }
+\Kanatraining\env::startSession();
 
 echo "
 <!DOCTYPE html>
@@ -69,10 +52,11 @@ echo "
 </head>
 
 <body onload='getSave()'>
+    <script>const isLoggedIn = " . (!empty($_SESSION['student_id']) ? 'true' : 'false') . ";</script>
     <div id='blur' class=''></div>
 
     <header>
-        <img class='logo' src='image/logo.png' />
+        <img class='logo' src='image/logo.png' alt='Logo KanaTraining' />
         <h1>Entraînez vos Kanas</h1>
         <button class='navbtn'> Menu <i class='menuicon fa-solid fa-caret-down'></i> </button>
     </header>

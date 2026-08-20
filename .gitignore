@@ -1,3 +1,4 @@
 model/class/config.php
 model/class/env.php
+model/class/env*.php
 .env

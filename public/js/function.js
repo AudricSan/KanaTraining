@@ -3,22 +3,22 @@ function selectDificulty(id) {
   let ellement = document.getElementById(id)
 
   if (ellement.checked) {
-    dificulty.push(ellement.id)
-    save("dificulty", dificulty)
+    difficulty.push(ellement.id)
+    save("difficulty", difficulty)
   } else {
-    const index = dificulty.indexOf(ellement.id)
+    const index = difficulty.indexOf(ellement.id)
 
     if (index > -1) {
-      dificulty.splice(index, 1)
+      difficulty.splice(index, 1)
     }
-    save("dificulty", dificulty)
+    save("difficulty", difficulty)
   }
 
-  if (dificulty.length === 1) {
-    let ellement = document.getElementById(dificulty[0])
+  if (difficulty.length === 1) {
+    let ellement = document.getElementById(difficulty[0])
     ellement.setAttribute("disabled", "disabled")
   } else {
-    let ellement = document.getElementById(dificulty[0])
+    let ellement = document.getElementById(difficulty[0])
     ellement.removeAttribute("disabled", "disabled")
   }
 
@@ -26,8 +26,8 @@ function selectDificulty(id) {
 }
 
 function startGame() {
-  const int = getRandomInteger(0, dificulty.length - 1)
-  switch (dificulty[int]) {
+  const int = getRandomInteger(0, difficulty.length - 1)
+  switch (difficulty[int]) {
     case "hiragana":
       selectedCharacter = getRandom("hiragana")
       break
@@ -101,42 +101,29 @@ function getRandomInteger(min, max) {
 }
 
 function getRandom(type) {
+  const list = myKana[type]
   let selected
 
-  while (selected != "undefined") {
-    let selected = myKana[type]
-    let nb = getRandomInteger(0, selected.length - 1)
+  do {
+    const nb = getRandomInteger(0, list.length - 1)
+    selected = list[nb]
+  } while (selected[2] !== true)
 
-    if (selected != undefined) {
-      selected = selected[nb]
-      if (selected[2] == true) {
-        return selected
-      }
-    }
-  }
+  return selected
 }
 
 function getRandomkanji(type) {
-  let selected
+  const list = myKanji[type]
+  const nb = getRandomInteger(0, list.length - 1)
+  const entry = list[nb]
 
-  while (selected != "undefined") {
-    let selected = myKanji[type]
-    let nb = getRandomInteger(0, selected.length - 1)
-    selected = selected[nb]
+  const useReading = Math.random() < 0.5
 
-    selected[0] = selected["kanji"]
-
-    var randomValue = Math.random();
-    if (randomValue < 0.5) {
-      selected[1] = selected["read"]
-      selected[2] = "read"
-    } else {
-      selected[1] = selected["translate"]
-      selected[2] = "translate"
-    }
-
-    return selected
-  }
+  return [
+    entry.kanji,
+    useReading ? entry.read : entry.translate,
+    useReading ? "read" : "translate",
+  ]
 }
 
 // notification
@@ -163,45 +150,61 @@ function createNotification(txt, c) {
 
 // Answerd checker
 function checkAnswerd() {
-  if (document.getElementsByClassName("toast").length === 0) {
-    let a = input.value.toLowerCase()
-    let b = selectedCharacter[1]
-    c = b.split("-")
-    d = c.indexOf(a)
+  let correct
 
-    if (d != -1) {
-      e = c[d]
-      if (a === e) {
-        input.value = ""
-        goodAnswerd()
-      } else {
-        input.value = ""
-        badAnswerd()
-      }
+  if (document.getElementsByClassName("toast").length === 0) {
+    const answer = input.value.toLowerCase()
+    const validAnswers = selectedCharacter[1].split("-")
+    correct = validAnswers.includes(answer)
+
+    input.value = ""
+    if (correct) {
+      goodAnswerd()
     } else {
-      input.value = ""
       badAnswerd()
     }
   } else {
     return
   }
 
-  a = parseInt(myPoint.innerText)
-  b = parseInt(totalPoint.innerText)
+  const good = parseInt(myPoint.innerText)
+  const total = parseInt(totalPoint.innerText)
 
-  score = a + "/" + b
+  const score = good + "/" + total
   save("score", score)
   createCookie("score", score, 1)
 
-  pr = (a / b) * 100
-  save("ratio", pr)
+  const ratio = (good / total) * 100
+  save("ratio", ratio)
 
-  best = localStorage.getItem("bestRatio")
-  if (pr >= best) {
-    save("bestRatio", pr)
+  const best = localStorage.getItem("bestRatio")
+  if (ratio >= best) {
+    save("bestRatio", ratio)
     save("best", score)
     createCookie("best", score, 1)
   }
+
+  if (isLoggedIn) {
+    sendScoreUpdate(correct, good, total)
+  }
+}
+
+// Report one answer to the server so a logged-in student's XP/streak/score stay in sync
+function sendScoreUpdate(correct, good, total) {
+  fetch("/api/score", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ correct, good, total }),
+  })
+    .then((response) => (response.ok ? response.json() : null))
+    .then((data) => {
+      if (data && data.newAchievements) {
+        data.newAchievements.forEach((a) => {
+          createNotification(a.icon + " Succès débloqué : " + a.name)
+        })
+      }
+    })
+    .catch(() => {})
 }
 
 // If is good
@@ -219,25 +222,23 @@ function badAnswerd() {
 
 // increment point
 function incrementGood() {
-  a = parseInt(myPoint.innerText)
-  a += 1
-  myPoint.innerText = a.toString()
+  let good = parseInt(myPoint.innerText)
+  good += 1
+  myPoint.innerText = good.toString()
 
   incrementTotal()
 }
 
 // increment total
 function incrementTotal() {
-  b = parseInt(totalPoint.innerText)
-  b += 1
+  let total = parseInt(totalPoint.innerText)
+  total += 1
 
-  totalPoint.innerText = b.toString()
+  totalPoint.innerText = total.toString()
 
   setTimeout(() => {
     startGame()
   }, delay)
-
-  a = myPoint.innerText
 }
 
 // Cookies
@@ -269,18 +270,14 @@ twitter.addEventListener("click", (event) => {
 
 // Get all kana from the database to generate help
 function helpGenerator() {
-  let helpTable = []
+  const helpTable = []
 
-  dificulty.forEach((e) => {
+  difficulty.forEach((e) => {
     helpTable.push(myKana[e])
     helpTable.push(myKanji[e])
-
-    newhelpTable = helpTable.filter(function (element) {
-      return element !== undefined;
-    });
   })
 
-  helpContainer.removeChild
+  const newhelpTable = helpTable.filter((element) => element !== undefined)
 
   newhelpTable.forEach((e) => {
     e.forEach((a) => {
@@ -292,11 +289,16 @@ function helpGenerator() {
       helpRomanji.classList.add("romanji")
 
       if (a[2] === true || a[2] === false) {
+        helpHiragana.lang = 'ja'
         helpHiragana.innerText = a[0]
         helpRomanji.innerText = a[1]
       } else {
-        texta = a['kanji'] + ' || ' + a['translate']
-        helpHiragana.innerText = texta
+        const kanjiSpan = document.createElement("span")
+        kanjiSpan.lang = 'ja'
+        kanjiSpan.innerText = a['kanji']
+        helpHiragana.appendChild(kanjiSpan)
+        helpHiragana.appendChild(document.createTextNode(' || ' + a['translate']))
+        helpRomanji.lang = 'ja'
         helpRomanji.innerText = a['read']
       }
 
@@ -311,6 +313,7 @@ function helpGenerator() {
 helpOpen.addEventListener('click', event => {
   helpClose.classList.remove('hidden')
   helpOpen.classList.add('hidden')
+  helpOpen.setAttribute('aria-expanded', 'true')
 
   blurbox.classList.add('blur')
 
@@ -321,6 +324,7 @@ helpOpen.addEventListener('click', event => {
 helpClose.addEventListener('click', event => {
   helpClose.classList.add('hidden')
   helpOpen.classList.remove('hidden')
+  helpOpen.setAttribute('aria-expanded', 'false')
 
   blurbox.classList.remove('blur')
 
@@ -371,4 +375,4 @@ applySystemTheme();
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applySystemTheme);
 
 handleScreenWidthChange(screenWidth);
-screenWidth.addListener(handleScreenWidthChange);
+screenWidth.addEventListener('change', handleScreenWidthChange);
