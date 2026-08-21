@@ -5,6 +5,7 @@ $env = new \Kanatraining\env();
 $pdo = \Kanatraining\Database::get($env);
 $studentDAO = new \Kanatraining\DAO\StudentDAO($pdo);
 $achievementDAO = new \Kanatraining\DAO\AchievementDAO($pdo);
+$characterStatsDAO = new \Kanatraining\DAO\CharacterStatsDAO($pdo);
 $studentId = (int) $_SESSION['student_id'];
 $student = $studentDAO->find($studentId);
 
@@ -28,6 +29,37 @@ foreach ($achievementDAO->allWithStatus($studentId) as $a) {
     $badgesHtml .= "<li class='badge {$state}' title=\"{$desc}\"><span class='badge-icon'>{$icon}</span><span class='badge-name'>{$badgeName}</span></li>";
 }
 
+$typeLabels = [
+    'hiragana' => 'Hiragana',
+    'hiraganaCombo' => 'Hiragana Combo',
+    'hiraganaDakuon' => 'Hiragana Dakuon',
+    'hiraganaDakuonCombo' => 'Hiragana Dakuon Combo',
+    'katakana' => 'Katakana',
+    'katakanaCombo' => 'Katakana Combo',
+    'katakanaDakuon' => 'Katakana Dakuon',
+    'katakanaDakuonCombo' => 'Katakana Dakuon Combo',
+    'kanjiN5' => 'Kanji N5',
+    'kanjiN4' => 'Kanji N4',
+    'kanjiN3' => 'Kanji N3',
+    'kanjiN2' => 'Kanji N2',
+    'kanjiN1' => 'Kanji N1',
+];
+
+$weakHtml = '';
+foreach ($characterStatsDAO->topWeak($studentId, 5) as $w) {
+    $char = htmlspecialchars($w['character_key']);
+    $label = htmlspecialchars($typeLabels[$w['character_type']] ?? $w['character_type']);
+    $wrongCount = (int) $w['wrong_count'];
+
+    $weakHtml .= "<li><span class='weak-char' lang='ja'>{$char}</span><span class='weak-type'>{$label}</span><span class='weak-count'>{$wrongCount}×</span></li>";
+}
+
+$weakSectionHtml = '';
+if ($weakHtml !== '') {
+    $weakSectionHtml = "<h3 class='achievements-title'>À travailler</h3>
+            <ul class='weak-list'>{$weakHtml}</ul>";
+}
+
 echo "
     <main>
         <section class='_1'>
@@ -48,6 +80,9 @@ echo "
             <h3 class='achievements-title'>Succès</h3>
             <ul class='achievements-list'>{$badgesHtml}</ul>
 
+            {$weakSectionHtml}
+
+            <p><a href='/classement'>Voir le classement</a></p>
             <p><a href='/'>Retour à l'entraînement</a></p>
             <p><a href='/logout'>Se déconnecter</a></p>
         </section>

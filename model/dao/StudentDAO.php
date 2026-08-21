@@ -60,11 +60,48 @@ class StudentDAO
     }
 
     /**
+     * The top students by XP, best first — for the public leaderboard.
+     */
+    public function topByXp(int $limit = 20): array
+    {
+        $stmt = $this->pdo->prepare(
+            'SELECT student_ID, student_Name, student_Avatar, student_GlobalXp, student_StreakDays
+             FROM student
+             ORDER BY student_GlobalXp DESC, student_StreakDays DESC
+             LIMIT :limit'
+        );
+        $stmt->bindValue('limit', $limit, \PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
+    /**
+     * XP at stake for one answer, by difficulty — harder content is worth more,
+     * both gained on a correct answer and lost on a wrong one.
+     */
+    private const XP_BY_TYPE = [
+        'hiragana'             => 1,
+        'katakana'             => 1,
+        'hiraganaCombo'        => 2,
+        'katakanaCombo'        => 2,
+        'hiraganaDakuon'       => 2,
+        'katakanaDakuon'       => 2,
+        'hiraganaDakuonCombo'  => 3,
+        'katakanaDakuonCombo'  => 3,
+        'kanjiN5'              => 3,
+        'kanjiN4'              => 4,
+        'kanjiN3'              => 5,
+        'kanjiN2'              => 6,
+        'kanjiN1'              => 8,
+    ];
+
+    /**
      * Records the outcome of one answer and updates XP / streak / score.
      * $good/$total are the running counters of the current browser session.
      * Returns the updated stats.
      */
-    public function recordAnswer(int $id, bool $correct, int $good, int $total): array
+    public function recordAnswer(int $id, bool $correct, int $good, int $total, string $type = ''): array
     {
         $student = $this->find($id);
         if ($student === null) {
@@ -77,9 +114,10 @@ class StudentDAO
         $xp = (int) $student['student_GlobalXp'];
         $streak = (int) $student['student_StreakDays'];
         $lastPlayedDate = $student['student_LastPlayedDate'];
+        $points = self::XP_BY_TYPE[$type] ?? 1;
 
         if ($correct) {
-            $xp += 1;
+            $xp += $points;
 
             if ($lastPlayedDate === $today) {
                 // already played today, streak unchanged
@@ -90,6 +128,8 @@ class StudentDAO
             }
 
             $lastPlayedDate = $today;
+        } else {
+            $xp = max(0, $xp - $points);
         }
 
         $highScore = max((int) $student['student_HighScore'], $good);

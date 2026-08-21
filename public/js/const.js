@@ -1,5 +1,6 @@
 let difficulty = []
 let selectedCharacter
+let currentType
 
 const myKana = kana
 const myKanji = kanji

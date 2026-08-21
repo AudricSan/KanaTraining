@@ -1,6 +1,13 @@
 <?php
 \Kanatraining\env::startSession();
 
+$weakCharactersJson = '{}';
+if (!empty($_SESSION['student_id'])) {
+    $headerEnv = new \Kanatraining\env();
+    $characterStatsDAO = new \Kanatraining\DAO\CharacterStatsDAO(\Kanatraining\Database::get($headerEnv));
+    $weakCharactersJson = json_encode($characterStatsDAO->weightsFor((int) $_SESSION['student_id']));
+}
+
 echo "
 <!DOCTYPE html>
 <html lang='fr'>
@@ -52,7 +59,10 @@ echo "
 </head>
 
 <body onload='getSave()'>
-    <script>const isLoggedIn = " . (!empty($_SESSION['student_id']) ? 'true' : 'false') . ";</script>
+    <script>
+        const isLoggedIn = " . (!empty($_SESSION['student_id']) ? 'true' : 'false') . ";
+        const weakCharacters = {$weakCharactersJson};
+    </script>
     <div id='blur' class=''></div>
 
     <header>

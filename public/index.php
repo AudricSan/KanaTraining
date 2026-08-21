@@ -6,6 +6,7 @@ namespace Kanatraining;
 use Kanatraining\Route;
 use Kanatraining\DAO\StudentDAO;
 use Kanatraining\DAO\AchievementDAO;
+use Kanatraining\DAO\CharacterStatsDAO;
 
 // Include class
 include '../model/class/Route.php';
@@ -14,6 +15,7 @@ include '../model/class/Database.php';
 include '../model/class/TwitchOAuth.php';
 include '../model/dao/StudentDAO.php';
 include '../model/dao/AchievementDAO.php';
+include '../model/dao/CharacterStatsDAO.php';
 
 // Define a global basepath
 define('BASEPATH', '/');
@@ -45,6 +47,13 @@ Route::add('/student', function () {
   }
   head();
   include('../view/student/index.php');
+  foot();
+});
+
+Route::add('/classement', function () {
+  env::startSession();
+  head();
+  include('../view/classement/index.php');
   foot();
 });
 
@@ -95,19 +104,27 @@ Route::add('/api/score', function () {
   $pdo = Database::get(new env());
   $studentDAO = new StudentDAO($pdo);
   $achievementDAO = new AchievementDAO($pdo);
+  $characterStatsDAO = new CharacterStatsDAO($pdo);
   $studentId = (int) $_SESSION['student_id'];
+  $correct = !empty($input['correct']);
+  $type = (string) ($input['type'] ?? '');
 
   try {
     $stats = $studentDAO->recordAnswer(
       $studentId,
-      !empty($input['correct']),
+      $correct,
       (int) ($input['good'] ?? 0),
-      (int) ($input['total'] ?? 0)
+      (int) ($input['total'] ?? 0),
+      $type
     );
   } catch (\RuntimeException $e) {
     unset($_SESSION['student_id']);
     http_response_code(404);
     return json_encode(['error' => 'student not found']);
+  }
+
+  if (!empty($input['type']) && !empty($input['character'])) {
+    $characterStatsDAO->recordAttempt($studentId, (string) $input['type'], (string) $input['character'], $correct);
   }
 
   $newAchievements = $achievementDAO->checkAndUnlock($studentId, $stats);

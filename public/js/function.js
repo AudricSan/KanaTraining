@@ -27,7 +27,8 @@ function selectDificulty(id) {
 
 function startGame() {
   const int = getRandomInteger(0, difficulty.length - 1)
-  switch (difficulty[int]) {
+  currentType = difficulty[int]
+  switch (currentType) {
     case "hiragana":
       selectedCharacter = getRandom("hiragana")
       break
@@ -100,23 +101,28 @@ function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
+// Picks a random entry, favoring ones the student has answered wrong before
+// (weakCharacters, injected server-side — empty/undefined for anonymous play,
+// which keeps the pick uniform, same as before).
+function weightedPick(list, keyFn, type) {
+  const weights = (typeof weakCharacters !== "undefined" && weakCharacters[type]) || {}
+  const pool = []
+
+  list.forEach((entry) => {
+    const weight = 1 + Math.min(weights[keyFn(entry)] || 0, 4)
+    for (let i = 0; i < weight; i++) pool.push(entry)
+  })
+
+  return pool[getRandomInteger(0, pool.length - 1)]
+}
+
 function getRandom(type) {
-  const list = myKana[type]
-  let selected
-
-  do {
-    const nb = getRandomInteger(0, list.length - 1)
-    selected = list[nb]
-  } while (selected[2] !== true)
-
-  return selected
+  const list = myKana[type].filter((entry) => entry[2] === true)
+  return weightedPick(list, (entry) => entry[0], type)
 }
 
 function getRandomkanji(type) {
-  const list = myKanji[type]
-  const nb = getRandomInteger(0, list.length - 1)
-  const entry = list[nb]
-
+  const entry = weightedPick(myKanji[type], (e) => e.kanji, type)
   const useReading = Math.random() < 0.5
 
   return [
@@ -151,6 +157,8 @@ function createNotification(txt, c) {
 // Answerd checker
 function checkAnswerd() {
   let correct
+  const answeredCharacter = selectedCharacter[0]
+  const answeredType = currentType
 
   if (document.getElementsByClassName("toast").length === 0) {
     const answer = input.value.toLowerCase()
@@ -185,20 +193,28 @@ function checkAnswerd() {
   }
 
   if (isLoggedIn) {
-    sendScoreUpdate(correct, good, total)
+    sendScoreUpdate(correct, good, total, answeredType, answeredCharacter)
   }
 }
 
-// Report one answer to the server so a logged-in student's XP/streak/score stay in sync
-function sendScoreUpdate(correct, good, total) {
+// Report one answer to the server so a logged-in student's XP/streak/score stay in sync,
+// and which character it was so weak spots can be drilled more often next time.
+function sendScoreUpdate(correct, good, total, type, character) {
   fetch("/api/score", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ correct, good, total }),
+    body: JSON.stringify({ correct, good, total, type, character }),
   })
     .then((response) => (response.ok ? response.json() : null))
     .then((data) => {
-      if (data && data.newAchievements) {
+      if (!data) return
+
+      const liveXp = document.getElementById("liveXp")
+      const liveStreak = document.getElementById("liveStreak")
+      if (liveXp) liveXp.innerText = data.globalXp
+      if (liveStreak) liveStreak.innerText = data.streakDays
+
+      if (data.newAchievements) {
         data.newAchievements.forEach((a) => {
           createNotification(a.icon + " Succès débloqué : " + a.name)
         })

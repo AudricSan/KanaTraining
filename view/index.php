@@ -4,11 +4,28 @@ echo "
         <section class='_1'>
             <nav class=''>";
 
+$liveStatsHtml = '';
+
 if (!empty($_SESSION['student_id'])) {
     echo "<a href='/student' class='fa-solid fa-person'></span> Mon profil </a>";
+    echo "<a href='/classement' class='fa-solid fa-ranking-star'></span> Classement </a>";
     echo "<a href='/logout' class='fa-solid fa-right-from-bracket'></span> Déconnexion </a>";
+
+    $env = new \Kanatraining\env();
+    $studentDAO = new \Kanatraining\DAO\StudentDAO(\Kanatraining\Database::get($env));
+    $student = $studentDAO->find((int) $_SESSION['student_id']);
+
+    if ($student !== null) {
+        $xp = (int) $student['student_GlobalXp'];
+        $streak = (int) $student['student_StreakDays'];
+        $liveStatsHtml = "<div class='live-stats' id='liveStats' aria-live='polite'>
+            <span class='fa-solid fa-bolt'></span> <span id='liveXp'>{$xp}</span> XP
+            <span>🔥</span> <span id='liveStreak'>{$streak}</span> j
+        </div>";
+    }
 } else {
     echo "<a href='/login' class='fa-solid fa-person'></span> Connexion </a>";
+    echo "<a href='/classement' class='fa-solid fa-ranking-star'></span> Classement </a>";
 }
 
 echo "
@@ -112,6 +129,8 @@ echo "
                     <span class='fa-solid fa-star'></span>
                     <span class='good'>0</span>/<span class='total'>0</span>
                 </div>
+
+                {$liveStatsHtml}
 
                 <div id='toast' role='status'>
                    <!--

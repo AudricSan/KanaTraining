@@ -107,6 +107,13 @@ body main ._2 form div {
 body main ._2 form div#toast {
   position: absolute;
 }
+body main ._2 form div.live-stats {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
 body main ._2 form div#toast p {
   width: 300px;
   border-radius: 25px;
@@ -185,6 +192,85 @@ body main ._2.student-profile .achievements-list .badge-name {
   font-size: 0.75em;
   text-align: center;
   margin-top: 0.3em;
+}
+body main ._2.student-profile .weak-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5em 0 1em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  max-width: 320px;
+}
+body main ._2.student-profile .weak-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  background-color: var(--dark-liver, #3a3a3a);
+  border-radius: 8px;
+  padding: 0.4em 0.8em;
+}
+body main ._2.student-profile .weak-char {
+  font-size: 1.3em;
+}
+body main ._2.student-profile .weak-type {
+  font-size: 0.8em;
+  opacity: 0.7;
+  flex: 1;
+  text-align: left;
+  margin-left: 0.8em;
+}
+body main ._2.student-profile .weak-count {
+  font-size: 0.85em;
+  opacity: 0.9;
+}
+body main ._2.leaderboard h2 {
+  font-size: 2em;
+  flex-basis: auto;
+}
+body main ._2.leaderboard .leaderboard-list {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  min-width: 320px;
+}
+body main ._2.leaderboard .leaderboard-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  background-color: var(--dark-liver, #3a3a3a);
+  border-radius: 8px;
+  padding: 0.4em 0.8em;
+}
+body main ._2.leaderboard .leaderboard-row.current {
+  outline: 2px solid var(--black-bean);
+}
+body main ._2.leaderboard .leaderboard-rank {
+  width: 1.5em;
+  text-align: right;
+  opacity: 0.7;
+}
+body main ._2.leaderboard .leaderboard-avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+body main ._2.leaderboard .leaderboard-name {
+  flex: 1;
+  text-align: left;
+}
+body main ._2.leaderboard .leaderboard-xp,
+body main ._2.leaderboard .leaderboard-streak {
+  font-size: 0.85em;
+  opacity: 0.9;
+  white-space: nowrap;
+}
+body main ._2.leaderboard .leaderboard-empty {
+  opacity: 0.7;
+  margin: 1em 0;
 }
 body main ._3 {
   justify-self: right;
