@@ -79,12 +79,12 @@
   }
   input[type=checkbox] + label,
   input[type=radio] + label {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 21px;
     display: inline-block;
     vertical-align: top;
     cursor: pointer;
-    margin-left: 4px;
+    margin-left: 0.6em;
   }
   input[type=checkbox]:not(.switch) {
     border-radius: 7px;
@@ -136,4 +136,6 @@
   input[type=radio]:checked {
     --s: .5;
   }
-}/*# sourceMappingURL=menu.css.map */
+}
+
+/*# sourceMappingURL=menu.css.map */

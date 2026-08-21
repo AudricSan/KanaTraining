@@ -59,8 +59,95 @@ button {
 body {
   font-family: "Open Sans", sans-serif;
   padding: 1em 3em 0em 3em;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.2s ease, color 0.2s ease;
+
   header {
     z-index: 1;
+    margin-bottom: 1em;
+
+    .logo-link {
+      display: contents;
+    }
+
+    .logo {
+      margin-bottom: 0.3em;
+    }
+
+    h1 {
+      margin-bottom: 0.7em;
+    }
+  }
+
+  // Navigation persistante (Entraînement / Classement / Profil / Déconnexion)
+  .topnav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4em 1.4em;
+    margin-bottom: 1.6em;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+      padding: 0.2em 0;
+      font-size: 0.95em;
+      font-weight: 600;
+      opacity: 0.85;
+
+      &:hover,
+      &:focus-visible {
+        opacity: 1;
+        text-decoration: underline;
+      }
+    }
+
+    .theme-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      width: 2.2em;
+      height: 2.2em;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background-color: var(--surface-alt);
+      color: var(--text);
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      .material-icons-round {
+        font-size: 1.3em;
+      }
+
+      &:hover,
+      &:focus-visible {
+        background-color: rgba(127, 127, 127, 0.28);
+      }
+    }
+  }
+
+  // Bouton d'ouverture/fermeture du menu (mobile uniquement, voir small.scss)
+  .navbtn {
+    display: none;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.6em 1.4em;
+    font-size: 1em;
+    font-weight: 600;
+    background-color: var(--dark-liver);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--black-bean);
+    }
   }
   // Styles de la section principale
   main {
@@ -75,13 +162,84 @@ body {
       nav {
         position: absolute;
         z-index: 1;
-        ul {
-          p {
-            margin-bottom: 0.6em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        min-width: 220px;
+
+        form {
+          display: flex;
+          align-items: center;
+          margin: 0;
+          padding: 0.3em 0.5em;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 0.2s ease;
+
+          &:hover {
+            background-color: rgba(127, 127, 127, 0.12);
+          }
+        }
+
+        // Groupes repliables Hiragana / Katakana / Kanji
+        .menu-group {
+          border-radius: 8px;
+
+          summary {
+            display: flex;
+            align-items: center;
+            gap: 0.4em;
+            padding: 0.4em 0.5em;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 8px;
+            list-style: none;
+
+            &::-webkit-details-marker {
+              display: none;
+            }
+
+            &::before {
+              content: "\e5cc"; // ligature "chevron_right"
+              font-family: "Material Icons Round";
+              font-weight: normal;
+              font-style: normal;
+              line-height: 1;
+              display: inline-block;
+              font-size: 1.1em;
+              transition: transform 0.2s ease;
+            }
+
+            &:hover {
+              background-color: rgba(127, 127, 127, 0.12);
+            }
+
+            .menu-group-badge {
+              min-width: 1.4em;
+              padding: 0 0.4em;
+              border-radius: 999px;
+              background-color: var(--active, #275efe);
+              color: #fff;
+              font-size: 0.75em;
+              font-weight: 700;
+              text-align: center;
+              line-height: 1.4em;
+
+              &.hidden {
+                display: none;
+              }
+            }
           }
 
-          form {
-            margin-top: 0.2em;
+          &[open] summary::before {
+            transform: rotate(90deg);
+          }
+
+          .menu-group-body {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35em;
+            margin: 0.3em 0 0.3em 0.3em;
           }
         }
       }
@@ -103,15 +261,15 @@ body {
 
       h3 {
         font-size: 1.3em;
-        background-color: #757575;
+        font-weight: 600;
+        background-color: var(--dark-liver);
         color: #fff;
         text-align: center;
-        border-radius: 6px;
-        padding: 10px 80px 10px 80px;
-
-        position: relative;
-        top: -5%;
-        // z-index: 1;
+        border-radius: 12px;
+        padding: 0.5em 1.4em;
+        margin-top: -0.4em;
+        margin-bottom: 0.8em;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
       }
 
       form {
@@ -120,31 +278,46 @@ body {
           border-radius: 25px;
           font-size: 1em;
           padding: 1em;
+          margin-bottom: 1em;
+          background-color: var(--surface);
+          color: var(--text);
+          border: 1px solid var(--surface-border);
         }
 
-        div {
-          margin-bottom: 2em;
+        #toast {
+          min-height: 2.6em;
+          margin-bottom: 1em;
 
-          &.live-stats {
+          p {
+            width: 300px;
+            max-width: 100%;
+            margin: 0 auto;
+            border-radius: 25px;
+            background-color: wheat;
+            color: black;
+            padding: 1em;
+          }
+        }
+
+        .stats-row {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          gap: 1.2em;
+          font-size: 0.9em;
+          opacity: 0.85;
+
+          .score {
             display: flex;
-            gap: 1em;
-            justify-content: center;
-            font-size: 0.9em;
-            opacity: 0.8;
+            align-items: center;
+            gap: 0.4em;
+            font-weight: 600;
           }
 
-          &#toast {
-            position: absolute;
-
-            p {
-              width: 300px;
-              border-radius: 25px;
-              position: relative;
-              left: -3.5em;
-              background-color: wheat;
-              color: black;
-              padding: 1em;
-            }
+          .live-stats {
+            display: flex;
+            gap: 1em;
           }
         }
       }
@@ -160,18 +333,56 @@ body {
     }
 
     ._2.auth-page {
-      .fa-brands.fa-twitch {
-        display: inline-block;
+      .twitch-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5em;
         background-color: #9146ff;
         color: #fff;
         padding: 0.7em 1.5em;
         border-radius: 25px;
         text-decoration: none;
         margin-top: 0.5em;
+        font-weight: 600;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: #7c2df0;
+        }
       }
     }
 
     ._2.student-profile {
+      display: block;
+      grid-column: 1 / -1;
+      width: 100%;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+
+      .profile-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.4em;
+        text-align: left;
+        align-items: start;
+      }
+
+      .profile-card {
+        background-color: var(--surface);
+        border: 1px solid var(--surface-border);
+        border-radius: 14px;
+        padding: 1.4em;
+      }
+
+      .profile-identity {
+        text-align: center;
+
+        h2 {
+          margin-top: 0.6em;
+        }
+      }
+
       .student-avatar {
         border-radius: 50%;
         object-fit: cover;
@@ -180,16 +391,27 @@ body {
       .student-stats {
         list-style: none;
         padding: 0;
-        margin: 1em 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5em;
+        margin: 1em 0 0 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6em;
 
         li {
           display: flex;
-          justify-content: space-between;
-          gap: 1.5em;
-          min-width: 240px;
+          flex-direction: column;
+          gap: 0.3em;
+          background-color: var(--surface-alt);
+          border-radius: 10px;
+          padding: 0.6em 0.8em;
+
+          span {
+            font-size: 0.8em;
+            opacity: 0.75;
+          }
+
+          strong {
+            font-size: 1.3em;
+          }
         }
       }
 
@@ -199,29 +421,27 @@ body {
         color: inherit;
         padding: 0;
         top: 0;
+        margin: 0 0 0.8em 0;
       }
 
       .achievements-list {
         list-style: none;
         padding: 0;
-        margin: 0.5em 0 1em 0;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
         gap: 0.6em;
-        max-width: 500px;
 
         .badge {
           display: flex;
           flex-direction: column;
           align-items: center;
-          width: 90px;
           padding: 0.6em 0.3em;
           border-radius: 10px;
-          background-color: var(--dark-liver, #3a3a3a);
+          background-color: var(--surface-alt);
 
           &.locked {
-            opacity: 0.35;
+            opacity: 0.55;
             filter: grayscale(1);
           }
         }
@@ -240,18 +460,17 @@ body {
       .weak-list {
         list-style: none;
         padding: 0;
-        margin: 0.5em 0 1em 0;
+        margin: 0;
         display: flex;
         flex-direction: column;
         gap: 0.4em;
-        max-width: 320px;
 
         li {
           display: flex;
           align-items: center;
           justify-content: space-between;
           gap: 1em;
-          background-color: var(--dark-liver, #3a3a3a);
+          background-color: var(--surface-alt);
           border-radius: 8px;
           padding: 0.4em 0.8em;
         }
@@ -272,6 +491,11 @@ body {
       .weak-count {
         font-size: 0.85em;
         opacity: 0.9;
+      }
+
+      .weak-empty {
+        opacity: 0.7;
+        font-size: 0.9em;
       }
     }
 
@@ -295,12 +519,13 @@ body {
         display: flex;
         align-items: center;
         gap: 0.8em;
-        background-color: var(--dark-liver, #3a3a3a);
+        background-color: var(--surface);
+        border: 1px solid var(--surface-border);
         border-radius: 8px;
         padding: 0.4em 0.8em;
 
         &.current {
-          outline: 2px solid var(--black-bean);
+          outline: 2px solid var(--active, #275efe);
         }
       }
 

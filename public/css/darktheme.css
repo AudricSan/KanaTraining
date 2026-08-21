@@ -1,6 +1,0 @@
-@import url(color.css);
-body {
-  background-color: var(--charleston-green);
-  color: var(--background);
-  --focus: 2px rgba(133, 173, 255, 0.7);
-}/*# sourceMappingURL=darktheme.css.map */

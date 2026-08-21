@@ -54,37 +54,38 @@ foreach ($characterStatsDAO->topWeak($studentId, 5) as $w) {
     $weakHtml .= "<li><span class='weak-char' lang='ja'>{$char}</span><span class='weak-type'>{$label}</span><span class='weak-count'>{$wrongCount}×</span></li>";
 }
 
-$weakSectionHtml = '';
-if ($weakHtml !== '') {
-    $weakSectionHtml = "<h3 class='achievements-title'>À travailler</h3>
-            <ul class='weak-list'>{$weakHtml}</ul>";
-}
+$weakBodyHtml = $weakHtml !== ''
+    ? "<ul class='weak-list'>{$weakHtml}</ul>"
+    : "<p class='weak-empty'>Pas encore de statistiques.</p>";
 
 echo "
     <main>
-        <section class='_1'>
-            <nav></nav>
-        </section>
+        <section class='_1'></section>
 
         <section class='_2 student-profile'>
-            <img class='student-avatar' src='{$avatar}' alt='Avatar Twitch de {$name}' width='96' height='96' />
-            <h2>{$name}</h2>
+            <div class='profile-grid'>
+                <div class='profile-card profile-identity'>
+                    <img class='student-avatar' src='{$avatar}' alt='Avatar Twitch de {$name}' width='96' height='96' />
+                    <h2>{$name}</h2>
 
-            <ul class='student-stats'>
-                <li><span>XP total</span> <strong>{$student['student_GlobalXp']}</strong></li>
-                <li><span>Série de jours</span> <strong>{$student['student_StreakDays']}</strong></li>
-                <li><span>Meilleur score</span> <strong>{$student['student_HighScore']}</strong></li>
-                <li><span>Dernier score</span> <strong>{$student['student_LastScore']}</strong></li>
-            </ul>
+                    <ul class='student-stats'>
+                        <li><span>XP total</span> <strong>{$student['student_GlobalXp']}</strong></li>
+                        <li><span>Série de jours</span> <strong>{$student['student_StreakDays']}</strong></li>
+                        <li><span>Meilleur score</span> <strong>{$student['student_HighScore']}</strong></li>
+                        <li><span>Dernier score</span> <strong>{$student['student_LastScore']}</strong></li>
+                    </ul>
+                </div>
 
-            <h3 class='achievements-title'>Succès</h3>
-            <ul class='achievements-list'>{$badgesHtml}</ul>
+                <div class='profile-card profile-achievements'>
+                    <h3 class='achievements-title'>Succès</h3>
+                    <ul class='achievements-list'>{$badgesHtml}</ul>
+                </div>
 
-            {$weakSectionHtml}
-
-            <p><a href='/classement'>Voir le classement</a></p>
-            <p><a href='/'>Retour à l'entraînement</a></p>
-            <p><a href='/logout'>Se déconnecter</a></p>
+                <div class='profile-card profile-weak'>
+                    <h3 class='achievements-title'>À travailler</h3>
+                    {$weakBodyHtml}
+                </div>
+            </div>
         </section>
     </main>
 ";

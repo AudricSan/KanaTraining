@@ -7,6 +7,7 @@
    /* HEX */
    --charleston-green: #293132;
    --dark-liver: #474044ff;
+   --black-bean: #2b2730;
    --independence: #4f5165ff;
    --blue-yonder: #547aa5ff;
    --medium-turquoise: #50d8d7ff;
@@ -33,4 +34,22 @@
    --gradient-top-left: linear-gradient(225deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff);
    --gradient-bottom-left: linear-gradient(315deg, #293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff);
    --gradient-radial: radial-gradient(#293132ff, #474044ff, #4f5165ff, #547aa5ff, #50d8d7ff);
+
+   /* Système de thème clair / sombre : variables sémantiques utilisées
+      partout dans l'appli (page, cartes). Les couleurs de marque
+      (boutons, badges menu, Twitch) restent volontairement fixes. */
+   --bg: #f6f8ff;
+   --text: #1c1c1e;
+   --text-muted: rgba(28, 28, 30, 0.65);
+   --surface: #ffffff;
+   --surface-alt: rgba(127, 127, 127, 0.14);
+   --surface-border: rgba(28, 28, 30, 0.1);
+}
+
+:root[data-theme='dark'] {
+   --bg: #293132;
+   --text: #ffffff;
+   --text-muted: rgba(255, 255, 255, 0.65);
+   --surface: #474044;
+   --surface-border: rgba(255, 255, 255, 0.1);
 }

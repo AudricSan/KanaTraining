@@ -50,6 +50,14 @@ Route::add('/student', function () {
   foot();
 });
 
+Route::add('/student/preview', function () {
+  // Page de dev : rend le meme gabarit que /student avec des donnees factices,
+  // sans authentification ni BDD, pour iterer sur la mise en page en local.
+  head();
+  include('../view/student/preview.php');
+  foot();
+});
+
 Route::add('/classement', function () {
   env::startSession();
   head();

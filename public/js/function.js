@@ -22,7 +22,35 @@ function selectDificulty(id) {
     ellement.removeAttribute("disabled", "disabled")
   }
 
+  updateGroupIndicators()
   startGame()
+}
+
+// Affiche, sur les groupes repliés (Hiragana/Katakana/Kanji JLPT), combien
+// de toggles y sont actifs, avec une tooltip listant lesquels.
+function updateGroupIndicators() {
+  document.querySelectorAll('.menu-group').forEach((group) => {
+    const checked = group.querySelectorAll('input.switch:checked')
+    const badge = group.querySelector('.menu-group-badge')
+    const summary = group.querySelector('summary')
+
+    if (!badge || !summary) return
+
+    if (checked.length > 0) {
+      const labels = Array.from(checked).map((cb) => {
+        const label = group.querySelector(`label[for="${cb.id}"]`)
+        return label ? label.textContent.trim() : cb.id
+      })
+
+      badge.textContent = checked.length
+      badge.classList.remove('hidden')
+      summary.title = 'Actif : ' + labels.join(', ')
+    } else {
+      badge.textContent = ''
+      badge.classList.add('hidden')
+      summary.removeAttribute('title')
+    }
+  })
 }
 
 function startGame() {
@@ -351,16 +379,16 @@ helpClose.addEventListener('click', event => {
 })
 
 navbtn.addEventListener('click', event => {
+  if (!nav) return
+
   if (flipFlopState) {
     nav.classList.add('hidden')
     kanjitype.classList.remove('hidden')
-    menuIcon.classList.remove('fa-caret-up')
-    menuIcon.classList.add('fa-caret-down')
+    menuIcon.textContent = 'expand_more'
   } else {
     nav.classList.remove('hidden')
     kanjitype.classList.add('hidden')
-    menuIcon.classList.remove('fa-caret-down')
-    menuIcon.classList.add('fa-caret-up')
+    menuIcon.textContent = 'expand_less'
   }
 
   toggleFlipFlop()
@@ -372,6 +400,8 @@ function toggleFlipFlop() {
 }
 
 function handleScreenWidthChange(screenWidth) {
+  if (!nav) return
+
   if (screenWidth.matches) {
     nav.classList.add('hidden');
   } else {

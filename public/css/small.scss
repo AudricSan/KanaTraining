@@ -1,7 +1,24 @@
+// Page profil élève : 3 colonnes -> 2 colonnes sur tablette
+@media only screen and (max-width: 1000px) {
+  body ._2.student-profile .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 // Media Query pour les écrans de petite taille (max-width: 768px)
 @media only screen and (max-width: 768px) {
   header {
     text-align: center;
+    margin-bottom: 1em;
+
+    .navbtn {
+      display: inline-flex;
+      margin: 0 auto;
+    }
+  }
+
+  .topnav {
+    justify-content: center;
     margin-bottom: 1em;
   }
 
@@ -22,13 +39,9 @@
         }
       }
 
-      // Styles de la deuxième section
-      ._2 {
-        div {
-          &.keyboard {
-            display: none; // Ajout pour cacher le clavier en version mobile
-          }
-        }
+      // Page profil élève : une seule colonne sur mobile
+      ._2.student-profile .profile-grid {
+        grid-template-columns: 1fr;
       }
 
       // Styles de la troisième section

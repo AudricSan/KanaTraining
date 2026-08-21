@@ -44,9 +44,19 @@ class AchievementDAO
         $stmt->execute(['studentId' => $studentId]);
         $locked = $stmt->fetchAll();
 
+        $categoryCorrect = null;
+
         $newlyUnlocked = [];
         foreach ($locked as $achievement) {
-            if ($this->conditionMet($achievement['achievements_Condition'], $stats)) {
+            $condition = $achievement['achievements_Condition'];
+
+            // Category achievements need the per-type correct counts; fetched lazily
+            // and only once, since most conditions (xp/streak/highscore) don't need them.
+            if (str_starts_with($condition, 'category:') && $categoryCorrect === null) {
+                $categoryCorrect = $this->categoryCorrectTotals($studentId);
+            }
+
+            if ($this->conditionMet($condition, $stats, $categoryCorrect ?? [])) {
                 $this->unlock($studentId, (int) $achievement['achievements_ID']);
                 $newlyUnlocked[] = $achievement;
             }
@@ -55,18 +65,45 @@ class AchievementDAO
         return $newlyUnlocked;
     }
 
-    private function conditionMet(string $condition, array $stats): bool
+    /**
+     * Total correct answers per character_type, for category-mastery achievements
+     * (e.g. "50 bonnes réponses en Hiragana").
+     */
+    private function categoryCorrectTotals(int $studentId): array
     {
-        [$metric, $threshold] = array_pad(explode(':', $condition, 2), 2, null);
-        $threshold = (int) $threshold;
+        $stmt = $this->pdo->prepare(
+            'SELECT character_type, SUM(correct_count) AS total
+             FROM student_character_stats
+             WHERE student_ID = :studentId
+             GROUP BY character_type'
+        );
+        $stmt->execute(['studentId' => $studentId]);
+
+        $totals = [];
+        foreach ($stmt->fetchAll() as $row) {
+            $totals[$row['character_type']] = (int) $row['total'];
+        }
+
+        return $totals;
+    }
+
+    private function conditionMet(string $condition, array $stats, array $categoryCorrect = []): bool
+    {
+        $parts = explode(':', $condition);
+        $metric = $parts[0];
 
         switch ($metric) {
             case 'xp':
-                return $stats['globalXp'] >= $threshold;
+                return $stats['globalXp'] >= (int) ($parts[1] ?? 0);
             case 'streak':
-                return $stats['streakDays'] >= $threshold;
+                return $stats['streakDays'] >= (int) ($parts[1] ?? 0);
             case 'highscore':
-                return $stats['highScore'] >= $threshold;
+                return $stats['highScore'] >= (int) ($parts[1] ?? 0);
+            case 'category':
+                $type = $parts[1] ?? '';
+                $threshold = (int) ($parts[2] ?? 0);
+
+                return ($categoryCorrect[$type] ?? 0) >= $threshold;
             default:
                 return false;
         }

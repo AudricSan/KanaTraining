@@ -22,7 +22,7 @@ foreach ($studentDAO->topByXp(20) as $s) {
         <span class='leaderboard-rank'>{$rank}</span>
         <img class='leaderboard-avatar' src='{$avatar}' alt='' width='36' height='36' />
         <span class='leaderboard-name'>{$name}</span>
-        <span class='leaderboard-xp'><span class='fa-solid fa-bolt'></span> {$xp}</span>
+        <span class='leaderboard-xp'><span class='material-icons-round'>bolt</span> {$xp}</span>
         <span class='leaderboard-streak'>🔥 {$streak}</span>
     </li>";
 }
@@ -33,16 +33,12 @@ if ($rowsHtml === '') {
 
 echo "
     <main>
-        <section class='_1'>
-            <nav></nav>
-        </section>
+        <section class='_1'></section>
 
         <section class='_2 leaderboard'>
             <h2>Classement</h2>
 
             <ol class='leaderboard-list'>{$rowsHtml}</ol>
-
-            <p><a href='/'>Retour à l'entraînement</a></p>
         </section>
     </main>
 ";

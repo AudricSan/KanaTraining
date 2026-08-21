@@ -41,6 +41,9 @@ function getSave() {
                 if (checkbox) {
                   checkbox.checked = true;
                   selectDificulty(id);
+
+                  const group = checkbox.closest('details');
+                  if (group) group.setAttribute('open', '');
                 }
               });
             } else {

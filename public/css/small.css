@@ -1,6 +1,19 @@
+@media only screen and (max-width: 1000px) {
+  body ._2.student-profile .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @media only screen and (max-width: 768px) {
   header {
     text-align: center;
+    margin-bottom: 1em;
+  }
+  header .navbtn {
+    display: inline-flex;
+    margin: 0 auto;
+  }
+  .topnav {
+    justify-content: center;
     margin-bottom: 1em;
   }
   body main {
@@ -15,8 +28,8 @@
     position: inherit;
     text-align: justify;
   }
-  body main ._2 div.keyboard {
-    display: none;
+  body main ._2.student-profile .profile-grid {
+    grid-template-columns: 1fr;
   }
   body main ._3 {
     order: -1;
@@ -33,4 +46,6 @@
     position: inherit;
     margin-bottom: 2em;
   }
-}/*# sourceMappingURL=small.css.map */
+}
+
+/*# sourceMappingURL=small.css.map */
