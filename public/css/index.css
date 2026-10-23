@@ -74,6 +74,27 @@ body .topnav {
   gap: 0.4em 1.4em;
   margin-bottom: 1.6em;
 }
+body .topnav .topnav-form {
+  display: inline-flex;
+}
+body .topnav .topnav-form button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0.2em 0;
+  font-size: 0.95em;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0.85;
+}
+body .topnav .topnav-form button:hover, body .topnav .topnav-form button:focus-visible {
+  opacity: 1;
+  text-decoration: underline;
+}
 body .topnav a {
   display: inline-flex;
   align-items: center;
@@ -290,21 +311,59 @@ body main ._2.auth-page .auth-mascot {
   height: auto;
   margin-bottom: 0.5em;
 }
-body main ._2.auth-page .twitch-btn {
+body main ._2.auth-page .provider-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.6em;
+  margin-top: 0.5em;
+  width: min(100%, 320px);
+}
+body main ._2.auth-page .provider-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5em;
-  background-color: #9146ff;
+  justify-content: center;
+  gap: 0.6em;
   color: #fff;
   padding: 0.7em 1.5em;
   border-radius: 25px;
   text-decoration: none;
-  margin-top: 0.5em;
   font-weight: 600;
-  transition: background-color 0.2s ease;
+  transition: filter 0.2s ease;
 }
-body main ._2.auth-page .twitch-btn:hover {
-  background-color: #7c2df0;
+body main ._2.auth-page .provider-btn:hover, body main ._2.auth-page .provider-btn:focus-visible {
+  filter: brightness(0.9);
+}
+body main ._2.auth-page .provider-twitch {
+  background-color: #9146ff;
+}
+body main ._2.auth-page .provider-discord {
+  background-color: #5865f2;
+}
+body main ._2.auth-page .provider-google {
+  background-color: #fff;
+  color: #1f1f1f;
+  border: 1px solid #dadce0;
+}
+body main ._2.auth-page .auth-hint {
+  font-size: 0.85em;
+  opacity: 0.75;
+  max-width: 34em;
+}
+body main .flash {
+  padding: 0.6em 1em;
+  border-radius: 10px;
+  margin: 0.5em auto;
+  max-width: 34em;
+  font-weight: 600;
+}
+body main .flash-error {
+  background-color: rgba(229, 72, 77, 0.15);
+  color: #c62a2f;
+}
+body main .flash-status {
+  background-color: rgba(48, 164, 108, 0.15);
+  color: #1f7a4d;
 }
 body main ._2.student-profile {
   display: block;
@@ -326,6 +385,55 @@ body main ._2.student-profile .profile-card {
   border: 1px solid var(--surface-border);
   border-radius: 14px;
   padding: 1.4em;
+}
+body main ._2.student-profile .profile-accounts {
+  margin-top: 1.4em;
+  text-align: left;
+}
+body main ._2.student-profile .accounts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+body main ._2.student-profile .accounts-list .account {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  opacity: 0.65;
+}
+body main ._2.student-profile .accounts-list .account.linked {
+  opacity: 1;
+}
+body main ._2.student-profile .accounts-list .account-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-weight: 600;
+  min-width: 6.5em;
+}
+body main ._2.student-profile .accounts-list .account-nick {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+body main ._2.student-profile .accounts-list .account-action {
+  margin-left: auto;
+  font: inherit;
+  font-size: 0.85em;
+  color: inherit;
+  background: none;
+  border: 1px solid var(--surface-border);
+  border-radius: 20px;
+  padding: 0.25em 0.9em;
+  cursor: pointer;
+  text-decoration: none;
+}
+body main ._2.student-profile .accounts-list form {
+  margin-left: auto;
 }
 body main ._2.student-profile .profile-identity {
   text-align: center;

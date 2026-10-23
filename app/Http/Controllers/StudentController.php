@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\SocialProvider;
+use App\Models\SocialAccount;
 use App\Models\User;
 use App\Services\AchievementService;
 use Database\Seeders\AchievementSeeder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\View\View;
 
 class StudentController extends Controller
@@ -36,7 +39,28 @@ class StudentController extends Controller
                 'unlocked' => $a->unlocked,
             ]),
             'weak' => $weak,
+            ...$this->accounts($user->socialAccounts()->get()),
         ]);
+    }
+
+    /**
+     * Linked providers first, then the configured ones the student can still link.
+     *
+     * @param  Collection<int, SocialAccount>  $accounts
+     * @return array{providers: list<array{provider: SocialProvider, account: ?SocialAccount}>, canUnlink: bool}
+     */
+    private function accounts(Collection $accounts): array
+    {
+        $byProvider = $accounts->keyBy(fn (SocialAccount $a) => $a->provider->value);
+
+        $providers = collect(SocialProvider::cases())
+            ->filter(fn (SocialProvider $p) => $byProvider->has($p->value) || $p->isConfigured())
+            ->map(fn (SocialProvider $p) => ['provider' => $p, 'account' => $byProvider->get($p->value)])
+            ->sortBy(fn (array $item) => $item['account'] ? 0 : 1)
+            ->values()
+            ->all();
+
+        return ['providers' => $providers, 'canUnlink' => $accounts->count() > 1];
     }
 
     /**
@@ -71,6 +95,7 @@ class StudentController extends Controller
                 ['character' => 'ぴ', 'label' => 'Hiragana Combo', 'count' => 5],
                 ['character' => 'を', 'label' => 'Hiragana', 'count' => 4],
             ]),
+            ...$this->accounts(collect([new SocialAccount(['provider' => SocialProvider::Twitch, 'nickname' => 'audric_san'])])),
         ]);
     }
 }

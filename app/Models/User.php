@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
- * A student. Accounts are created on the first Twitch login, there is no password.
+ * A student. Accounts are created on the first Twitch / Google / Discord login, there is no password.
  */
 class User extends Authenticatable
 {
@@ -20,7 +20,6 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'twitch_id',
         'name',
         'avatar',
         'email',
@@ -51,6 +50,14 @@ class User extends Authenticatable
             'last_score' => 'integer',
             'last_played_date' => 'date',
         ];
+    }
+
+    /**
+     * @return HasMany<SocialAccount, $this>
+     */
+    public function socialAccounts(): HasMany
+    {
+        return $this->hasMany(SocialAccount::class);
     }
 
     /**

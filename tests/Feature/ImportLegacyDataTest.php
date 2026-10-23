@@ -73,7 +73,7 @@ class ImportLegacyDataTest extends TestCase
 
         $user = User::sole();
         $this->assertSame(['999', 'Audric_San', 1500, 12, 60, 8], [
-            $user->twitch_id, $user->name, $user->global_xp, $user->streak_days, $user->high_score, $user->last_score,
+            $user->socialAccounts->sole()->provider_id, $user->name, $user->global_xp, $user->streak_days, $user->high_score, $user->last_score,
         ]);
         $this->assertSame('2026-10-20', $user->last_played_date->toDateString());
         $this->assertSame('2024-01-02', $user->created_at->toDateString());

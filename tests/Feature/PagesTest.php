@@ -96,7 +96,13 @@ class PagesTest extends TestCase
 
     public function test_logout(): void
     {
-        $this->actingAs(User::factory()->create())->get('/logout')->assertRedirect('/');
+        $this->actingAs(User::factory()->create())->post('/logout')->assertRedirect('/');
         $this->assertGuest();
+    }
+
+    public function test_logout_no_longer_answers_get(): void
+    {
+        $this->actingAs(User::factory()->create())->get('/logout')->assertMethodNotAllowed();
+        $this->assertAuthenticated();
     }
 }
