@@ -1,10 +1,6 @@
-# enable apache rewrite engine
-RewriteEngine on
-
-RewriteBase /
-
-RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
-RewriteRule ^ %1 [L,NE,R=302]
-
-RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
-DirectoryIndex public/index.php
+# For hosts whose document root is the project folder (XAMPP htdocs, shared hosting):
+# serve everything from public/. Prefer pointing the virtual host straight to public/.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

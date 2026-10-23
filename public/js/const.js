@@ -2,8 +2,9 @@ let difficulty = []
 let selectedCharacter
 let currentType
 
-const myKana = kana
-const myKanji = kanji
+// Filled by quiz.js from /api/characters (data now lives in the database)
+let myKana = {}
+let myKanji = {}
 
 let character = document.querySelector('.character')
 let kanjitype = document.querySelector('.kanjitype')

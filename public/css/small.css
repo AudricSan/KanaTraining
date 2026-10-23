@@ -28,6 +28,9 @@
     position: inherit;
     text-align: justify;
   }
+  body main ._1 nav .mascot-companion {
+    display: none;
+  }
   body main ._2.student-profile .profile-grid {
     grid-template-columns: 1fr;
   }

@@ -44,7 +44,6 @@ button:hover {
   z-index: 80;
   width: 100%;
   height: 100vh;
-  background-image: url("url_de_votre_image.jpg");
   backdrop-filter: blur(20px);
 }
 
@@ -205,6 +204,15 @@ body main ._1 nav .menu-group .menu-group-body {
   gap: 0.35em;
   margin: 0.3em 0 0.3em 0.3em;
 }
+body main ._1 nav .mascot-companion {
+  margin-top: 1em;
+  text-align: center;
+}
+body main ._1 nav .mascot-companion img {
+  width: 130px;
+  height: auto;
+  opacity: 0.9;
+}
 body main ._2 {
   margin-bottom: 5em;
   display: flex;
@@ -272,9 +280,15 @@ body main ._2 form .stats-row .live-stats {
   gap: 1em;
 }
 body main ._2.auth-page h2,
-body main ._2.student-profile h2 {
+body main ._2.student-profile h2,
+body main ._2.error-page h2 {
   font-size: 2em;
   flex-basis: auto;
+}
+body main ._2.auth-page .auth-mascot {
+  width: 140px;
+  height: auto;
+  margin-bottom: 0.5em;
 }
 body main ._2.auth-page .twitch-btn {
   display: inline-flex;
@@ -414,8 +428,17 @@ body main ._2.student-profile .weak-count {
   opacity: 0.9;
 }
 body main ._2.student-profile .weak-empty {
-  opacity: 0.7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4em;
+  text-align: center;
+  opacity: 0.85;
   font-size: 0.9em;
+}
+body main ._2.student-profile .weak-empty-mascot {
+  width: 90px;
+  height: auto;
 }
 body main ._2.leaderboard h2 {
   font-size: 2em;
@@ -463,7 +486,52 @@ body main ._2.leaderboard .leaderboard-streak {
 }
 body main ._2.leaderboard .leaderboard-empty {
   opacity: 0.7;
+  margin: 0;
+}
+body main ._2.leaderboard .leaderboard-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6em;
   margin: 1em 0;
+}
+body main ._2.leaderboard .leaderboard-empty-mascot {
+  width: 150px;
+  height: auto;
+}
+body main ._2.error-page {
+  gap: 0.4em;
+}
+body main ._2.error-page .error-mascot {
+  width: 200px;
+  height: auto;
+  margin-bottom: 0.3em;
+}
+body main ._2.error-page .error-code {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin: 0;
+}
+body main ._2.error-page p {
+  margin: 0;
+  opacity: 0.85;
+}
+body main ._2.error-page .error-home-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.8em;
+  padding: 0.7em 1.5em;
+  border-radius: 25px;
+  background-color: var(--dark-liver);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+body main ._2.error-page .error-home-link:hover {
+  background-color: var(--black-bean);
 }
 body main ._3 {
   justify-self: right;
@@ -488,7 +556,6 @@ body main ._3 .helpSpawner .helpContainer {
   display: grid;
   gap: 0.5em;
   grid-template-columns: repeat(7, 1fr);
-  background-image: url("url_de_votre_image.jpg");
   z-index: 99;
   backdrop-filter: blur(20px);
 }

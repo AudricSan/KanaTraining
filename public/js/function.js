@@ -228,9 +228,13 @@ function checkAnswerd() {
 // Report one answer to the server so a logged-in student's XP/streak/score stay in sync,
 // and which character it was so weak spots can be drilled more often next time.
 function sendScoreUpdate(correct, good, total, type, character) {
-  fetch("/api/score", {
+  fetch(scoreUrl, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
+    },
     body: JSON.stringify({ correct, good, total, type, character }),
   })
     .then((response) => (response.ok ? response.json() : null))
