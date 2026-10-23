@@ -1,76 +1,69 @@
-# Kanatraining Readme
-Kanatraining is a platform for learning Japanese characters (kanas) - hiraganas and katakanas.
+# KanaTraining
 
-## Description
-Kanatraining is a comprehensive online platform designed to help you learn and master Japanese characters. Our site focuses on teaching hiragana, katakana, and kanji, the three fundamental writing systems of the Japanese language. Whether you're a beginner eager to explore the world of Japanese characters or an advanced learner seeking to solidify your knowledge, Kanatraining offers a user-friendly and engaging learning experience.
+Application web gratuite pour apprendre les hiragana, katakana et kanji du JLPT (N5 à N1).
+Version 3 : réécriture en **Laravel 12** (MVC), à parité avec l'ancienne version PHP maison,
+qui reste consultable dans [`legacy/`](legacy/).
 
-## Features
-- Learn and practice hiragana, katakana, and kanji characters through interactive lessons.
-- Enhance your understanding with exercises, quizzes, and fun games.
-- Track your progress and review previous lessons easily.
-- Access a supportive community of fellow learners to exchange tips and experiences.
-- Explore additional resources for Japanese language learning.
+## Fonctionnalités
 
-## Installation
-Kanatraining is a web-based platform, so there is no need for installation.
-Simply visit our website [KanaTraining](https://www.kana.audricrosier.be) using a web browser and create an account to get started.
-*(Accounts will arrive in a future update)*
+- Quiz hiragana / katakana (base, combo, dakuon, dakuon combo) et kanji JLPT N5 → N1
+  (lecture ou traduction), plusieurs sets combinables, table d'aide, partage du score sur Twitter.
+- Connexion avec Twitch (Socialite) : le compte est créé à la première connexion.
+- XP par réponse selon la difficulté du set (gagnée si juste, perdue si faux, jamais sous 0),
+  série de jours, meilleur score et dernier score.
+- Statistiques par caractère : les caractères ratés reviennent plus souvent (tirage pondéré)
+  et les 5 pires apparaissent dans le profil (« À travailler »).
+- 24 succès (XP, séries, score, maîtrise d'un set), notifiés en direct pendant le quiz.
+- Classement des 20 meilleurs élèves, thème clair / sombre, pages d'erreur avec la mascotte.
 
-## Usage
-Once you have created an account on Kanatraining, you can begin your journey of learning Japanese characters. The platform offers a structured curriculum with lessons covering hiragana, katakana, and kanji. Each lesson provides explanations, examples, and exercises to reinforce your understanding.
+## Architecture
 
-You can track your progress, view your performance statistics, and revisit previous lessons whenever you need to reinforce your knowledge. Engage in interactive quizzes to test your skills and evaluate your proficiency.
+| Couche | Où |
+| --- | --- |
+| Routes | `routes/web.php` |
+| Contrôleurs | `app/Http/Controllers` (quiz, profil, classement, auth Twitch, API JSON) |
+| Logique métier | `app/Services/ScoreService.php` (XP, série, scores, stats), `app/Services/AchievementService.php` |
+| Modèles | `app/Models` : `User`, `CharacterSet`, `Kana`, `Kanji`, `CharacterStat`, `Achievement` |
+| Données | `database/migrations`, `database/seeders`, `database/data/{kana,kanji}.json` |
+| Vues | `resources/views` (Blade) ; CSS / JS / images dans `public/`, sources SCSS dans `resources/scss` |
 
-Join our vibrant community forums to connect with other learners, ask questions, and share your learning experiences. The forums provide a supportive environment for collaborative learning and cultural exchange.
+Les kana et kanji sont en base : ajouter un set (ex. vocabulaire) = une ligne dans
+`CharacterSetSeeder` + ses caractères dans `database/data`, sans toucher au JavaScript.
+L'XP d'un set est la colonne `character_sets.xp_value`, les succès sont des lignes de
+`achievements` (`metric` = `xp`, `streak`, `highscore` ou `category`, avec un `threshold`).
 
-## Support
-If you have any questions, need assistance, or want to provide feedback, please reach out to us through our support channels:
+## Installation (XAMPP / MySQL)
 
-- [Issue Tracker](https://github.com/AudricSan/KanaTraining/issues)
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+# créer la base "kanatraining" dans MySQL, puis renseigner DB_* et TWITCH_* dans .env
+php artisan migrate --seed
+php artisan serve        # ou un virtual host Apache qui pointe sur public/
+```
 
-## Roadmap
-We have exciting plans for the future of Kanatraining. Some of the upcoming features and improvements we are considering include:
+Dans la console Twitch (https://dev.twitch.tv/console/apps), l'URL de redirection est
+`<APP_URL>/callback`, la même que l'ancienne version.
 
-- Add kanji
-- Vocabulary expansion modules.
+### Reprendre les données de l'ancienne version
 
-*Stay tuned for updates and new releases!*
+Renseigner `LEGACY_DB_*` dans `.env` (la base MySQL de l'ancienne app), puis :
 
-## Technologies
-- PHP 8.0.26
-- MySQL 8.0.26
-- JavaScript
+```bash
+php artisan kana:import-legacy
+```
 
-## Contributing
-We welcome contributions from the community to improve Kanatraining. If you have any ideas, bug fixes, or new features to propose, please follow these steps:
+La commande copie les élèves (XP, série, scores, date d'inscription), leurs statistiques par
+caractère et leurs succès débloqués. Elle peut être relancée sans créer de doublons.
 
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and ensure they are properly tested.
-4. Submit a pull request, describing the changes you've made.
+## Tests
 
-Please refer to our contribution guidelines for more detailed information.
+```bash
+php artisan test
+./vendor/bin/pint --test
+```
 
-## Authors and Acknowledgment
-  - [**Rosier Audric**](https://github.com/AudricSan)
+## Licence
 
-See also the list of [contributors](https://github.com/AudricSan/KanaTraining/graphs/contributors) who participated in this project.
-
-## License
-Kanatraining is published under [AGPL](https://www.gnu.org/licenses). Please refer to the [LICENSE](/LICENSE) file for more details.
-
-## Documentation
-Read the [documentation](/docs) file for more details.
-
-## Support
-
-<a href="https://bmc.link/AudricSan" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg" alt="Buy Me A Coffee" style="height: 41px;" ></a>
-
-<a href="https://patreon.com/AudricSan">
-	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px" style="border-radius: 5px;">
-</a>
-
-## Project Status
-The development of Kanatraining is active and ongoing. We are committed to continuously improving the platform and expanding its features. However, please note that as with any project, there may be periods of slower development or temporary pauses. We encourage the community to contribute and help maintain the project's vitality.
-
-If you are interested in becoming a maintainer or contributing to the project's long-term growth, please reach out to us. Your support will ensure the sustainability and evolution of Kanatraining for future learners.
+[AGPL-3.0](LICENSE) — Audric Rosier ([@AudricSan](https://github.com/AudricSan)).
