@@ -1,6 +1,4 @@
 let difficulty = []
-let selectedCharacter
-let currentType
 
 // Filled by quiz.js from /api/characters (data now lives in the database)
 let myKana = {}
@@ -10,12 +8,8 @@ let character = document.querySelector('.character')
 let kanjitype = document.querySelector('.kanjitype')
 
 const toast = document.getElementById("toast")
-const delay = 1000
 
-const form = document.querySelector('form');
 let input = document.querySelector('.input')
-let myPoint = document.querySelector('.good')
-let totalPoint = document.querySelector('.total')
 
 const twitter = document.querySelector('.twitter-share')
 

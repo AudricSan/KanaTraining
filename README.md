@@ -8,6 +8,7 @@ qui reste consultable dans [`legacy/`](legacy/).
 
 - Quiz hiragana / katakana (base, combo, dakuon, dakuon combo) et kanji JLPT N5 → N1
   (lecture ou traduction), plusieurs sets combinables, table d'aide, partage du score sur Twitter.
+- Trois modes : saisie, QCM (4 choix, touches 1 à 4) et inverse (romaji / sens → caractère) ; sessions libres ou de 10 / 20 questions avec récapitulatif et révision des erreurs.
 - Connexion avec Twitch, Google ou Discord (Socialite) : le compte est créé à la première connexion, les autres services se lient depuis le profil.
 - XP par réponse selon la difficulté du set (gagnée si juste, perdue si faux, jamais sous 0),
   série de jours, meilleur score et dernier score.

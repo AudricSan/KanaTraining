@@ -36,6 +36,16 @@ class PagesTest extends TestCase
             ->assertSee('const weakCharacters = '.json_encode(['katakana' => ['ア' => 2]], JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT), false);
     }
 
+    public function test_quiz_page_offers_the_exercise_modes_and_session_lengths(): void
+    {
+        $this->get('/')
+            ->assertOk()
+            ->assertSee('name="mode" value="choice"', false)
+            ->assertSee('name="mode" value="reverse"', false)
+            ->assertSee('name="sessionLength" value="20"', false)
+            ->assertSee('js/exercise.js', false);
+    }
+
     public function test_characters_endpoint_returns_kana_and_kanji_in_the_quiz_format(): void
     {
         $response = $this->getJson('/api/characters')->assertOk();
