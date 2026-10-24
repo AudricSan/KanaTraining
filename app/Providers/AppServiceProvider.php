@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use SocialiteProviders\Discord\DiscordExtendSocialite;
 use SocialiteProviders\Manager\SocialiteWasCalled;
 use SocialiteProviders\Twitch\TwitchExtendSocialite;
 
@@ -18,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Event::listen(SocialiteWasCalled::class, [TwitchExtendSocialite::class, 'handle']);
+        Event::listen(SocialiteWasCalled::class, [DiscordExtendSocialite::class, 'handle']);
 
         // Characters the student keeps missing, read by the quiz script to draw them more often
         View::composer('quiz.index', function ($view) {

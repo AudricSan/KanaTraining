@@ -81,6 +81,31 @@ body {
 
   // Navigation persistante (Entraînement / Classement / Profil / Déconnexion)
   .topnav {
+    .topnav-form {
+      display: inline-flex;
+
+      button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4em;
+        font: inherit;
+        color: inherit;
+        background: none;
+        border: 0;
+        padding: 0.2em 0;
+        font-size: 0.95em;
+        font-weight: 600;
+        cursor: pointer;
+        opacity: 0.85;
+
+        &:hover,
+        &:focus-visible {
+          opacity: 1;
+          text-decoration: underline;
+        }
+      }
+    }
+
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -351,23 +376,70 @@ body {
         margin-bottom: 0.5em;
       }
 
-      .twitch-btn {
+      .provider-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.6em;
+        margin-top: 0.5em;
+        width: min(100%, 320px);
+      }
+
+      .provider-btn {
         display: inline-flex;
         align-items: center;
-        gap: 0.5em;
-        background-color: #9146ff;
+        justify-content: center;
+        gap: 0.6em;
         color: #fff;
         padding: 0.7em 1.5em;
         border-radius: 25px;
         text-decoration: none;
-        margin-top: 0.5em;
         font-weight: 600;
-        transition: background-color 0.2s ease;
+        transition: filter 0.2s ease;
 
-        &:hover {
-          background-color: #7c2df0;
+        &:hover,
+        &:focus-visible {
+          filter: brightness(0.9);
         }
       }
+
+      .provider-twitch {
+        background-color: #9146ff;
+      }
+
+      .provider-discord {
+        background-color: #5865f2;
+      }
+
+      .provider-google {
+        background-color: #fff;
+        color: #1f1f1f;
+        border: 1px solid #dadce0;
+      }
+
+      .auth-hint {
+        font-size: 0.85em;
+        opacity: 0.75;
+        max-width: 34em;
+      }
+    }
+
+    .flash {
+      padding: 0.6em 1em;
+      border-radius: 10px;
+      margin: 0.5em auto;
+      max-width: 34em;
+      font-weight: 600;
+    }
+
+    .flash-error {
+      background-color: rgba(229, 72, 77, 0.15);
+      color: #c62a2f;
+    }
+
+    .flash-status {
+      background-color: rgba(48, 164, 108, 0.15);
+      color: #1f7a4d;
     }
 
     ._2.student-profile {
@@ -391,6 +463,63 @@ body {
         border: 1px solid var(--surface-border);
         border-radius: 14px;
         padding: 1.4em;
+      }
+
+      .profile-accounts {
+        margin-top: 1.4em;
+        text-align: left;
+      }
+
+      .accounts-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6em;
+
+        .account {
+          display: flex;
+          align-items: center;
+          gap: 0.6em;
+          opacity: 0.65;
+
+          &.linked {
+            opacity: 1;
+          }
+        }
+
+        .account-name {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4em;
+          font-weight: 600;
+          min-width: 6.5em;
+        }
+
+        .account-nick {
+          flex: 1;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .account-action {
+          margin-left: auto;
+          font: inherit;
+          font-size: 0.85em;
+          color: inherit;
+          background: none;
+          border: 1px solid var(--surface-border);
+          border-radius: 20px;
+          padding: 0.25em 0.9em;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+        form {
+          margin-left: auto;
+        }
       }
 
       .profile-identity {

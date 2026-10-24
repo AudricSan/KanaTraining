@@ -16,7 +16,6 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'twitch_id' => (string) fake()->unique()->numberBetween(10_000, 99_999_999),
             'name' => fake()->userName(),
             'avatar' => fake()->imageUrl(96, 96),
             'email' => fake()->unique()->safeEmail(),

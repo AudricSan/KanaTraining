@@ -2,9 +2,11 @@
 
 namespace App\Console\Commands;
 
+use App\Enums\SocialProvider;
 use App\Models\Achievement;
 use App\Models\CharacterSet;
 use App\Models\CharacterStat;
+use App\Models\SocialAccount;
 use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
@@ -37,7 +39,9 @@ class ImportLegacyData extends Command
         $userIds = [];
 
         foreach ($legacy->table('student')->orderBy('student_ID')->cursor() as $student) {
-            $user = User::updateOrCreate(['twitch_id' => $student->student_TwitchID], [
+            $account = SocialAccount::where('provider', SocialProvider::Twitch)->where('provider_id', $student->student_TwitchID)->first();
+            $user = $account?->user ?? new User;
+            $user->fill([
                 'name' => $student->student_Name,
                 'avatar' => $student->student_Avatar,
                 'email' => $student->student_Email,
@@ -48,8 +52,16 @@ class ImportLegacyData extends Command
                 'last_played_date' => $student->student_LastPlayedDate,
             ]);
 
-            if ($user->wasRecentlyCreated) {
+            if (! $account) {
                 $user->created_at = $student->student_RegisterDate;
+                $user->save();
+                $user->socialAccounts()->create([
+                    'provider' => SocialProvider::Twitch,
+                    'provider_id' => $student->student_TwitchID,
+                    'nickname' => $student->student_Name,
+                    'avatar' => $student->student_Avatar,
+                ]);
+            } else {
                 $user->save();
             }
 
