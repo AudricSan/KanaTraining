@@ -6,7 +6,7 @@
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .sr-only {
@@ -154,7 +154,7 @@ body main {
   grid-row-gap: 10px;
 }
 body main ._1 nav {
-  position: absolute;
+  position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -225,6 +225,27 @@ body main ._1 nav .menu-group .menu-group-body {
   gap: 0.35em;
   margin: 0.3em 0 0.3em 0.3em;
 }
+body main ._1 nav .exercise-settings fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 0.4em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em 0.9em;
+}
+body main ._1 nav .exercise-settings fieldset legend {
+  width: 100%;
+  font-size: 0.8em;
+  font-weight: 600;
+  opacity: 0.7;
+  margin-bottom: 0.2em;
+}
+body main ._1 nav .exercise-settings fieldset label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  cursor: pointer;
+}
 body main ._1 nav .mascot-companion {
   margin-top: 1em;
   text-align: center;
@@ -239,7 +260,7 @@ body main ._2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   text-align: center;
 }
 body main ._2 h2 {
@@ -263,25 +284,184 @@ body main ._2 form input {
   border-radius: 25px;
   font-size: 1em;
   padding: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 0.6em;
   background-color: var(--surface);
   color: var(--text);
   border: 1px solid var(--surface-border);
 }
-body main ._2 form #toast {
-  min-height: 2.6em;
+body main ._2 .exercise-play {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+body main ._2 .character {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+body main ._2 .character.is-long {
+  font-size: 3.5em;
+  max-width: 90%;
+  overflow-wrap: anywhere;
+}
+body main ._2 .character.is-good {
+  color: #30a46c;
+  transform: scale(1.05);
+}
+body main ._2 .character.is-bad {
+  color: #e5484d;
+  animation: shake 0.35s ease;
+}
+body main ._2 .exercise-progress {
+  width: min(100%, 420px);
+  margin-bottom: 1em;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+body main ._2 .exercise-progress .progress-bar {
+  margin-top: 0.4em;
+  height: 8px;
+  border-radius: 8px;
+  background-color: var(--surface-border);
+  overflow: hidden;
+}
+body main ._2 .exercise-progress .progress-bar div {
+  height: 100%;
+  width: 0;
+  background-color: var(--active);
+  transition: width 0.3s ease;
+}
+body main ._2 .choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6em;
+  width: min(100%, 460px);
+  margin-bottom: 0.6em;
+}
+body main ._2 .choices .choice {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font: inherit;
+  font-size: 1.1em;
+  text-align: left;
+  color: var(--text);
+  background-color: var(--surface);
+  border: 2px solid var(--surface-border);
+  border-radius: 14px;
+  padding: 0.7em 0.9em;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+body main ._2 .choices .choice kbd {
+  font-family: inherit;
+  font-size: 0.7em;
+  opacity: 0.55;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  padding: 0 0.4em;
+}
+body main ._2 .choices .choice span {
+  overflow-wrap: anywhere;
+}
+body main ._2 .choices .choice:hover:not(:disabled), body main ._2 .choices .choice:focus-visible {
+  border-color: var(--active);
+}
+body main ._2 .choices .choice:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+body main ._2 .choices .choice.is-right {
+  opacity: 1;
+  border-color: #30a46c;
+  background-color: rgba(48, 164, 108, 0.15);
+}
+body main ._2 #feedback {
+  min-height: 1.6em;
+  margin-bottom: 0.6em;
+  font-weight: 600;
+}
+body main ._2 #feedback.feedback-good {
+  color: #30a46c;
+}
+body main ._2 #feedback.feedback-bad {
+  color: #e5484d;
+}
+body main ._2 .session-recap {
+  width: min(100%, 460px);
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 14px;
+  padding: 1.4em;
   margin-bottom: 1em;
 }
-body main ._2 form #toast p {
+body main ._2 .session-recap h3 {
+  margin-top: 0;
+  font-size: 1.6em;
+  color: var(--text);
+  background: none;
+  box-shadow: none;
+  padding: 0;
+}
+body main ._2 .session-recap .recap-score {
+  font-size: 1.1em;
+  margin-bottom: 1em;
+}
+body main ._2 .session-recap .recap-misses {
+  list-style: none;
+  padding: 0;
+  margin: 0.4em 0 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+}
+body main ._2 .session-recap .recap-misses li {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  border: 1px solid var(--surface-border);
+  border-radius: 10px;
+  padding: 0.3em 0.7em;
+}
+body main ._2 .session-recap .recap-misses .recap-char {
+  font-size: 1.4em;
+}
+body main ._2 .session-recap .recap-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6em;
+}
+body main ._2 .session-recap .recap-btn {
+  display: inline-flex;
+  font: inherit;
+  font-weight: 600;
+  color: var(--text);
+  background: none;
+  border: 1px solid var(--surface-border);
+  border-radius: 25px;
+  padding: 0.6em 1.3em;
+  cursor: pointer;
+}
+body main ._2 .session-recap .recap-btn.primary {
+  color: #fff;
+  background-color: var(--active);
+  border-color: var(--active);
+}
+body main ._2 #toast {
+  min-height: 1em;
+  margin-bottom: 1em;
+}
+body main ._2 #toast p {
   width: 300px;
   max-width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 0.4em;
   border-radius: 25px;
   background-color: wheat;
   color: black;
-  padding: 1em;
+  padding: 0.8em 1em;
 }
-body main ._2 form .stats-row {
+body main ._2 .stats-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -290,15 +470,26 @@ body main ._2 form .stats-row {
   font-size: 0.9em;
   opacity: 0.85;
 }
-body main ._2 form .stats-row .score {
+body main ._2 .stats-row .score {
   display: flex;
   align-items: center;
   gap: 0.4em;
   font-weight: 600;
 }
-body main ._2 form .stats-row .live-stats {
+body main ._2 .stats-row .live-stats {
   display: flex;
   gap: 1em;
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
 }
 body main ._2.auth-page h2,
 body main ._2.student-profile h2,

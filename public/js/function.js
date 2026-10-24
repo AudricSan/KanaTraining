@@ -53,176 +53,13 @@ function updateGroupIndicators() {
   })
 }
 
-function startGame() {
-  const int = getRandomInteger(0, difficulty.length - 1)
-  currentType = difficulty[int]
-  switch (currentType) {
-    case "hiragana":
-      selectedCharacter = getRandom("hiragana")
-      break
-
-    case "hiraganaCombo":
-      selectedCharacter = getRandom("hiraganaCombo")
-      break
-
-    case "hiraganaDakuon":
-      selectedCharacter = getRandom("hiraganaDakuon")
-      break
-
-    case "hiraganaDakuonCombo":
-      selectedCharacter = getRandom("hiraganaDakuonCombo")
-      break
-
-    case "katakana":
-      selectedCharacter = getRandom("katakana")
-      break
-
-    case "katakanaCombo":
-      selectedCharacter = getRandom("katakanaCombo")
-      break
-
-    case "katakanaDakuon":
-      selectedCharacter = getRandom("katakanaDakuon")
-      break
-
-    case "katakanaDakuonCombo":
-      selectedCharacter = getRandom("katakanaDakuonCombo")
-      break
-
-    case "kanjiN5":
-      selectedCharacter = getRandomkanji("kanjiN5")
-      break
-
-    case "kanjiN4":
-      selectedCharacter = getRandomkanji("kanjiN4")
-      break
-
-    case "kanjiN3":
-      selectedCharacter = getRandomkanji("kanjiN3")
-      break
-
-    case "kanjiN2":
-      selectedCharacter = getRandomkanji("kanjiN2")
-      break
-
-    case "kanjiN1":
-      selectedCharacter = getRandomkanji("kanjiN1")
-      break
-  }
-
-  character.innerHTML = selectedCharacter[0]
-  kanjitype.innerHTML = ''
-
-  if (selectedCharacter[2] == 'translate' || selectedCharacter[2] == 'read') {
-    kanjitype.innerHTML = selectedCharacter[2]
-    input.maxLength = 20
-    kanjitype.classList.remove('hidden')
-  }
-
-  if (kanjitype.innerText === '') {
-    kanjitype.classList.add('hidden')
-  }
-
-}
-
-function getRandomInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
-
-// Picks a random entry, favoring ones the student has answered wrong before
-// (weakCharacters, injected server-side — empty/undefined for anonymous play,
-// which keeps the pick uniform, same as before).
-function weightedPick(list, keyFn, type) {
-  const weights = (typeof weakCharacters !== "undefined" && weakCharacters[type]) || {}
-  const pool = []
-
-  list.forEach((entry) => {
-    const weight = 1 + Math.min(weights[keyFn(entry)] || 0, 4)
-    for (let i = 0; i < weight; i++) pool.push(entry)
-  })
-
-  return pool[getRandomInteger(0, pool.length - 1)]
-}
-
-function getRandom(type) {
-  const list = myKana[type].filter((entry) => entry[2] === true)
-  return weightedPick(list, (entry) => entry[0], type)
-}
-
-function getRandomkanji(type) {
-  const entry = weightedPick(myKanji[type], (e) => e.kanji, type)
-  const useReading = Math.random() < 0.5
-
-  return [
-    entry.kanji,
-    useReading ? entry.read : entry.translate,
-    useReading ? "read" : "translate",
-  ]
-}
-
-// notification
-function createNotification(txt, c) {
+// Short message under the question (unlocked achievements)
+function createNotification(txt) {
   const notif = document.createElement("p")
-  const correct = document.createElement("span")
-
-  notif.innerText = txt + " "
-
-  if (c != undefined) {
-    correct.innerText = '"' + c + '"'
-  }
+  notif.innerText = txt
 
   toast.appendChild(notif)
-  notif.appendChild(correct)
-
-  input.setAttribute("disabled", "disabled")
-  setTimeout(() => {
-    notif.remove()
-    input.removeAttribute("disabled", "disabled")
-    input.focus()
-  }, delay)
-}
-
-// Answerd checker
-function checkAnswerd() {
-  let correct
-  const answeredCharacter = selectedCharacter[0]
-  const answeredType = currentType
-
-  if (document.getElementsByClassName("toast").length === 0) {
-    const answer = input.value.toLowerCase()
-    const validAnswers = selectedCharacter[1].split("-")
-    correct = validAnswers.includes(answer)
-
-    input.value = ""
-    if (correct) {
-      goodAnswerd()
-    } else {
-      badAnswerd()
-    }
-  } else {
-    return
-  }
-
-  const good = parseInt(myPoint.innerText)
-  const total = parseInt(totalPoint.innerText)
-
-  const score = good + "/" + total
-  save("score", score)
-  createCookie("score", score, 1)
-
-  const ratio = (good / total) * 100
-  save("ratio", ratio)
-
-  const best = localStorage.getItem("bestRatio")
-  if (ratio >= best) {
-    save("bestRatio", ratio)
-    save("best", score)
-    createCookie("best", score, 1)
-  }
-
-  if (isLoggedIn) {
-    sendScoreUpdate(correct, good, total, answeredType, answeredCharacter)
-  }
+  setTimeout(() => notif.remove(), 3000)
 }
 
 // Report one answer to the server so a logged-in student's XP/streak/score stay in sync,
@@ -255,63 +92,21 @@ function sendScoreUpdate(correct, good, total, type, character) {
     .catch(() => {})
 }
 
-// If is good
-function goodAnswerd() {
-  createNotification("good ! " + "+1")
-  incrementGood()
-}
-
-// if is not!
-function badAnswerd() {
-  let a = selectedCharacter[1]
-  createNotification("Nop bad answerd, the good one is", a)
-  incrementTotal()
-}
-
-// increment point
-function incrementGood() {
-  let good = parseInt(myPoint.innerText)
-  good += 1
-  myPoint.innerText = good.toString()
-
-  incrementTotal()
-}
-
-// increment total
-function incrementTotal() {
-  let total = parseInt(totalPoint.innerText)
-  total += 1
-
-  totalPoint.innerText = total.toString()
-
-  setTimeout(() => {
-    startGame()
-  }, delay)
-}
-
-// Cookies
-function createCookie(string, score, time) {
-  var date = new Date()
-  date.setDate(date.getDate() + 1)
-  var dateString = date.toGMTString()
-  document.cookie = string + "=" + score
-}
-
 //share to Twitter
 twitter.addEventListener("click", (event) => {
   var b = twitter.getAttribute("href")
 
-  var good = myPoint.textContent
-  var total = totalPoint.textContent
+  var good = exercise.good
+  var total = exercise.asked
 
   b =
     "https://twitter.com/intent/tweet?text=" +
     encodeURIComponent(
-      "I just scored " +
+      "J'ai eu " +
       good +
-      " out of " +
+      " bonnes réponses sur " +
       total +
-      " in my Hiragana Training. \nCan you do better? https://kana.audricrosier.be"
+      " sur KanaTraining. \nTu fais mieux ? https://kana.audricrosier.be"
     )
   twitter.setAttribute("href", b)
 })
@@ -387,7 +182,7 @@ navbtn.addEventListener('click', event => {
 
   if (flipFlopState) {
     nav.classList.add('hidden')
-    kanjitype.classList.remove('hidden')
+    kanjitype.classList.toggle('hidden', kanjitype.textContent.trim() === '')
     menuIcon.textContent = 'expand_more'
   } else {
     nav.classList.remove('hidden')
