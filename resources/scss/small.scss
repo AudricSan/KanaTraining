@@ -7,30 +7,42 @@
 
 // Media Query pour les écrans de petite taille (max-width: 768px)
 @media only screen and (max-width: 768px) {
-  header {
+  .site-header {
+    flex-direction: column;
     text-align: center;
-    margin-bottom: 1em;
 
-    .navbtn {
-      display: inline-flex;
-      margin: 0 auto;
+    .logo {
+      width: 44px;
+      height: 44px;
+    }
+
+    h1 {
+      font-size: 1.25em;
+    }
+
+    .topnav {
+      justify-content: center;
     }
   }
 
-  .topnav {
-    justify-content: center;
-    margin-bottom: 1em;
+  // Bouton « Réglages » : ouvre les sets et le mode au-dessus de la question
+  body .navbtn {
+    display: flex;
+    margin: 0 auto 1em;
   }
 
   // Styles globaux
   body {
+    padding: 1em 1em 0;
+
     // Styles de la section principale
     main {
       grid-template-columns: 1fr;
 
       // Styles de la première section
       ._1 {
-        order: 3;
+        order: 0;
+        width: 100%;
         margin: 0 auto; /* This centers the text horizontally */
         max-width: 500px;
         nav {
@@ -49,6 +61,10 @@
       }
 
       // Styles de la troisième section
+      ._2 {
+        order: 1;
+      }
+
       ._3 {
         order: -1;
 
@@ -68,6 +84,17 @@
     footer {
       position: inherit;
       margin-bottom: 2em;
+      text-align: center;
+
+      .author {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.3em;
+
+        p {
+          display: none;
+        }
+      }
     }
   }
 }

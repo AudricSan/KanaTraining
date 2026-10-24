@@ -19,7 +19,7 @@ const helpClose = document.querySelector('.helpClose')
 
 var flipFlopState = false
 const navbtn = document.querySelector('.navbtn')
-const nav = document.querySelector('nav')
+const nav = document.getElementById('settings')
 const blurbox = document.getElementById('blur')
 
 const screenWidth = window.matchMedia('(max-width: 770px)')

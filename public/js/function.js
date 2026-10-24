@@ -134,15 +134,15 @@ function helpGenerator() {
       if (a[2] === true || a[2] === false) {
         helpHiragana.lang = 'ja'
         helpHiragana.innerText = a[0]
-        helpRomanji.innerText = a[1]
+        helpRomanji.innerText = a[1].split('-').join(' / ')
       } else {
         const kanjiSpan = document.createElement("span")
         kanjiSpan.lang = 'ja'
         kanjiSpan.innerText = a['kanji']
         helpHiragana.appendChild(kanjiSpan)
-        helpHiragana.appendChild(document.createTextNode(' || ' + a['translate']))
+        helpHiragana.appendChild(document.createTextNode(' : ' + a['translate'].split('-').join(', ')))
         helpRomanji.lang = 'ja'
-        helpRomanji.innerText = a['read']
+        helpRomanji.innerText = a['read'].split('-').join('、')
       }
 
       helpContainer.appendChild(li)
@@ -177,20 +177,14 @@ helpClose.addEventListener('click', event => {
   helpContainer.innerHTML = ''
 })
 
+// Mobile only: shows / hides the exercise settings above the question
 navbtn.addEventListener('click', event => {
   if (!nav) return
 
-  if (flipFlopState) {
-    nav.classList.add('hidden')
-    kanjitype.classList.toggle('hidden', kanjitype.textContent.trim() === '')
-    menuIcon.textContent = 'expand_more'
-  } else {
-    nav.classList.remove('hidden')
-    kanjitype.classList.add('hidden')
-    menuIcon.textContent = 'expand_less'
-  }
-
-  toggleFlipFlop()
+  const open = toggleFlipFlop()
+  nav.classList.toggle('hidden', !open)
+  navbtn.setAttribute('aria-expanded', open ? 'true' : 'false')
+  menuIcon.textContent = open ? 'expand_less' : 'expand_more'
 })
 
 function toggleFlipFlop() {

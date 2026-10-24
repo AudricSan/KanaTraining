@@ -4,23 +4,33 @@
   }
 }
 @media only screen and (max-width: 768px) {
-  header {
+  .site-header {
+    flex-direction: column;
     text-align: center;
-    margin-bottom: 1em;
   }
-  header .navbtn {
-    display: inline-flex;
-    margin: 0 auto;
+  .site-header .logo {
+    width: 44px;
+    height: 44px;
   }
-  .topnav {
+  .site-header h1 {
+    font-size: 1.25em;
+  }
+  .site-header .topnav {
     justify-content: center;
-    margin-bottom: 1em;
+  }
+  body .navbtn {
+    display: flex;
+    margin: 0 auto 1em;
+  }
+  body {
+    padding: 1em 1em 0;
   }
   body main {
     grid-template-columns: 1fr;
   }
   body main ._1 {
-    order: 3;
+    order: 0;
+    width: 100%;
     margin: 0 auto; /* This centers the text horizontally */
     max-width: 500px;
   }
@@ -33,6 +43,9 @@
   }
   body main ._2.student-profile .profile-grid {
     grid-template-columns: 1fr;
+  }
+  body main ._2 {
+    order: 1;
   }
   body main ._3 {
     order: -1;
@@ -48,6 +61,15 @@
   body footer {
     position: inherit;
     margin-bottom: 2em;
+    text-align: center;
+  }
+  body footer .author {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3em;
+  }
+  body footer .author p {
+    display: none;
   }
 }
 

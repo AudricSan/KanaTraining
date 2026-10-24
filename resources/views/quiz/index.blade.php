@@ -1,9 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+    <button type="button" class="navbtn" aria-expanded="false" aria-controls="settings">
+        <span class="material-icons-round">tune</span> Réglages <span class="menuicon material-icons-round">expand_more</span>
+    </button>
+
     <main>
         <section class="_1">
-            <nav class="">
+            <nav id="settings" aria-label="Réglages de l'exercice">
                 @foreach ($groups as $group => $sets)
                     <details class="menu-group" @if ($loop->first) open @endif>
                         <summary>{{ $group }}<span class="menu-group-badge hidden" aria-hidden="true"></span></summary>
@@ -54,7 +58,7 @@
 
                 <form class="forms" action="#" onsubmit="checkAnswerd(); return false" autocomplete="off">
                     <label class="sr-only" for="input">Ta réponse</label>
-                    <input id="input" name="input" type="text" class="input" autofocus maxlength="4" autocapitalize="off" spellcheck="false" />
+                    <input id="input" name="input" type="text" class="input" autofocus maxlength="4" placeholder="Ta réponse" autocapitalize="off" spellcheck="false" />
                 </form>
 
                 <div class="choices hidden" id="choices"></div>

@@ -53,15 +53,14 @@
 <body>
     <div id="blur" class=""></div>
 
-    <header>
+    <header class="site-header">
         <a href="{{ route('quiz') }}" class="logo-link">
-            <img class="logo" src="/image/logo.png" alt="Logo KanaTraining" />
+            <img class="logo" src="/image/logo.png" alt="" width="56" height="56" />
             <h1>Entraînez vos Kanas</h1>
         </a>
-        <button class="navbtn"> Menu <span class="menuicon material-icons-round">expand_more</span> </button>
-    </header>
 
-    @include('partials.topnav')
+        @include('partials.topnav')
+    </header>
 
     @yield('content')
 

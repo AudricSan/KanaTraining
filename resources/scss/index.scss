@@ -2,12 +2,6 @@
 @import url(color.css);
 @import url("https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
 
-// Logo
-.logo {
-  width: 10%;
-  height: auto;
-}
-
 // Éléments cachés par défaut
 .hidden {
   display: none !important;
@@ -62,20 +56,39 @@ body {
   color: var(--text);
   transition: background-color 0.2s ease, color 0.2s ease;
 
-  header {
-    z-index: 1;
-    margin-bottom: 1em;
+  .site-header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8em 2em;
+    padding-bottom: 1em;
+    margin-bottom: 1.6em;
+    border-bottom: 1px solid var(--surface-border);
 
     .logo-link {
-      display: contents;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7em;
+      color: inherit;
+      text-decoration: none;
     }
 
     .logo {
-      margin-bottom: 0.3em;
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
     }
 
     h1 {
-      margin-bottom: 0.7em;
+      font-size: 1.5em;
+      font-weight: 700;
+    }
+
+    .topnav {
+      margin-bottom: 0;
     }
   }
 
@@ -126,13 +139,17 @@ body {
         opacity: 1;
         text-decoration: underline;
       }
+
+      &[aria-current="page"] {
+        opacity: 1;
+        color: var(--active);
+      }
     }
 
     .theme-toggle-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-left: auto;
       width: 2.2em;
       height: 2.2em;
       padding: 0;
