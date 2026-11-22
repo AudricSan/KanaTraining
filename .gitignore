@@ -1,0 +1,108 @@
+
+# ==========================================
+# Laravel / PHP
+# ==========================================
+
+/vendor/
+/node_modules/
+
+# Laravel environment
+.env
+.env.*
+!.env.example
+
+# Laravel keys / secrets
+*.key
+*.pem
+
+# Laravel runtime
+/storage/*.key
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/logs/*
+
+/bootstrap/cache/*.php
+
+# Generated Laravel files
+/public/storage
+
+# ==========================================
+# Database
+# ==========================================
+
+*.sqlite
+*.sqlite3
+*.db
+
+# Database dumps
+*.sql
+*.sql.gz
+
+# ==========================================
+# Frontend / Build
+# ==========================================
+
+/public/build/
+/public/hot
+
+# ==========================================
+# Logs
+# ==========================================
+
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==========================================
+# IDE / Editors
+# ==========================================
+
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# ==========================================
+# Operating systems
+# ==========================================
+
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ==========================================
+# Temporary / cache files
+# ==========================================
+
+*.tmp
+*.temp
+*.swp
+*.swo
+.cache/
+
+# ==========================================
+# Testing / Coverage
+# ==========================================
+
+/coverage/
+/phpunit.cache
+.phpunit.result.cache
+
+# ==========================================
+# Legacy / Local files
+# ==========================================
+
+# Local backups
+*.bak
+*.backup
+*.old
+
+# ==========================================
+# Personal development files
+# ==========================================
+
+/notes.local.md
+/todo.local.md

@@ -1,0 +1,76 @@
+@media only screen and (max-width: 1000px) {
+  body ._2.student-profile .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .site-header .logo {
+    width: 44px;
+    height: 44px;
+  }
+  .site-header h1 {
+    font-size: 1.25em;
+  }
+  .site-header .topnav {
+    justify-content: center;
+  }
+  body .navbtn {
+    display: flex;
+    margin: 0 auto 1em;
+  }
+  body {
+    padding: 1em 1em 0;
+  }
+  body main {
+    grid-template-columns: 1fr;
+  }
+  body main ._1 {
+    order: 0;
+    width: 100%;
+    margin: 0 auto; /* This centers the text horizontally */
+    max-width: 500px;
+  }
+  body main ._1 nav {
+    position: inherit;
+    text-align: justify;
+  }
+  body main ._1 nav .mascot-companion {
+    display: none;
+  }
+  body main ._2.student-profile .profile-grid {
+    grid-template-columns: 1fr;
+  }
+  body main ._2 {
+    order: 1;
+  }
+  body main ._3 {
+    order: -1;
+  }
+  body main ._3 .helpSpawner {
+    right: 4em;
+    top: 11em;
+    max-height: 700px;
+  }
+  body main ._3 .helpSpawner .helpContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  body footer {
+    position: inherit;
+    margin-bottom: 2em;
+    text-align: center;
+  }
+  body footer .author {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3em;
+  }
+  body footer .author p {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=small.css.map */

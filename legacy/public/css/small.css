@@ -1,0 +1,54 @@
+@media only screen and (max-width: 1000px) {
+  body ._2.student-profile .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 768px) {
+  header {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  header .navbtn {
+    display: inline-flex;
+    margin: 0 auto;
+  }
+  .topnav {
+    justify-content: center;
+    margin-bottom: 1em;
+  }
+  body main {
+    grid-template-columns: 1fr;
+  }
+  body main ._1 {
+    order: 3;
+    margin: 0 auto; /* This centers the text horizontally */
+    max-width: 500px;
+  }
+  body main ._1 nav {
+    position: inherit;
+    text-align: justify;
+  }
+  body main ._1 nav .mascot-companion {
+    display: none;
+  }
+  body main ._2.student-profile .profile-grid {
+    grid-template-columns: 1fr;
+  }
+  body main ._3 {
+    order: -1;
+  }
+  body main ._3 .helpSpawner {
+    right: 4em;
+    top: 11em;
+    max-height: 700px;
+  }
+  body main ._3 .helpSpawner .helpContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  body footer {
+    position: inherit;
+    margin-bottom: 2em;
+  }
+}
+
+/*# sourceMappingURL=small.css.map */
